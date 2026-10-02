@@ -107,7 +107,8 @@ In accordance with Rule 3:
 
 ### Conclusion
 - **Limitation Status:** **RETAINED WITH JUSTIFICATION.**
-- Sourcing unverified external imagery would compromise academic repeatability. The text-based model accurately reflects disaster response NLP over official ISCRAM 2020 agreed-label splits with full multimodal metadata preservation.
+- **Terminology:** *"CrisisMMD text-based classification with multimodal metadata retained."*
+- On the CrisisMMD humanitarian classification test split ($N=955$), accuracy was 74.45% and macro F1 was 61.71% (total dataset: 8,079 records across train, dev, and test). Sourcing unverified external imagery was rejected to preserve scientific reproducibility.
 
 ---
 
@@ -116,13 +117,10 @@ In accordance with Rule 3:
 ### Text Availability Audit
 Auditing `data/processed/humaid/humaid_records.parquet` ($N=76,484$) confirmed that the `raw_text` and `clean_text` columns are **100.0% NULL** (76,484 / 76,484 records). 
 
-### Permitted Data & Platform Terms of Service Audit
-Under the Twitter Developer Agreement and Policy (Section VII.A), redistribution of raw tweet content is strictly prohibited to respect user privacy and right-to-be-forgotten requests. The Qatar Computing Research Institute (QCRI) distributed the official HumAID benchmark solely with Twitter status IDs (`tweet_id`) and annotated crisis categories.
-- Unauthorized scraping or reconstructing deleted tweets violates platform terms.
-- Substituting synthetic text violates empirical ground truth.
-
-### Empirical Prior Baseline Evaluation (Holdout Test Split, N=15,160)
-To maximize the scientific utility of HumAID without violating data governance, HumAID functions as an authoritative **Disaster Response Empirical Prior Benchmark**:
+### Data Governance & Empirical Benchmark Role
+The distributed/local HumAID representation used in this project contains Twitter identifiers and humanitarian labels but does not provide the original tweet text. Therefore, this project does not perform unrestricted tweet-text classification on HumAID.
+- Sourcing unauthorized scraped tweets or fabricating synthetic tweet text was strictly avoided.
+- HumAID functions as an authoritative **Humanitarian Category Prior / Empirical Benchmark**:
 
 1. **Dataset Splits:**
    - Train: 53,531 records (70.0%)
@@ -140,7 +138,7 @@ To maximize the scientific utility of HumAID without violating data governance, 
 
 ### Conclusion
 - **Limitation Status:** **RETAINED WITH JUSTIFICATION.**
-- HumAID is rigorously formalized as the empirical prior distribution baseline for humanitarian crisis response, strictly complying with Twitter developer policy and data ethics.
+- HumAID is rigorously formalized as the empirical prior distribution baseline for humanitarian crisis response, strictly reflecting the empirical metadata representation.
 
 ---
 
@@ -165,7 +163,8 @@ Six candidate join keys were audited for availability, uniqueness, collision rat
 | **Geographic Coordinates (lat/lon)** | Stream D: 100%; Stream B: ~0.1% (99.9% NULL); A, C: 0% | Overlap = 0 | **No** | Text tweets lack GPS coordinates due to privacy filters. Fabricating coordinates would constitute scientific fraud. |
 
 ### Final Decision & Architectural Solution
-- **Audit Decision:** **`NO_VALID_JOIN` RETAINED WITH RIGOROUS PROOF.**
+- **Audit Decision:** **`NO_VALID_JOIN` RETAINED WITH EMPIRICAL AUDIT EVIDENCE.**
+- An empirical data audit of candidate entity/event keys found zero overlap across the tested candidate keys ($A \cap B = 0, B \cap C = 0, C \cap D = 0$).
 - Creating synthetic join keys or joining on row indices would constitute data falsification.
 - **Architectural Solution:** The parallel **Evidence-Aware Multi-Stream Ledger** ($N=175,361$) preserves exact stream separation with strict NULL semantics:
   - Stream A ($N=77$): `media_risk` present, `crisis_model_score` NULL, `pagerank` NULL.
@@ -235,7 +234,7 @@ Multi-Stream Evidence Streams
 - `human_verification_required = True` across 100% of queue items.
 - `dispatch_scope = "DECISION_SUPPORT_ONLY_NO_AUTONOMOUS_DISPATCH"` across 100% of queue items.
 - **Zero Arbitrary Weights:** All linear dispatch formulas (such as EDPI) are completely eradicated from active production code.
-- **Limitation Status:** **RESOLVED.**
+- **Limitation Status:** **RESOLVED FOR PROTOTYPE GOVERNANCE.**
 
 ---
 
@@ -322,14 +321,14 @@ Every experiment in Phase 10 is fully scriptable, deterministic, and self-contai
 
 ## Final Status Table
 
-| Limitation | Status | Scientific Evidence & Justification |
+| Limitation | Final Status | Scientific Evidence & Justification |
 | :--- | :---: | :--- |
-| **1. Synthetic Media Calibration** | **PARTIALLY RESOLVED** | Image ResNet-18 calibrated via Platt scaling on disjoint validation split ($N=75$), reducing ECE from 0.4686 to 0.4061 while preserving 0.9815 ROC-AUC. Video temporal model ($N=4$) is honestly retained as `UNCALIBRATED` due to insufficient sample size. |
-| **2. CrisisMMD Multimodality** | **RETAINED WITH JUSTIFICATION** | Physical audit confirmed 0 local image binaries. Text-based humanitarian classification rigorously evaluated across official splits ($N=8,079$; Test Accuracy 74.45%, Macro F1 61.71%) with multimodal metadata preserved. Sourcing unverified external images rejected. |
-| **3. HumAID Text Availability** | **RETAINED WITH JUSTIFICATION** | 100% of raw text is NULL due to Twitter TOS restrictions on tweet redistribution. Rigorously evaluated as a 10-class empirical prior benchmark ($N=76,484$) with near-zero split drift ($D_{\text{KL}}=0.000002$) and baseline benchmarks. Scraping arbitrary tweets rejected. |
-| **4. Cross-Stream Relational Join** | **RETAINED WITH JUSTIFICATION** | Mathematical audit across 6 candidate keys proved zero overlap ($A \cap B = 0, B \cap C = 0, C \cap D = 0$). `NO_VALID_JOIN` defensibly preserved; parallel evidence-aware multi-stream ledger ($N=175,361$) enforced with strict NULL semantics. |
-| **5. GraphX Behavioral Intent** | **RETAINED WITH JUSTIFICATION** | GraphX topology metrics (PageRank, degrees, components) lack ground-truth maliciousness labels. Vocabulary hardened to "propagation structural centrality"; claims of intent or maliciousness explicitly rejected. |
-| **6. Decision Support Scope** | **RESOLVED** | Implemented transparent, non-autonomous human review queue ($N=625$) with 3 priority tiers, explicit evidence summaries, and uncertainty surfacing. Autonomous dispatch explicitly forbidden; zero arbitrary dispatch formulas. |
+| **Synthetic media calibration** | **PARTIALLY RESOLVED** | Image scores are calibrated using Platt scaling on a held-out validation partition ($N=75$, seed 42), reducing 5-bin ECE from 0.4686 to 0.4061 and 10-bin ECE from 0.4827 to 0.4411 while preserving 0.9815 ROC-AUC; video temporal model ($N=4$) is honestly retained as `UNCALIBRATED` because the available validation sample ($N_{\text{val}}=1$) is insufficient for defensible calibration. |
+| **CrisisMMD multimodality** | **RETAINED WITH JUSTIFICATION** | CrisisMMD is used for text-based classification with multimodal metadata retained; no local image binaries were available for the current experiment (0 image binaries discovered in physical audit). On the CrisisMMD humanitarian classification test split ($N=955$), accuracy was 74.45% and macro F1 was 61.71% (total dataset: 8,079 records). Sourcing unverified external images rejected. |
+| **HumAID text availability** | **RETAINED WITH JUSTIFICATION** | The local HumAID representation contains humanitarian labels and Twitter identifiers but no original tweet text (100% of raw text is NULL), so the project does not perform unrestricted tweet-text classification on HumAID. Formalized as a 10-class empirical prior benchmark ($N=76,484$; Train/Test $D_{\text{KL}}=0.000002$) with majority and stratified baseline benchmarks. |
+| **Cross-stream join** | **RETAINED WITH JUSTIFICATION** | An empirical data audit across 6 candidate keys found no defensible cross-stream join ($A \cap B = 0, B \cap C = 0, C \cap D = 0$). NO_VALID_JOIN is defensibly preserved; the system preserves separate streams in an evidence-aware ledger ($N=175,361$) rather than creating unsupported joins. |
+| **GraphX behavioral intent** | **RETAINED WITH JUSTIFICATION** | GraphX measures propagation topology and structural indicators; it does not establish malicious intent or deception. Topology metrics lack ground-truth intent labels. Vocabulary strictly hardened to "topological structural indicators", rejecting ungrounded claims of malice. |
+| **Decision-support scope** | **RESOLVED FOR PROTOTYPE GOVERNANCE** | CrisisGuard provides human-in-the-loop decision support and does not autonomously dispatch emergency services. Implemented an evidence-aware review queue ($N=625$, 3 priority tiers) where 100% of items require human verification, with zero arbitrary linear dispatch formulas (no EDPI). |
 
 ---
 
