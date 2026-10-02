@@ -1,0 +1,110 @@
+{
+  "phase": 9,
+  "author": "B.SIVASAI (Roll Number: 2023BCS0228)",
+  "timestamp_utc": "2026-09-30T07:12:43Z",
+  "architecture": "Provenance-Preserving Parallel Feature Streams",
+  "stream_counts": {
+    "stream_a_media_records": 77,
+    "stream_b_crisis_records": 104130,
+    "stream_c_propagation_nodes": 7494,
+    "stream_d_spatial_nodes": 63660,
+    "multi_stream_ledger_total": 175361
+  },
+  "statistical_correlations": {
+    "spearman_in_degree_vs_pagerank": {
+      "rho": 0.992,
+      "p_value": 0.0,
+      "interpretation": "Strong positive monotonic correlation confirming that inbound link concentration heavily drives PageRank structural authority."
+    },
+    "spearman_out_degree_vs_pagerank": {
+      "rho": 0.4873,
+      "p_value": 0.0,
+      "interpretation": "Moderate positive correlation reflecting forwarding node connectivity."
+    },
+    "spearman_total_degree_vs_pagerank": {
+      "rho": 0.8644,
+      "p_value": 0.0,
+      "interpretation": "Strong structural alignment between degree topology and random walk stationary distribution."
+    }
+  },
+  "topological_structure": {
+    "total_vertices": 7494,
+    "total_directed_edges": 4999,
+    "total_connected_components": 2509,
+    "giant_component_id": 1,
+    "giant_component_size": 4986,
+    "giant_component_percentage": 66.53,
+    "isolated_vertices": 2508,
+    "mean_in_degree": 0.6671,
+    "max_in_degree": 13,
+    "mean_out_degree": 0.6671,
+    "max_out_degree": 2
+  },
+  "synthetic_media_risk_profile": {
+    "count": 77,
+    "mean_risk": 0.47123214285714293,
+    "std_risk": 0.4441155429387514,
+    "min_risk": 9.6e-05,
+    "p25_risk": 0.006198,
+    "median_risk": 0.331409,
+    "p75_risk": 0.986524,
+    "max_risk": 0.999983,
+    "high_risk_count": 33,
+    "medium_risk_count": 6,
+    "low_risk_count": 38
+  },
+  "crisis_information_profile": {
+    "total_records": 104130,
+    "source_datasets": {
+      "crisislex_t6_and_t26": 88015,
+      "humaid_all_combined": 15160,
+      "crisismmd_multimodal": 955
+    },
+    "top_categories": {
+      "Ontopic_Classification": 60082,
+      "Other Useful Information": 7627,
+      "Affected individuals": 4790,
+      "Sympathy and support": 4650,
+      "rescue_volunteering_or_donation_effort": 4415,
+      "Not labeled": 3419,
+      "other_relevant_information": 2664,
+      "Donations and volunteering": 2404,
+      "Caution and advice": 2306,
+      "not_humanitarian": 1789
+    }
+  },
+  "streaming_temporal_profile": {
+    "total_windows": 32,
+    "total_streamed_events": 5004,
+    "scenario_velocity_breakdown": {
+      "COORDINATED_BOT_BURST": {
+        "total_events": 1002,
+        "active_windows": 1,
+        "mean_rate_per_min": 16.7,
+        "peak_rate_per_min": 16.7,
+        "mean_synthetic_risk": 0.1247
+      },
+      "HIGH_VELOCITY_VIRAL": {
+        "total_events": 955,
+        "active_windows": 3,
+        "mean_rate_per_min": 5.303333333333334,
+        "peak_rate_per_min": 7.73,
+        "mean_synthetic_risk": 0.9202666666666667
+      },
+      "ORGANIC_DIFFUSION": {
+        "total_events": 3047,
+        "active_windows": 28,
+        "mean_rate_per_min": 1.8135714285714286,
+        "peak_rate_per_min": 2.03,
+        "mean_synthetic_risk": 0.3838964285714286
+      }
+    }
+  },
+  "epistemic_integrity_rules": {
+    "no_arbitrary_weights_enforced": true,
+    "no_edpi_computed": true,
+    "no_forced_cross_dataset_joins": true,
+    "uncalibrated_probabilities_marked": true,
+    "causality_unasserted": true
+  }
+}

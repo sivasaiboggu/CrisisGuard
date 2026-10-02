@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CrisisGuardUnifiedIntelligenceSchema",
+  "description": "Standardized schema contract for the Phase 9 multi-stream intelligence layer in CrisisGuard. Enforces strict provenance preservation across synthetic media, crisis information, propagation graph, and spatial infrastructure streams without artificial or fabricated joins.",
+  "type": "object",
+  "required": [
+    "stream_id",
+    "record_id",
+    "source_dataset",
+    "media_risk_available",
+    "crisis_intelligence_available",
+    "propagation_intelligence_available",
+    "spatial_intelligence_available",
+    "quality_status",
+    "calibration_status",
+    "provenance",
+    "governance_type"
+  ],
+  "properties": {
+    "stream_id": {
+      "type": "string",
+      "enum": [
+        "STREAM_A_SYNTHETIC_MEDIA",
+        "STREAM_B_CRISIS_INFORMATION",
+        "STREAM_C_PROPAGATION_GRAPH",
+        "STREAM_D_SPATIAL_INFRASTRUCTURE"
+      ],
+      "description": "Origin stream identifier preserving parallel multi-stream architecture."
+    },
+    "record_id": {
+      "type": "string",
+      "description": "Unique canonical record identifier within the stream's domain."
+    },
+    "source_dataset": {
+      "type": "string",
+      "description": "Original raw/curated dataset of origin (e.g. CIFAKE, Google_DFD, humaid_all_combined, crisislex_t6_and_t26, crisismmd_multimodal, semi_synthetic_cascades, openstreetmap_geofabrik)."
+    },
+    "event_id": {
+      "type": ["string", "null"],
+      "description": "Event-level identifier or incident tag. NULL if not applicable to the stream."
+    },
+    "node_id": {
+      "type": ["string", "integer", "null"],
+      "description": "Network vertex identifier for social graph or road infrastructure. NULL if not applicable."
+    },
+    "timestamp": {
+      "type": ["string", "null"],
+      "description": "ISO-8601 UTC timestamp of prediction, transmission, or capture. NULL if unhydrated."
+    },
+    "media_risk": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Bounded synthetic media risk score in [0.0, 1.0]. NULL if media intelligence is unavailable."
+    },
+    "media_risk_available": {
+      "type": "boolean",
+      "description": "True if genuine media risk score is present; False otherwise."
+    },
+    "crisis_model_score": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Model confidence or score for humanitarian crisis category. NULL if unavailable."
+    },
+    "crisis_confidence": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Bounded confidence metric for crisis classification. NULL if unavailable."
+    },
+    "crisis_prediction": {
+      "type": ["string", "null"],
+      "description": "Predicted or ground-truth humanitarian crisis category. NULL if unavailable."
+    },
+    "crisis_intelligence_available": {
+      "type": "boolean",
+      "description": "True if genuine crisis information features are present; False otherwise."
+    },
+    "pagerank": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "description": "GraphX structural centrality score. Strictly represents structural bottleneck authority; does not imply causal origin. NULL if unavailable."
+    },
+    "degree": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Total node degree in the propagation graph. NULL if unavailable."
+    },
+    "component_id": {
+      "type": ["integer", "null"],
+      "description": "Connected component identifier from GraphX. NULL if unavailable."
+    },
+    "propagation_activity": {
+      "type": ["string", "null"],
+      "enum": ["HIGH_VELOCITY_VIRAL", "COORDINATED_BOT_BURST", "ORGANIC_DIFFUSION", null],
+      "description": "Diffusion regime or activity classification. NULL if unavailable."
+    },
+    "propagation_intelligence_available": {
+      "type": "boolean",
+      "description": "True if genuine propagation graph features are present; False otherwise."
+    },
+    "spatial_intelligence_available": {
+      "type": "boolean",
+      "description": "True if genuine physical spatial/road infrastructure coordinates are present; False otherwise."
+    },
+    "stream_window": {
+      "type": ["string", "null"],
+      "description": "Streaming time window identifier. NULL if unavailable."
+    },
+    "quality_status": {
+      "type": "string",
+      "enum": ["VALID", "DEGRADED", "NOT_APPLICABLE"],
+      "description": "Data quality assessment status."
+    },
+    "calibration_status": {
+      "type": "string",
+      "enum": ["CALIBRATED_EMPIRICAL", "UNCALIBRATED", "NOT_APPLICABLE"],
+      "description": "Statistical probability calibration validity. Uncalibrated models are never interpreted as true posterior probabilities."
+    },
+    "provenance": {
+      "type": "string",
+      "description": "Full end-to-end data lineage and governance tag."
+    },
+    "governance_type": {
+      "type": "string",
+      "enum": ["REAL", "SYNTHETIC", "SEMI_SYNTHETIC"],
+      "description": "Classification of data veracity according to Course Big Data Governance standards."
+    }
+  },
+  "additionalProperties": false
+}

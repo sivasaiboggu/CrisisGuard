@@ -1,0 +1,112 @@
+{
+  "propagation_events": {
+    "file": "data/processed/propagation/propagation_events.parquet",
+    "rows": 5004,
+    "cols": 11,
+    "columns": [
+      "event_id",
+      "scenario_id",
+      "propagation_type",
+      "content_id",
+      "source_node",
+      "target_node",
+      "timestamp",
+      "parent_event_id",
+      "synthetic_media_risk",
+      "crisis_priority_if_present",
+      "governance_tag"
+    ],
+    "sha256": "8e26912215be58dfc17d9b060c8dcea3ad1e96a3cdac600b344dbc8bdc923e03",
+    "governance": []
+  },
+  "propagation_edges": {
+    "file": "data/processed/propagation/propagation_edges.parquet",
+    "rows": 4999,
+    "cols": 6,
+    "columns": [
+      "edge_id",
+      "source_node",
+      "target_node",
+      "weight",
+      "cascade_id",
+      "governance_tag"
+    ],
+    "sha256": "3b3eb8fbbc97d080df1be7561575e5213aedfb1b28dd3789215701de26497e9f"
+  },
+  "media_risk": {
+    "file": "data/features/synthetic_media/unified_media_risk.parquet",
+    "rows": 77,
+    "cols": 12,
+    "columns": [
+      "content_id",
+      "media_type",
+      "model_branch",
+      "model_version",
+      "model_score",
+      "synthetic_probability",
+      "synthetic_risk",
+      "calibration_status",
+      "prediction_timestamp",
+      "source_dataset",
+      "quality_status",
+      "provenance"
+    ],
+    "sha256": "f15771a65c1f73034c9c8a8532f68a74930b4c47a33934cfa5cd0d017765962e"
+  },
+  "crisis_intelligence": {
+    "file": "data/features/crisis_information/unified_crisis_intelligence.parquet",
+    "rows": 104130,
+    "cols": 18,
+    "columns": [
+      "content_id",
+      "source_dataset",
+      "source_record_id",
+      "event_id",
+      "text_available",
+      "image_available",
+      "crisis_category",
+      "task_name",
+      "model_score",
+      "confidence",
+      "quality_status",
+      "calibration_status",
+      "temporal_features",
+      "context_features",
+      "provenance",
+      "model_version",
+      "prediction_timestamp",
+      "governance_type"
+    ],
+    "sha256": "2678dcddee3ce6128f5e923d11f717dbfa3b1c3686082948696e7ebf512d945e"
+  },
+  "osm_nodes": {
+    "file": "data/processed/osm/road_nodes.parquet",
+    "rows": 63660,
+    "cols": 5,
+    "columns": [
+      "node_id",
+      "latitude",
+      "longitude",
+      "source_dataset",
+      "governance_type"
+    ],
+    "sha256": "78256415c4e3ecf0cc3dd9c225fadafab3c45080c889098d68d69f495f7c1415"
+  },
+  "osm_edges": {
+    "file": "data/processed/osm/road_edges.parquet",
+    "rows": 146156,
+    "cols": 9,
+    "columns": [
+      "edge_id",
+      "way_id",
+      "source_node",
+      "target_node",
+      "road_type",
+      "length_m",
+      "oneway",
+      "speed_if_available",
+      "governance_type"
+    ],
+    "sha256": "0c1a81eef7eb349b4a995acc8808220e4549736aa7a2beafa7d1ea4052f61ee7"
+  }
+}

@@ -1,0 +1,130 @@
+# CrisisGuard Phase 6 — Model Registry
+# Author: B.SIVASAI (Roll Number: 2023BCS0228)
+# Course: CSE412 — Big Data & Large-Scale Computing
+
+version: "1.0.0"
+registry_updated: "2026-09-27T13:05:02Z"
+models:
+  - model_name: "resnet18_cifake_forensics"
+    version: "v1.0.0"
+    model_branch: "image_forensics"
+    dataset:
+      name: "CIFAKE"
+      source_location: "data/raw/synthetic_media_eval/"
+      total_samples: 500
+      class_balance:
+        real: 250
+        synthetic: 250
+    training_split:
+      count: 350
+      percentage: 70.0
+      real_count: 175
+      synthetic_count: 175
+    validation_split:
+      count: 75
+      percentage: 15.0
+      real_count: 37
+      synthetic_count: 38
+    test_split:
+      count: 75
+      percentage: 15.0
+      real_count: 38
+      synthetic_count: 37
+    seed: 42
+    architecture:
+      backbone: "ResNet-18"
+      weights: "IMAGENET1K_V1"
+      head: "Sequential(Dropout(p=0.3), Linear(512, 1))"
+      total_parameters: 11177025
+      trainable_parameters: 11177025
+    preprocessing_version: "v1.0.0"
+    preprocessing_details:
+      input_size: [64, 64]
+      normalization:
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]
+      color_space: "RGB"
+    checkpoint_path: "models/synthetic_media/image_model_best.pt"
+    training_timestamp: "2026-09-27T13:02:40Z"
+    metrics:
+      evaluation_level: "IMAGE_LEVEL"
+      test_samples: 75
+      accuracy: 0.9333333333333333
+      precision: 0.9444444444444444
+      recall: 0.918918918918919
+      f1_score: 0.9315068493150684
+      roc_auc: 0.9815078236130867
+      pr_auc: 0.9822919593887662
+      brier_score: 0.05693278781027388
+      ece: 0.4686153884232044
+      confusion_matrix:
+        true_negatives: 36
+        false_positives: 2
+        false_negatives: 3
+        true_positives: 34
+    calibration_status: "UNCALIBRATED"
+    calibration_details:
+      note: "Probabilities are direct sigmoid outputs. Brier score (0.0569) and ECE (0.4686) are recorded for evaluation, but no post-hoc empirical calibration procedure (e.g., Platt scaling or temperature scaling) was fit. Formally designated UNCALIBRATED in accordance with strict calibration audit guidelines."
+    limitations:
+      - "Domain-specific to low-resolution (32x32 to 64x64) synthetic diffusion/GAN images and CIFAR-10 real images."
+      - "Does not generalize to high-resolution uncompressed video frames or photorealistic face-swapped actors without domain adaptation."
+      - "Susceptible to false positives under strong JPEG compression blocking artifacts."
+      - "Evaluated on a verified 500-image benchmark subset."
+
+  - model_name: "temporal_dfd_video_forensics"
+    version: "v1.0.0"
+    model_branch: "video_forensics"
+    dataset:
+      name: "Google DFD-derived controlled development sample"
+      source_location: "data/raw/deepfake_dfd/"
+      total_videos: 4
+      total_keyframes: 12
+      class_balance:
+        real_videos: 1
+        synthetic_videos: 3
+    training_split:
+      videos: 2
+      video_ids: ["dfd_video_sample_02", "dfd_frame_actor_real"]
+      actors: ["actor_02", "actor_real_01"]
+    validation_split:
+      videos: 0
+      note: "Controlled sample too small for independent validation split without causing extreme train starvation."
+    test_split:
+      videos: 2
+      video_ids: ["dfd_video_sample_01", "dfd_frame_actor_fake"]
+      actors: ["actor_01", "actor_fake_01"]
+    seed: 42
+    architecture:
+      backbone: "ResNet-18 (frozen feature extractor, output dim 512)"
+      pooling: "Temporal Mean Pooling with L2 feature normalization"
+      head: "Sequential(Linear(512, 128), ReLU(), Dropout(p=0.2), Linear(128, 1))"
+      total_parameters: 65793
+      trainable_parameters: 65793
+    preprocessing_version: "v1.0.0"
+    preprocessing_details:
+      temporal_sampling: "Uniform temporal stride (3 keyframes per video)"
+      frame_size: [112, 112]
+      normalization:
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]
+    checkpoint_path: "models/synthetic_media/video_model_best.pt"
+    training_timestamp: "2026-09-27T13:05:02Z"
+    metrics:
+      evaluation_level: "VIDEO_LEVEL"
+      test_videos: 2
+      predictions:
+        dfd_video_sample_01:
+          ground_truth: 1
+          probability: 0.4175788462162018
+          predicted_label: 0
+        dfd_frame_actor_fake:
+          ground_truth: 1
+          probability: 0.4162125289440155
+          predicted_label: 0
+      note: "Raw probabilities cluster around 0.416-0.418; default threshold 0.5 labels them 0. Model demonstrates conservative output range due to small controlled development cohort."
+    calibration_status: "UNCALIBRATED"
+    limitations:
+      - "Trained and evaluated on a small controlled development sample (N=4 videos, 12 keyframes)."
+      - "Statistical calibration (Brier score, ECE) cannot be reliably computed on N=2 test samples."
+      - "Cannot generalize across unseen compression codecs, variable lighting, or new generative pipelines without broader training."
+      - "Video-level prediction is strictly separated from image-level inference."

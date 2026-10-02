@@ -1,0 +1,27 @@
+{
+  "malformed_kafka_event": {
+    "status": "PASS",
+    "description": "Malformed JSON payload injected into Kafka and caught safely without crashing stream listener.",
+    "errors_intercepted": 1
+  },
+  "duplicate_event_detection": {
+    "status": "PASS",
+    "description": "Duplicate event ID injected; consumer validation successfully tagged duplicate without data corruption.",
+    "duplicates_flagged": 1
+  },
+  "missing_timestamp_handling": {
+    "status": "PASS",
+    "description": "Event with null timestamp correctly flagged for fallback/quarantine rather than silent ingestion.",
+    "timestamp_valid": false
+  },
+  "dangling_edge_handling": {
+    "status": "PASS",
+    "description": "Dangling edge with unknown vertex handled via GraphX default vertex attribute assignment ('UNKNOWN_NODE').",
+    "unknown_node_handled": true
+  },
+  "invalid_edge_weights": {
+    "status": "PASS",
+    "description": "Negative and non-finite edge weights detected and rejected by data sanitization checks.",
+    "invalid_weights_detected": 3
+  }
+}

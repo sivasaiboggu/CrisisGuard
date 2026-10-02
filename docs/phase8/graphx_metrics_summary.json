@@ -1,0 +1,22 @@
+{
+  "engine": "Apache Spark GraphX",
+  "scala_version": "2.12.18",
+  "spark_version": "3.5.1",
+  "num_vertices": 7494,
+  "num_edges": 4999,
+  "max_in_degree": 13,
+  "max_out_degree": 2,
+  "max_total_degree": 14,
+  "mean_in_degree": 0.6670669869228716,
+  "mean_out_degree": 0.6670669869228716,
+  "total_connected_components": 2509,
+  "largest_component_size": 4986,
+  "max_pagerank": 121.96830893793232,
+  "min_pagerank": 0.29438717894606664,
+  "mean_pagerank": 0.9999999999999812,
+  "top_seed_vertex_id": 5544,
+  "seed_reachable_vertices": 625,
+  "max_propagation_depth_hops": 12,
+  "execution_time_seconds": 22.717,
+  "top_structurally_central_nodes": [{"vertex_id": 5544, "node_name": "760800", "pagerank": 71.15446428165164, "in_degree": 8, "out_degree": 1},{"vertex_id": 3110, "node_name": "461989", "pagerank": 61.4276637152083, "in_degree": 11, "out_degree": 1},{"vertex_id": 4029, "node_name": "572275", "pagerank": 61.33503281079022, "in_degree": 5, "out_degree": 1},{"vertex_id": 6455, "node_name": "871722", "pagerank": 60.696337127136054, "in_degree": 13, "out_degree": 1},{"vertex_id": 5906, "node_name": "805667", "pagerank": 55.85903328597818, "in_degree": 3, "out_degree": 1},{"vertex_id": 3729, "node_name": "534902", "pagerank": 55.81612988269863, "in_degree": 6, "out_degree": 1},{"vertex_id": 4618, "node_name": "648720", "pagerank": 53.2687615160986, "in_degree": 6, "out_degree": 1},{"vertex_id": 77, "node_name": "107251", "pagerank": 52.140502081692716, "in_degree": 10, "out_degree": 1},{"vertex_id": 7321, "node_name": "980342", "pagerank": 51.757936499980126, "in_degree": 9, "out_degree": 1},{"vertex_id": 286, "node_name": "126970", "pagerank": 51.46840909945295, "in_degree": 9, "out_degree": 1}]
+}

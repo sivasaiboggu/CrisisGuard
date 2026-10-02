@@ -1,0 +1,1277 @@
+[
+  {
+    "path": "data/raw/crisislex/src-collect/adaptive_collect.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/collect.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 6,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "models/crisis_information/crisismmd/transformer_humanitarian/tokenizer.json"
+    ],
+    "reason": "Actively referenced by 6 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/config.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 39,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "README.md",
+      "docs/crisis_information/baseline_audit_data.json"
+    ],
+    "reason": "Actively referenced by 39 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/utils.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/api.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/auth.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/binder.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/cache.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/cursor.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/error.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/models.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 65,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "README.md",
+      "config/crisis_information.yaml"
+    ],
+    "reason": "Actively referenced by 65 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/oauth.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/parsers.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/streaming.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 56,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "README.md",
+      "config/paths.yaml"
+    ],
+    "reason": "Actively referenced by 56 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/utils.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-collect/tweepy1/__init__.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 8,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "scripts/crisis_information/train_crisismmd.py"
+    ],
+    "reason": "Actively referenced by 8 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-create/build.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-create/config.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 39,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "README.md",
+      "docs/crisis_information/baseline_audit_data.json"
+    ],
+    "reason": "Actively referenced by 39 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-create/lexicon.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "docs/crisis_information/CRISISLEX_DATA_AUDIT.md",
+      "docs/final_audit/classified_inventory.json"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "data/raw/crisislex/src-create/read.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/acquisition/acquire_cifake_eval.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 4,
+    "referenced_by_sample": [
+      "docs/datasets/DATASET_ACCESS_GUIDE.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 4 project file(s)"
+  },
+  {
+    "path": "scripts/acquisition/acquire_controlled_datasets.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/acquisition/check_osm_extracts.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/acquisition/download_google_dfd.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/datasets/DATASET_ACCESS_GUIDE.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/acquisition/download_osm_geofabrik.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/acquisition/inspect_crisismmd.py",
+    "category": "HISTORICAL",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Diagnostic, forensic audit, or historical environment probe"
+  },
+  {
+    "path": "scripts/acquisition/inspect_sources.py",
+    "category": "HISTORICAL",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Diagnostic, forensic audit, or historical environment probe"
+  },
+  {
+    "path": "scripts/acquisition/stage_benchmark_metadata.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/crisis_information/analyze_leakage.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/final_audit/PHASE_BY_PHASE_AUDIT.md"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/crisis_information/baseline_audit.py",
+    "category": "HISTORICAL",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Diagnostic, forensic audit, or historical environment probe"
+  },
+  {
+    "path": "scripts/crisis_information/build_crisislex_features.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 4,
+    "referenced_by_sample": [
+      "docs/crisis_information/PHASE7_FINAL_FORENSIC_AUDIT.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 4 project file(s)"
+  },
+  {
+    "path": "scripts/crisis_information/build_unified_features.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 6,
+    "referenced_by_sample": [
+      "docs/crisis_information/PHASE7_FINAL_FORENSIC_AUDIT.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json"
+    ],
+    "reason": "Actively referenced by 6 project file(s)"
+  },
+  {
+    "path": "scripts/crisis_information/evaluate_crisismmd.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/final_audit/PHASE_BY_PHASE_AUDIT.md"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/crisis_information/evaluate_humaid.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/crisis_information/inspect_data.py",
+    "category": "HISTORICAL",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/crisis_information/PHASE7_FINAL_FORENSIC_AUDIT.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Diagnostic, forensic audit, or historical environment probe"
+  },
+  {
+    "path": "scripts/crisis_information/preprocess_crisis_text.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/crisis_information/PHASE7_FINAL_FORENSIC_AUDIT.md",
+      "docs/crisis_information/PHASE7_FINAL_REPORT.md",
+      "docs/final_audit/classified_inventory.json"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/crisis_information/train_crisismmd.py",
+    "category": "TRAINING/REPRODUCIBILITY",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/crisis_information/PHASE7_FINAL_FORENSIC_AUDIT.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json"
+    ],
+    "reason": "Model training, calibration, or feature extraction pipeline for reproducibility"
+  },
+  {
+    "path": "scripts/crisis_information/train_humaid.py",
+    "category": "TRAINING/REPRODUCIBILITY",
+    "referenced_by_count": 4,
+    "referenced_by_sample": [
+      "docs/crisis_information/PHASE7_FINAL_FORENSIC_AUDIT.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Model training, calibration, or feature extraction pipeline for reproducibility"
+  },
+  {
+    "path": "scripts/environment/check_mirror_subpaths.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/check_urls.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/configure_mapred.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/crisisguard_env.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/environment/PHASE5_COMPATIBILITY_MATRIX.md",
+      "docs/environment/PHASE5_FINAL_REPORT.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/environment/debug_hive.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/format_and_start_hdfs.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/init_hive_metastore.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/install_hadoop.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/environment/REPRODUCIBILITY_GUIDE.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/environment/install_hive.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/environment/REPRODUCIBILITY_GUIDE.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/environment/install_kafka.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/environment/REPRODUCIBILITY_GUIDE.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/environment/install_scala.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/environment/REPRODUCIBILITY_GUIDE.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/environment/install_spark.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/environment/REPRODUCIBILITY_GUIDE.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/environment/list_all_dlcdn.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/list_cogentco.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/list_dlcdn.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/service_control.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/environment/PHASE5_FINAL_REPORT.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md",
+      "docs/environment/SERVICE_MANAGEMENT.md"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/environment/setup_systemd_services.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/test_asian_mirrors.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/test_fast_mirrors.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/test_java.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/environment/PHASE5_FINAL_REPORT.md",
+      "docs/environment/PHASE5_INTEGRATION_TESTS.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/environment/test_kafka_dl.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/test_mirrors.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/test_scala.sh",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/environment/PHASE5_FINAL_REPORT.md",
+      "docs/environment/PHASE5_INTEGRATION_TESTS.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/environment/test_wayback.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/environment/test_wayback_spark.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/audit_inputs.py",
+    "category": "HISTORICAL",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/phase8/PHASE8_REPRODUCIBILITY.md"
+    ],
+    "reason": "Diagnostic, forensic audit, or historical environment probe"
+  },
+  {
+    "path": "scripts/phase8/audit_vertex_counts.py",
+    "category": "HISTORICAL",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Diagnostic, forensic audit, or historical environment probe"
+  },
+  {
+    "path": "scripts/phase8/compile_and_run_graphx.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/generate_graph_analytics.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/phase8/PHASE8_REPRODUCIBILITY.md"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/hdfs_ingest.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 7,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 7 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/spark_prepare_propagation.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 14,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 14 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/test_failure_resilience.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 6,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 6 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/hive/create_phase8_tables.sql",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "scripts/phase8/hive/run_hive_pipeline.py"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/hive/phase8_analysis.sql",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "scripts/phase8/hive/run_hive_pipeline.py"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/hive/run_hive_pipeline.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 7,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 7 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/kafka/consume_and_validate.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/kafka/produce_propagation_events.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 7,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 7 project file(s)"
+  },
+  {
+    "path": "scripts/phase8/streaming/propagation_stream.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 11,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Core production pipeline script executed in acceptance / master workflow"
+  },
+  {
+    "path": "scripts/phase8/streaming/test_kafka_stream.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/phase9/audit_inputs.py",
+    "category": "HISTORICAL",
+    "referenced_by_count": 4,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/phase8/PHASE8_REPRODUCIBILITY.md"
+    ],
+    "reason": "Diagnostic, forensic audit, or historical environment probe"
+  },
+  {
+    "path": "scripts/phase9/build_phase9_intelligence.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 7,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Core production pipeline script executed in acceptance / master workflow"
+  },
+  {
+    "path": "scripts/phase9/inspect_dups.py",
+    "category": "HISTORICAL",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Diagnostic, forensic audit, or historical environment probe"
+  },
+  {
+    "path": "scripts/preprocessing/preprocess_cifake.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 8,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 8 project file(s)"
+  },
+  {
+    "path": "scripts/preprocessing/preprocess_crisislex.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 8,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 8 project file(s)"
+  },
+  {
+    "path": "scripts/preprocessing/preprocess_crisismmd.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 8,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 8 project file(s)"
+  },
+  {
+    "path": "scripts/preprocessing/preprocess_deepfake_dfd.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 8,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 8 project file(s)"
+  },
+  {
+    "path": "scripts/preprocessing/preprocess_humaid.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 8,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 8 project file(s)"
+  },
+  {
+    "path": "scripts/preprocessing/preprocess_osm.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 8,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 8 project file(s)"
+  },
+  {
+    "path": "scripts/preprocessing/preprocess_propagation.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/profiling/PHASE4_FINAL_REPORT.md"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/profiling/generate_phase4_profiles.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 2 project file(s)"
+  },
+  {
+    "path": "scripts/synthetic_media/generate_explainability.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/synthetic_media/infer_media.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 10,
+    "referenced_by_sample": [
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Core production pipeline script executed in acceptance / master workflow"
+  },
+  {
+    "path": "scripts/synthetic_media/inspect_errors.py",
+    "category": "HISTORICAL",
+    "referenced_by_count": 4,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/final_audit/PHASE_BY_PHASE_AUDIT.md"
+    ],
+    "reason": "Diagnostic, forensic audit, or historical environment probe"
+  },
+  {
+    "path": "scripts/synthetic_media/preprocess_images.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/synthetic_media/PHASE6_FINAL_INVENTORY.md"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/synthetic_media/preprocess_video.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 3,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/synthetic_media/PHASE6_FINAL_INVENTORY.md"
+    ],
+    "reason": "Actively referenced by 3 project file(s)"
+  },
+  {
+    "path": "scripts/synthetic_media/train_image_model.py",
+    "category": "TRAINING/REPRODUCIBILITY",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/synthetic_media/PHASE6_FINAL_INVENTORY.md"
+    ],
+    "reason": "Model training, calibration, or feature extraction pipeline for reproducibility"
+  },
+  {
+    "path": "scripts/synthetic_media/train_video_model.py",
+    "category": "TRAINING/REPRODUCIBILITY",
+    "referenced_by_count": 4,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/synthetic_media/PHASE6_FINAL_INVENTORY.md"
+    ],
+    "reason": "Model training, calibration, or feature extraction pipeline for reproducibility"
+  },
+  {
+    "path": "scripts/synthetic_media/validate_phase6_inputs.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/synthetic_media/PHASE6_DATA_PROFILE.md"
+    ],
+    "reason": "Actively referenced by 5 project file(s)"
+  },
+  {
+    "path": "scripts/validation/audit_final_project.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 6,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "README.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/audit_phase7_consistency.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 8,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "docs/crisis_information/PHASE7_FINAL_FORENSIC_AUDIT.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/audit_phase9_consistency.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 11,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "README.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/run_functional_acceptance_tests.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 6,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/final_audit/FINAL_EVIDENCE_MANIFEST.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_datasets.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_environment.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_final_project.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 6,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "README.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_phase0.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_phase3_final_corrections.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_phase5_environment.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md",
+      "docs/final_audit/classified_inventory.json"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_phase6_final.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 9,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_phase6_models.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/final_audit/PHASE_BY_PHASE_AUDIT.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_phase7_models.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 10,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "docs/crisis_information/PHASE7_FINAL_FORENSIC_AUDIT.md",
+      "docs/crisis_information/PHASE7_FINAL_REPORT.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_phase8.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 12,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/CLAIM_LANGUAGE_AUDIT.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_phase9.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 12,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "README.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "scripts/validation/validate_processed_data.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 6,
+    "referenced_by_sample": [
+      "PROJECT_STATUS.md",
+      "docs/final_audit/ACTUAL_TEST_COMMANDS.md",
+      "docs/final_audit/classified_inventory.json"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "src/phase8/graphx/PropagationGraph.scala",
+    "category": "ACTIVE",
+    "referenced_by_count": 7,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json",
+      "docs/phase8/BATCH_STREAMING_VALIDATION.md"
+    ],
+    "reason": "Actively referenced by 7 project file(s)"
+  },
+  {
+    "path": "src/propagation/generator.py",
+    "category": "ACTIVE",
+    "referenced_by_count": 10,
+    "referenced_by_sample": [
+      "docs/datasets/DATA_QUALITY_RULES.md",
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Actively referenced by 10 project file(s)"
+  },
+  {
+    "path": "tests/integration/test_hdfs_smoke.sh",
+    "category": "VALIDATION",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/environment/PHASE5_FINAL_REPORT.md",
+      "docs/environment/PHASE5_INTEGRATION_TESTS.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "tests/integration/test_hive_smoke.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 6,
+    "referenced_by_sample": [
+      "docs/environment/PHASE5_FINAL_REPORT.md",
+      "docs/environment/PHASE5_INTEGRATION_TESTS.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "tests/integration/test_kafka_smoke.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/environment/PHASE5_FINAL_REPORT.md",
+      "docs/environment/PHASE5_INTEGRATION_TESTS.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "tests/integration/test_spark_hdfs_smoke.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 4,
+    "referenced_by_sample": [
+      "docs/environment/PHASE5_INTEGRATION_TESTS.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md",
+      "docs/final_audit/classified_inventory.json"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "tests/integration/test_spark_local_smoke.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 5,
+    "referenced_by_sample": [
+      "docs/environment/PHASE5_FINAL_REPORT.md",
+      "docs/environment/PHASE5_INTEGRATION_TESTS.md",
+      "docs/environment/REPRODUCIBILITY_GUIDE.md"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  },
+  {
+    "path": "tests/smoke/test_workspace_layout.py",
+    "category": "VALIDATION",
+    "referenced_by_count": 2,
+    "referenced_by_sample": [
+      "docs/final_audit/classified_inventory.json",
+      "docs/final_audit/code_classification_data.json"
+    ],
+    "reason": "Automated test suite, unit test, or validation runner"
+  }
+]

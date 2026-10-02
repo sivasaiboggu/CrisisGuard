@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tweet_demo_1",
+    "text": "CRITICAL: Floodwaters rising rapidly in Riverside Sector 4, elderly residents trapped on roofs, need urgent boat rescue teams!",
+    "expected_category": "rescue_volunteering_or_donation_effort",
+    "priority": "HIGH"
+  },
+  {
+    "id": "tweet_demo_2",
+    "text": "Over 2,500 people displaced and sheltering in primary school gymnasiums following embankment breach.",
+    "expected_category": "affected_individuals",
+    "priority": "HIGH"
+  },
+  {
+    "id": "tweet_demo_3",
+    "text": "Highway 104 bridge collapsed near river crossing; main electrical grid substation is completely submerged and offline.",
+    "expected_category": "infrastructure_and_utility_damage",
+    "priority": "HIGH"
+  },
+  {
+    "id": "tweet_demo_4",
+    "text": "Meteorological department issues severe red alert forecast for coastal district over next 24 hours.",
+    "expected_category": "other_relevant_information",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "tweet_demo_5",
+    "text": "Enjoying the rain with a cup of warm coffee at home, hope everyone stays cozy this weekend!",
+    "expected_category": "not_humanitarian",
+    "priority": "LOW"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "total_files": 2552,
+  "total_size_mb": 774.3455486297607,
+  "classifications": {
+    "CONFIGURATION": 7,
+    "GENERATED_REGENERABLE": 4,
+    "DOCUMENTATION": 102,
+    "REQUIRED_OUTPUT": 227,
+    "DATASET_REFERENCE": 751,
+    "DEMO_EVIDENCE": 10,
+    "MODEL": 18,
+    "SCHEMA": 3,
+    "CORE_SOURCE": 80,
+    "VALIDATION_TEST": 23,
+    "UNKNOWN": 1327
+  },
+  "secrets_count": 0,
+  "machine_paths_files_count": 12,
+  "duplicates_count": 70
+}

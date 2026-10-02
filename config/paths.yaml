@@ -1,0 +1,54 @@
+# CrisisGuard: Environment-Independent Path Configuration
+# All paths are specified relative to the project root directory.
+
+base:
+  project_root: "."
+
+data:
+  raw: "data/raw"
+  interim: "data/interim"
+  processed: "data/processed"
+  features: "data/features"
+  
+  # Dataset subdirectories inside data/raw
+  raw_sources:
+    dfdc: "data/raw/dfdc"
+    celeb_df: "data/raw/celeb_df"
+    faceforensics: "data/raw/faceforensics"
+    humaid: "data/raw/humaid"
+    crisismmd: "data/raw/crisismmd"
+    crisislex: "data/raw/crisislex"
+    osm: "data/raw/osm"
+
+checkpoints:
+  streaming: "data/interim/checkpoints/streaming"
+  graphx: "data/interim/checkpoints/graphx"
+  mllib: "models/checkpoints"
+
+models:
+  saved_models_dir: "models"
+  pipeline_models: "models/pipeline"
+  metrics: "results/metrics"
+
+warehouse:
+  hive_warehouse_dir: "data/processed/hive/warehouse"
+  hive_metastore_db: "data/processed/hive/metastore_db"
+  parquet_store: "data/processed/parquet"
+
+results:
+  evaluation_dir: "results/evaluation"
+  figures_dir: "results/figures"
+  benchmark_dir: "results/benchmarks"
+  checkpoints_dir: "results/checkpoints"
+
+logs:
+  app_log_dir: "logs/app"
+  spark_log_dir: "logs/spark"
+  kafka_log_dir: "logs/kafka"
+
+docs:
+  manifests_dir: "docs/datasets"
+  reports_dir: "docs/reports"
+
+tests:
+  smoke_tests_dir: "tests/smoke"

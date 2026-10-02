@@ -1,0 +1,97 @@
+{
+  "dataset": "CrisisMMD",
+  "model": "DistilBERT Sequence Classifier",
+  "test_records": 955,
+  "accuracy": 0.8198952879581152,
+  "macro_f1": 0.7077981514418569,
+  "weighted_f1": 0.816735743892119,
+  "per_class": {
+    "affected_individuals": {
+      "precision": 1.0,
+      "recall": 0.2222222222222222,
+      "f1-score": 0.36363636363636365,
+      "support": 9.0
+    },
+    "infrastructure_and_utility_damage": {
+      "precision": 0.859375,
+      "recall": 0.6790123456790124,
+      "f1-score": 0.7586206896551724,
+      "support": 81.0
+    },
+    "not_humanitarian": {
+      "precision": 0.8345724907063197,
+      "recall": 0.8908730158730159,
+      "f1-score": 0.8618042226487524,
+      "support": 504.0
+    },
+    "other_relevant_information": {
+      "precision": 0.8082191780821918,
+      "recall": 0.7531914893617021,
+      "f1-score": 0.7797356828193832,
+      "support": 235.0
+    },
+    "rescue_volunteering_or_donation_effort": {
+      "precision": 0.7575757575757576,
+      "recall": 0.7936507936507936,
+      "f1-score": 0.7751937984496124,
+      "support": 126.0
+    },
+    "accuracy": 0.8198952879581152,
+    "macro avg": {
+      "precision": 0.8519484852728538,
+      "recall": 0.6677899733573491,
+      "f1-score": 0.7077981514418569,
+      "support": 955.0
+    },
+    "weighted avg": {
+      "precision": 0.8215915838951263,
+      "recall": 0.8198952879581152,
+      "f1-score": 0.816735743892119,
+      "support": 955.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      2,
+      1,
+      3,
+      0,
+      3
+    ],
+    [
+      0,
+      55,
+      13,
+      11,
+      2
+    ],
+    [
+      0,
+      6,
+      449,
+      28,
+      21
+    ],
+    [
+      0,
+      2,
+      50,
+      177,
+      6
+    ],
+    [
+      0,
+      0,
+      23,
+      3,
+      100
+    ]
+  ],
+  "classes": [
+    "affected_individuals",
+    "infrastructure_and_utility_damage",
+    "not_humanitarian",
+    "other_relevant_information",
+    "rescue_volunteering_or_donation_effort"
+  ]
+}

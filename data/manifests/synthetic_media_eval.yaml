@@ -1,0 +1,33 @@
+dataset: "synthetic_media_eval"
+official_name: "CIFAKE: Real and AI-Generated Synthetic Images"
+original_dataset: "CIFAKE: Real and AI-Generated Synthetic Images (Bird & Lotfi, IEEE Access 2024)"
+local_status: "CONTROLLED_BENCHMARK_SAMPLE"
+provenance_tier: "REAL DATA (Official Academic Release)"
+source: "Nottingham Trent University / Computational Intelligence and Applications Research Group"
+source_url: "https://github.com/jordan-bird/CIFAKE-Real-and-AI-Generated-Synthetic-Images"
+organization: "Nottingham Trent University"
+license: "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+terms_url: "https://github.com/jordan-bird/CIFAKE-Real-and-AI-Generated-Synthetic-Images/blob/main/README.md"
+access_status: "AVAILABLE"
+download_method: "Direct automated multi-threaded acquisition via `scripts/acquisition/acquire_cifake_eval.py`"
+purpose: "Image Forensics Branch: AI-generated image detection development, image forensic feature extraction, image-model evaluation, and synthetic-image risk scoring"
+selection_method: "Deterministic uniform pseudo-random sampling without replacement from official test split"
+selection_seed: 42
+local_files:
+  real_images: "data/raw/synthetic_media_eval/real/ (250 JPEG images, 32x32x3, label=0, photographic CIFAR-10)"
+  synthetic_images: "data/raw/synthetic_media_eval/fake/ (250 JPEG images, 32x32x3, label=1, Stable Diffusion v1.4)"
+  metadata: "data/raw/synthetic_media_eval/metadata.json (catalog with SHA256 checksums, generators, labels, dimensions)"
+total_raw_size_mb: 0.59
+total_raw_files: 501
+real_sample_count: 250
+fake_sample_count: 250
+role: "Image Forensics Branch: AI-generated image detection development and evaluation (NOT a video or deepfake benchmark)."
+unified_output_schema:
+  - "content_id: string"
+  - "media_type: string (e.g. image/jpeg)"
+  - "synthetic_probability: float [0.0, 1.0]"
+  - "synthetic_risk: float [0.0, 1.0]"
+  - "model_version: string"
+  - "prediction_timestamp: string (ISO 8601)"
+validation_status: "VALIDATED"
+notes: "Operates as the Image Forensics branch in the two-branch synthetic-media architecture. Evaluated independently from the video branch."

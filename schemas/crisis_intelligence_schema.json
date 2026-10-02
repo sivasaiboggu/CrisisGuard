@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CrisisGuardUnifiedCrisisIntelligenceRecord",
+  "description": "Standardized schema contract for crisis information features output by Phase 7 engines (HumAID, CrisisMMD, CrisisLex). Preserves source provenance without forced blind concatenation.",
+  "type": "object",
+  "required": [
+    "content_id",
+    "source_dataset",
+    "event_id",
+    "text_available",
+    "image_available",
+    "crisis_category",
+    "task_name",
+    "model_score",
+    "confidence",
+    "quality_status",
+    "calibration_status",
+    "provenance",
+    "model_version",
+    "prediction_timestamp"
+  ],
+  "properties": {
+    "content_id": {
+      "type": "string",
+      "description": "Unique identifier for the content item (e.g. humaid_123, cmmd_456, clex_789)"
+    },
+    "source_dataset": {
+      "type": "string",
+      "enum": ["humaid_all_combined", "crisismmd_multimodal", "crisislex_t6", "crisislex_t26", "crisislex_t6_and_t26"],
+      "description": "Exact dataset origin preserving provenance"
+    },
+    "source_record_id": {
+      "type": "string",
+      "description": "Underlying record identifier from raw data source"
+    },
+    "event_id": {
+      "type": "string",
+      "description": "Event-level identifier or disaster incident name"
+    },
+    "text_available": {
+      "type": "boolean",
+      "description": "True if textual content was present and processed, False if unhydrated/missing"
+    },
+    "image_available": {
+      "type": "boolean",
+      "description": "True if local image binaries were physically present, False otherwise"
+    },
+    "crisis_category": {
+      "type": "string",
+      "description": "Ground truth or model predicted crisis humanitarian category"
+    },
+    "task_name": {
+      "type": "string",
+      "description": "Classification or feature extraction task name"
+    },
+    "model_score": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Raw uncalibrated model score or class probability"
+    },
+    "confidence": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Model confidence measure"
+    },
+    "quality_status": {
+      "type": "string",
+      "enum": ["VALID", "INVALID", "UNKNOWN"],
+      "description": "Data and prediction validity indicator"
+    },
+    "calibration_status": {
+      "type": "string",
+      "enum": ["UNCALIBRATED", "CALIBRATED_EMPIRICAL", "CALIBRATED_PLATT", "CALIBRATED_ISOTONIC", "NOT_APPLICABLE"],
+      "description": "Statistical calibration state"
+    },
+    "temporal_features": {
+      "type": ["object", "null"],
+      "properties": {
+        "timestamp_str": { "type": ["string", "null"] },
+        "date_extracted": { "type": ["string", "null"] }
+      }
+    },
+    "context_features": {
+      "type": ["object", "null"],
+      "properties": {
+        "disaster_event": { "type": ["string", "null"] },
+        "location": { "type": ["string", "null"] },
+        "casualty_terms": { "type": ["integer", "null"] },
+        "damage_terms": { "type": ["integer", "null"] },
+        "rescue_terms": { "type": ["integer", "null"] },
+        "alert_terms": { "type": ["integer", "null"] }
+      }
+    },
+    "provenance": {
+      "type": "string",
+      "description": "Lineage metadata tracing back to raw/processed splits"
+    },
+    "model_version": {
+      "type": "string",
+      "description": "Version identifier of model generating feature"
+    },
+    "prediction_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when feature was computed"
+    },
+    "governance_type": {
+      "type": "string",
+      "enum": ["REAL", "SYNTHETIC", "SEMI_SYNTHETIC"],
+      "default": "REAL"
+    }
+  },
+  "additionalProperties": true
+}

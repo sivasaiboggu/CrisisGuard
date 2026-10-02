@@ -1,0 +1,296 @@
+{
+  "Query 1: Top Structurally Central Vertices (PageRank)": {
+    "sql": "SELECT vertex_id, node_name, ROUND(pagerank, 4) AS pagerank_score, in_degree, out_degree, component_id FROM crisisguard_phase8.propagation_graph_metrics ORDER BY pagerank DESC LIMIT 10",
+    "execution_time_seconds": 3.944,
+    "result_rows": [
+      {
+        "vertex_id": 7449,
+        "node_name": "9935",
+        "pagerank_score": 121.9683,
+        "in_degree": 4,
+        "out_degree": 0,
+        "component_id": 1
+      },
+      {
+        "vertex_id": 417,
+        "node_name": "1409",
+        "pagerank_score": 106.2639,
+        "in_degree": 7,
+        "out_degree": 0,
+        "component_id": 1
+      },
+      {
+        "vertex_id": 5788,
+        "node_name": "7912",
+        "pagerank_score": 105.2324,
+        "in_degree": 7,
+        "out_degree": 0,
+        "component_id": 1
+      },
+      {
+        "vertex_id": 1995,
+        "node_name": "3286",
+        "pagerank_score": 101.3225,
+        "in_degree": 6,
+        "out_degree": 0,
+        "component_id": 1
+      },
+      {
+        "vertex_id": 3410,
+        "node_name": "5012",
+        "pagerank_score": 99.8751,
+        "in_degree": 10,
+        "out_degree": 0,
+        "component_id": 1
+      },
+      {
+        "vertex_id": 5544,
+        "node_name": "760800",
+        "pagerank_score": 71.1545,
+        "in_degree": 8,
+        "out_degree": 1,
+        "component_id": 1
+      },
+      {
+        "vertex_id": 3110,
+        "node_name": "461989",
+        "pagerank_score": 61.4277,
+        "in_degree": 11,
+        "out_degree": 1,
+        "component_id": 1
+      },
+      {
+        "vertex_id": 4029,
+        "node_name": "572275",
+        "pagerank_score": 61.335,
+        "in_degree": 5,
+        "out_degree": 1,
+        "component_id": 1
+      },
+      {
+        "vertex_id": 6455,
+        "node_name": "871722",
+        "pagerank_score": 60.6963,
+        "in_degree": 13,
+        "out_degree": 1,
+        "component_id": 1
+      },
+      {
+        "vertex_id": 5906,
+        "node_name": "805667",
+        "pagerank_score": 55.859,
+        "in_degree": 3,
+        "out_degree": 1,
+        "component_id": 1
+      }
+    ]
+  },
+  "Query 2: Degree Distribution Summary": {
+    "sql": "SELECT in_degree, COUNT(vertex_id) AS vertex_count, ROUND(AVG(pagerank), 4) AS avg_pagerank FROM crisisguard_phase8.propagation_graph_metrics GROUP BY in_degree ORDER BY in_degree DESC LIMIT 10",
+    "execution_time_seconds": 2.173,
+    "result_rows": [
+      {
+        "in_degree": 13,
+        "vertex_count": 1,
+        "avg_pagerank": 60.6963
+      },
+      {
+        "in_degree": 11,
+        "vertex_count": 1,
+        "avg_pagerank": 61.4277
+      },
+      {
+        "in_degree": 10,
+        "vertex_count": 2,
+        "avg_pagerank": 76.0078
+      },
+      {
+        "in_degree": 9,
+        "vertex_count": 5,
+        "avg_pagerank": 28.5886
+      },
+      {
+        "in_degree": 8,
+        "vertex_count": 4,
+        "avg_pagerank": 38.5345
+      },
+      {
+        "in_degree": 7,
+        "vertex_count": 17,
+        "avg_pagerank": 26.1555
+      },
+      {
+        "in_degree": 6,
+        "vertex_count": 37,
+        "avg_pagerank": 17.1329
+      },
+      {
+        "in_degree": 5,
+        "vertex_count": 74,
+        "avg_pagerank": 7.8863
+      },
+      {
+        "in_degree": 4,
+        "vertex_count": 165,
+        "avg_pagerank": 5.4461
+      },
+      {
+        "in_degree": 3,
+        "vertex_count": 333,
+        "avg_pagerank": 2.9088
+      }
+    ]
+  },
+  "Query 3: Real-Time Stream Progression (Hourly Rates & Synthetic Risk)": {
+    "sql": "SELECT scenario_id, COUNT(window_start) AS active_windows, SUM(window_event_count) AS total_events, ROUND(AVG(propagation_rate_per_min), 2) AS avg_rate_per_min, ROUND(MAX(propagation_rate_per_min), 2) AS peak_rate_per_min, ROUND(AVG(mean_synthetic_risk), 4) AS avg_synthetic_risk, ROUND(MAX(max_synthetic_risk), 4) AS peak_synthetic_risk FROM crisisguard_phase8.propagation_stream_metrics GROUP BY scenario_id ORDER BY total_events DESC",
+    "execution_time_seconds": 1.327,
+    "result_rows": [
+      {
+        "scenario_id": "ORGANIC_DIFFUSION",
+        "active_windows": 28,
+        "total_events": 3047,
+        "avg_rate_per_min": 1.81,
+        "peak_rate_per_min": 2.03,
+        "avg_synthetic_risk": 0.3839,
+        "peak_synthetic_risk": 1.0
+      },
+      {
+        "scenario_id": "COORDINATED_BOT_BURST",
+        "active_windows": 1,
+        "total_events": 1002,
+        "avg_rate_per_min": 16.7,
+        "peak_rate_per_min": 16.7,
+        "avg_synthetic_risk": 0.1247,
+        "peak_synthetic_risk": 0.15
+      },
+      {
+        "scenario_id": "HIGH_VELOCITY_VIRAL",
+        "active_windows": 3,
+        "total_events": 955,
+        "avg_rate_per_min": 5.3,
+        "peak_rate_per_min": 7.73,
+        "avg_synthetic_risk": 0.9203,
+        "peak_synthetic_risk": 0.9699
+      }
+    ]
+  },
+  "Query 4: Synthetic Media Risk Analysis (Phase 6 Outputs)": {
+    "sql": "SELECT media_type, CASE WHEN synthetic_risk >= 0.7 THEN 'HIGH_RISK' WHEN synthetic_risk >= 0.3 THEN 'MEDIUM_RISK' ELSE 'LOW_RISK' END AS risk_tier, COUNT(content_id) AS item_count, ROUND(AVG(model_score), 4) AS avg_model_score, ROUND(AVG(synthetic_probability), 4) AS avg_synthetic_prob FROM crisisguard_phase8.media_risk_features GROUP BY media_type, CASE WHEN synthetic_risk >= 0.7 THEN 'HIGH_RISK' WHEN synthetic_risk >= 0.3 THEN 'MEDIUM_RISK' ELSE 'LOW_RISK' END ORDER BY media_type, item_count DESC",
+    "execution_time_seconds": 1.284,
+    "result_rows": [
+      {
+        "media_type": "image",
+        "risk_tier": "LOW_RISK",
+        "item_count": 38,
+        "avg_model_score": -4.9727,
+        "avg_synthetic_prob": 0.0511
+      },
+      {
+        "media_type": "image",
+        "risk_tier": "HIGH_RISK",
+        "item_count": 33,
+        "avg_model_score": 5.2832,
+        "avg_synthetic_prob": 0.9547
+      },
+      {
+        "media_type": "image",
+        "risk_tier": "MEDIUM_RISK",
+        "item_count": 4,
+        "avg_model_score": 0.0013,
+        "avg_synthetic_prob": 0.5012
+      },
+      {
+        "media_type": "video",
+        "risk_tier": "MEDIUM_RISK",
+        "item_count": 2,
+        "avg_model_score": -0.3356,
+        "avg_synthetic_prob": 0.4169
+      }
+    ]
+  },
+  "Query 5: Crisis Information Category Distribution (Phase 7 Outputs)": {
+    "sql": "SELECT source_dataset, crisis_category, calibration_status, COUNT(content_id) AS total_records, ROUND(AVG(model_score), 4) AS avg_confidence FROM crisisguard_phase8.crisis_intelligence_features GROUP BY source_dataset, crisis_category, calibration_status ORDER BY total_records DESC LIMIT 10",
+    "execution_time_seconds": 1.155,
+    "result_rows": [
+      {
+        "source_dataset": "crisislex_t6_and_t26",
+        "crisis_category": "Ontopic_Classification",
+        "calibration_status": "NOT_APPLICABLE",
+        "total_records": 60082,
+        "avg_confidence": null
+      },
+      {
+        "source_dataset": "crisislex_t6_and_t26",
+        "crisis_category": "Other Useful Information",
+        "calibration_status": "NOT_APPLICABLE",
+        "total_records": 7627,
+        "avg_confidence": null
+      },
+      {
+        "source_dataset": "crisislex_t6_and_t26",
+        "crisis_category": "Affected individuals",
+        "calibration_status": "NOT_APPLICABLE",
+        "total_records": 4790,
+        "avg_confidence": null
+      },
+      {
+        "source_dataset": "crisislex_t6_and_t26",
+        "crisis_category": "Sympathy and support",
+        "calibration_status": "NOT_APPLICABLE",
+        "total_records": 4650,
+        "avg_confidence": null
+      },
+      {
+        "source_dataset": "humaid_all_combined",
+        "crisis_category": "rescue_volunteering_or_donation_effort",
+        "calibration_status": "UNCALIBRATED",
+        "total_records": 4283,
+        "avg_confidence": 1.0
+      },
+      {
+        "source_dataset": "crisislex_t6_and_t26",
+        "crisis_category": "Not labeled",
+        "calibration_status": "NOT_APPLICABLE",
+        "total_records": 3419,
+        "avg_confidence": null
+      },
+      {
+        "source_dataset": "humaid_all_combined",
+        "crisis_category": "other_relevant_information",
+        "calibration_status": "UNCALIBRATED",
+        "total_records": 2445,
+        "avg_confidence": 1.0
+      },
+      {
+        "source_dataset": "crisislex_t6_and_t26",
+        "crisis_category": "Donations and volunteering",
+        "calibration_status": "NOT_APPLICABLE",
+        "total_records": 2404,
+        "avg_confidence": null
+      },
+      {
+        "source_dataset": "crisislex_t6_and_t26",
+        "crisis_category": "Caution and advice",
+        "calibration_status": "NOT_APPLICABLE",
+        "total_records": 2306,
+        "avg_confidence": null
+      },
+      {
+        "source_dataset": "humaid_all_combined",
+        "crisis_category": "sympathy_and_support",
+        "calibration_status": "UNCALIBRATED",
+        "total_records": 1756,
+        "avg_confidence": 1.0
+      }
+    ]
+  },
+  "Query 6: Critical Cross-Stream Join Policy Verification": {
+    "sql": "SELECT COUNT(g.vertex_id) AS overlapping_keys_count FROM crisisguard_phase8.propagation_graph_metrics g JOIN crisisguard_phase8.crisis_intelligence_features c ON g.node_name = c.source_record_id",
+    "execution_time_seconds": 1.19,
+    "result_rows": [
+      {
+        "overlapping_keys_count": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "model_name": "temporal_dfd_video_forensics",
+  "backbone": "resnet18",
+  "epochs": 15,
+  "video_test_accuracy": 0.0,
+  "evaluation_unit": "VIDEO_LEVEL",
+  "sample_size": 2,
+  "calibration_status": "STATISTICALLY_LIMITED_SMALL_SAMPLE",
+  "author": "B.SIVASAI",
+  "roll_number": "2023BCS0228",
+  "timestamp": "2026-09-27T13:05:02.639342+00:00"
+}

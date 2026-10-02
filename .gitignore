@@ -1,0 +1,66 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment Variables & Secrets
+.env
+.env.local
+*.key
+*.pem
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# OS Specific
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs & Execution Traces
+logs/**/*.log
+logs/*.log
+*.log
+
+# Spark / Hadoop / Hive Runtime & Metastore Artifacts
+derby.log
+metastore_db/
+spark-warehouse/
+.sparkStaging/
+*.crc
+*.checkpoint
+checkpoint/
+_SUCCESS
+
+# Data Governance: Do not commit raw heavy datasets to version control
+data/raw/**/*
+!data/raw/**/.gitkeep
+data/interim/**/*
+!data/interim/**/.gitkeep
+data/processed/**/*
+!data/processed/**/.gitkeep
+data/features/**/*
+!data/features/**/.gitkeep
+
+# Machine Learning Artifacts
+models/**/*.model
+models/**/*.bin
+models/**/*.onnx
+models/**/*.h5
+models/**/*.pt
+!models/**/.gitkeep

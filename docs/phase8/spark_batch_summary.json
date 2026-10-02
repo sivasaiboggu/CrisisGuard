@@ -1,0 +1,48 @@
+{
+  "spark_version": "3.5.1",
+  "input_events_count": 5004,
+  "input_edges_count": 4999,
+  "valid_events_count": 5004,
+  "valid_edges_count": 4999,
+  "null_events_count": 5,
+  "null_edges_count": 0,
+  "duplicate_edges_count": 0,
+  "total_unique_graph_vertices": 7494,
+  "unique_source_nodes_events": 4986,
+  "unique_target_nodes_events": 2508,
+  "min_event_time": "2026-09-27 00:00:00",
+  "max_event_time": "2026-09-28 03:38:50.086427",
+  "scenario_distribution": [
+    {
+      "scenario_id": "ORGANIC_DIFFUSION",
+      "count": 3047
+    },
+    {
+      "scenario_id": "COORDINATED_BOT_BURST",
+      "count": 1002
+    },
+    {
+      "scenario_id": "HIGH_VELOCITY_VIRAL",
+      "count": 955
+    }
+  ],
+  "propagation_type_distribution": [
+    {
+      "propagation_type": "BOT_AMPLIFIED",
+      "count": 1001
+    },
+    {
+      "propagation_type": "HIGH_VELOCITY_SHARE",
+      "count": 954
+    },
+    {
+      "propagation_type": "ROOT_BROADCAST",
+      "count": 5
+    },
+    {
+      "propagation_type": "ORGANIC_RETWEET",
+      "count": 3044
+    }
+  ],
+  "batch_processing_time_seconds": 44.051
+}

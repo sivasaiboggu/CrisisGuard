@@ -1,0 +1,239 @@
+{
+  "humaid": {
+    "shape": [
+      76484,
+      11
+    ],
+    "columns": [
+      "event_id",
+      "source_dataset",
+      "source_record_id",
+      "raw_text",
+      "clean_text",
+      "category",
+      "disaster_event",
+      "split",
+      "timestamp_if_available",
+      "location_if_available",
+      "governance_type"
+    ],
+    "nulls": {
+      "event_id": 0,
+      "source_dataset": 0,
+      "source_record_id": 0,
+      "raw_text": 76484,
+      "clean_text": 76484,
+      "category": 0,
+      "disaster_event": 0,
+      "split": 0,
+      "timestamp_if_available": 76484,
+      "location_if_available": 76484,
+      "governance_type": 0
+    },
+    "dtypes": {
+      "event_id": "object",
+      "source_dataset": "object",
+      "source_record_id": "object",
+      "raw_text": "object",
+      "clean_text": "object",
+      "category": "object",
+      "disaster_event": "object",
+      "split": "object",
+      "timestamp_if_available": "object",
+      "location_if_available": "object",
+      "governance_type": "object"
+    },
+    "split_counts": {
+      "train": 53531,
+      "test": 15160,
+      "dev": 7793
+    },
+    "category_counts": {
+      "rescue_volunteering_or_donation_effort": 21278,
+      "other_relevant_information": 12144,
+      "sympathy_and_support": 8931,
+      "infrastructure_and_utility_damage": 8163,
+      "injured_or_dead_people": 7303,
+      "not_humanitarian": 6296,
+      "caution_and_advice": 5394,
+      "displaced_people_and_evacuations": 3999,
+      "requests_or_urgent_needs": 2618,
+      "missing_or_found_people": 358
+    },
+    "event_counts": {
+      "multi_disaster_global_corpus": 76484
+    }
+  },
+  "crisismmd": {
+    "shape": [
+      8079,
+      18
+    ],
+    "columns": [
+      "event_id",
+      "source_dataset",
+      "source_record_id",
+      "image_id",
+      "disaster_event",
+      "raw_text",
+      "clean_text",
+      "image_reference",
+      "image_available_locally",
+      "humanitarian_label",
+      "humanitarian_text_label",
+      "humanitarian_image_label",
+      "crossmodal_agreement",
+      "informative_label",
+      "split",
+      "timestamp_if_available",
+      "location_if_available",
+      "governance_type"
+    ],
+    "nulls": {
+      "event_id": 0,
+      "source_dataset": 0,
+      "source_record_id": 0,
+      "image_id": 0,
+      "disaster_event": 0,
+      "raw_text": 0,
+      "clean_text": 0,
+      "image_reference": 0,
+      "image_available_locally": 0,
+      "humanitarian_label": 0,
+      "humanitarian_text_label": 0,
+      "humanitarian_image_label": 0,
+      "crossmodal_agreement": 0,
+      "informative_label": 0,
+      "split": 0,
+      "timestamp_if_available": 0,
+      "location_if_available": 0,
+      "governance_type": 0
+    },
+    "dtypes": {
+      "event_id": "object",
+      "source_dataset": "object",
+      "source_record_id": "object",
+      "image_id": "object",
+      "disaster_event": "object",
+      "raw_text": "object",
+      "clean_text": "object",
+      "image_reference": "object",
+      "image_available_locally": "bool",
+      "humanitarian_label": "object",
+      "humanitarian_text_label": "object",
+      "humanitarian_image_label": "object",
+      "crossmodal_agreement": "object",
+      "informative_label": "object",
+      "split": "object",
+      "timestamp_if_available": "object",
+      "location_if_available": "object",
+      "governance_type": "object"
+    },
+    "split_counts": {
+      "train": 6126,
+      "dev": 998,
+      "test": 955
+    },
+    "humanitarian_label_counts": {
+      "not_humanitarian": 4277,
+      "other_relevant_information": 1753,
+      "rescue_volunteering_or_donation_effort": 1187,
+      "infrastructure_and_utility_damage": 773,
+      "affected_individuals": 89
+    },
+    "informative_label_counts": {
+      "not_informative": 4277,
+      "informative": 3802
+    },
+    "disaster_event_counts": {
+      "hurricane_maria": 2228,
+      "hurricane_harvey": 1954,
+      "hurricane_irma": 1848,
+      "srilanka_floods": 726,
+      "mexico_earthquake": 585,
+      "california_wildfires": 511,
+      "iraq_iran_earthquake": 227
+    },
+    "image_available_locally": {
+      "False": 8079
+    }
+  },
+  "crisislex": {
+    "shape": [
+      88015,
+      12
+    ],
+    "columns": [
+      "event_id",
+      "source_dataset",
+      "source_record_id",
+      "disaster_event",
+      "raw_text",
+      "clean_text",
+      "information_source",
+      "information_type",
+      "informativeness_label",
+      "timestamp_if_available",
+      "location_if_available",
+      "governance_type"
+    ],
+    "nulls": {
+      "event_id": 0,
+      "source_dataset": 0,
+      "source_record_id": 0,
+      "disaster_event": 0,
+      "raw_text": 0,
+      "clean_text": 0,
+      "information_source": 0,
+      "information_type": 0,
+      "informativeness_label": 0,
+      "timestamp_if_available": 60082,
+      "location_if_available": 0,
+      "governance_type": 0
+    },
+    "dtypes": {
+      "event_id": "object",
+      "source_dataset": "object",
+      "source_record_id": "object",
+      "disaster_event": "object",
+      "raw_text": "object",
+      "clean_text": "object",
+      "information_source": "object",
+      "information_type": "object",
+      "informativeness_label": "object",
+      "timestamp_if_available": "object",
+      "location_if_available": "object",
+      "governance_type": "object"
+    },
+    "source_dataset_counts": {
+      "crisislex_t6": 60082,
+      "crisislex_t26": 27933
+    },
+    "disaster_event_count": 32,
+    "informativeness_label_counts": {
+      "on-topic": 32462,
+      "off-topic": 27620,
+      "Related and informative": 16849,
+      "Related - but not informative": 7732,
+      "Not related": 2863,
+      "Not applicable": 489
+    },
+    "top_disaster_events": {
+      "2013_Queensland_Floods": 10033,
+      "2013_Alberta_Floods": 10031,
+      "2013_Boston_Bombings": 10012,
+      "2012_Sandy_Hurricane": 10008,
+      "2013_West_Texas_Explosion": 10006,
+      "2013_Oklahoma_Tornado": 9992,
+      "2013_Russia_meteor": 1442,
+      "2012_Costa_Rica_earthquake": 1412,
+      "2013_Savar_building_collapse": 1250,
+      "2012_Colorado_wildfires": 1200
+    }
+  },
+  "overlap": {
+    "humaid_in_crisismmd": 0,
+    "humaid_in_crisislex": 0,
+    "crisismmd_in_crisislex": 0
+  }
+}

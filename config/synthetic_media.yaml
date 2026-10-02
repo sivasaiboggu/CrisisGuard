@@ -1,0 +1,71 @@
+# CrisisGuard: Synthetic Media Detection & Unified Media-Risk Configuration
+# Author: B.SIVASAI (2023BCS0228)
+# Course: CSE412 — Big Data & Large-Scale Computing
+# Phase: Phase 6 Machine Learning & Forensics Configuration
+
+seed: 42
+
+reproducibility:
+  seed: 42
+  global_seed: 42
+  torch_deterministic: true
+  num_workers: 2
+
+image_branch:
+  model_name: "resnet18_cifake_forensics"
+  backbone: "resnet18"
+  pretrained: true
+  freeze_backbone_stages: 2  # Freeze initial low-level conv layers
+  dropout_rate: 0.3
+  image_size: 64             # Scaled for optimal feature resolution
+  channels: 3
+  batch_size: 32
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  epochs: 15
+  optimizer: "AdamW"
+  scheduler: "CosineAnnealingLR"
+  early_stopping_patience: 4
+  split_ratios:
+    train: 0.70
+    val: 0.15
+    test: 0.15
+
+video_branch:
+  model_name: "temporal_dfd_video_forensics"
+  backbone: "resnet18"
+  pretrained: true
+  feature_dim: 512
+  frame_sampling:
+    strategy: "uniform_temporal"
+    frames_per_video: 5
+    resolution: [224, 224]
+  temporal_aggregation: "mean_pooling"
+  batch_size: 4
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  epochs: 12
+  optimizer: "AdamW"
+  scheduler: "StepLR"
+  step_size: 4
+  gamma: 0.5
+  early_stopping_patience: 3
+
+paths:
+  cifake_raw_dir: "data/raw/synthetic_media_eval/"
+  cifake_processed_parquet: "data/processed/cifake/cifake_records.parquet"
+  dfd_raw_dir: "data/raw/deepfake_dfd/"
+  dfd_processed_dir: "data/processed/deepfake_dfd/"
+  dfd_features_dir: "data/features/deepfake_dfd/"
+  features_output_dir: "data/features/synthetic_media/"
+  checkpoint_dir: "models/synthetic_media/"
+  model_registry: "models/synthetic_media/model_registry.yaml"
+  explainability_dir: "outputs/synthetic_media/explainability/"
+  schema_path: "schemas/media_risk_schema.json"
+
+risk_scoring:
+  calibration_method: "platt_scaling"  # Logistic calibration for valid sample cohorts
+  risk_thresholds:
+    low: 0.35
+    moderate: 0.65
+    high: 0.85

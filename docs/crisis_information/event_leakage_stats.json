@@ -1,0 +1,62 @@
+{
+  "official_event_split_type": "STRATIFIED_ROW_SPLIT_WITH_EVENT_OVERLAP",
+  "shared_events_count": 7,
+  "events": [
+    "iraq_iran_earthquake",
+    "california_wildfires",
+    "mexico_earthquake",
+    "hurricane_irma",
+    "srilanka_floods",
+    "hurricane_maria",
+    "hurricane_harvey"
+  ],
+  "event_split_crosstab": {
+    "dev": {
+      "california_wildfires": 71,
+      "hurricane_harvey": 223,
+      "hurricane_irma": 241,
+      "hurricane_maria": 272,
+      "iraq_iran_earthquake": 29,
+      "mexico_earthquake": 78,
+      "srilanka_floods": 84,
+      "All": 998
+    },
+    "test": {
+      "california_wildfires": 78,
+      "hurricane_harvey": 248,
+      "hurricane_irma": 215,
+      "hurricane_maria": 232,
+      "iraq_iran_earthquake": 23,
+      "mexico_earthquake": 79,
+      "srilanka_floods": 80,
+      "All": 955
+    },
+    "train": {
+      "california_wildfires": 362,
+      "hurricane_harvey": 1483,
+      "hurricane_irma": 1392,
+      "hurricane_maria": 1724,
+      "iraq_iran_earthquake": 175,
+      "mexico_earthquake": 428,
+      "srilanka_floods": 562,
+      "All": 6126
+    },
+    "All": {
+      "california_wildfires": 511,
+      "hurricane_harvey": 1954,
+      "hurricane_irma": 1848,
+      "hurricane_maria": 2228,
+      "iraq_iran_earthquake": 227,
+      "mexico_earthquake": 585,
+      "srilanka_floods": 726,
+      "All": 8079
+    }
+  },
+  "unseen_event_experiment": {
+    "holdout_event": "hurricane_maria",
+    "train_record_count": 5851,
+    "test_record_count": 2228,
+    "unseen_event_accuracy": 0.5637342908438061,
+    "unseen_event_macro_f1": 0.48643364392961086
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "hdfs_namespace": "/crisisguard/phase8",
+  "subdirectories": [
+    "/crisisguard/phase8/propagation",
+    "/crisisguard/phase8/media_risk",
+    "/crisisguard/phase8/crisis_intelligence",
+    "/crisisguard/phase8/osm",
+    "/crisisguard/phase8/graph",
+    "/crisisguard/phase8/streaming",
+    "/crisisguard/phase8/hive"
+  ],
+  "ingest_timings": {
+    "propagation_events.parquet": {
+      "size_bytes": 232713,
+      "hdfs_destination": "/crisisguard/phase8/propagation/",
+      "duration_seconds": 3.273
+    },
+    "propagation_edges.parquet": {
+      "size_bytes": 99922,
+      "hdfs_destination": "/crisisguard/phase8/propagation/",
+      "duration_seconds": 2.504
+    },
+    "unified_media_risk.parquet": {
+      "size_bytes": 11100,
+      "hdfs_destination": "/crisisguard/phase8/media_risk/",
+      "duration_seconds": 2.582
+    },
+    "unified_crisis_intelligence.parquet": {
+      "size_bytes": 3445876,
+      "hdfs_destination": "/crisisguard/phase8/crisis_intelligence/",
+      "duration_seconds": 2.666
+    },
+    "road_nodes.parquet": {
+      "size_bytes": 1587382,
+      "hdfs_destination": "/crisisguard/phase8/osm/",
+      "duration_seconds": 2.611
+    },
+    "road_edges.parquet": {
+      "size_bytes": 2448753,
+      "hdfs_destination": "/crisisguard/phase8/osm/",
+      "duration_seconds": 3.027
+    }
+  },
+  "ls_output": "drwxr-xr-x   - sivasai supergroup          0 2026-09-27 19:21 /crisisguard/phase8/crisis_intelligence\n-rw-r--r--   1 sivasai supergroup    3445876 2026-09-27 19:21 /crisisguard/phase8/crisis_intelligence/unified_crisis_intelligence.parquet\ndrwxr-xr-x   - sivasai supergroup          0 2026-09-27 19:21 /crisisguard/phase8/graph\ndrwxr-xr-x   - sivasai supergroup          0 2026-09-27 19:21 /crisisguard/phase8/hive\ndrwxr-xr-x   - sivasai supergroup          0 2026-09-27 19:21 /crisisguard/phase8/media_risk\n-rw-r--r--   1 sivasai supergroup      11100 2026-09-27 19:21 /crisisguard/phase8/media_risk/unified_media_risk.parquet\ndrwxr-xr-x   - sivasai supergroup          0 2026-09-27 19:21 /crisisguard/phase8/osm\n-rw-r--r--   1 sivasai supergroup    2448753 2026-09-27 19:21 /crisisguard/phase8/osm/road_edges.parquet\n-rw-r--r--   1 sivasai supergroup    1587382 2026-09-27 19:21 /crisisguard/phase8/osm/road_nodes.parquet\ndrwxr-xr-x   - sivasai supergroup          0 2026-09-27 19:21 /crisisguard/phase8/propagation\n-rw-r--r--   1 sivasai supergroup      99922 2026-09-27 19:21 /crisisguard/phase8/propagation/propagation_edges.parquet\n-rw-r--r--   1 sivasai supergroup     232713 2026-09-27 19:21 /crisisguard/phase8/propagation/propagation_events.parquet\ndrwxr-xr-x   - sivasai supergroup          0 2026-09-27 19:21 /crisisguard/phase8/streaming\n",
+  "du_output": "3.3 M    3.3 M    /crisisguard/phase8/crisis_intelligence\n0        0        /crisisguard/phase8/graph\n0        0        /crisisguard/phase8/hive\n10.8 K   10.8 K   /crisisguard/phase8/media_risk\n3.8 M    3.8 M    /crisisguard/phase8/osm\n324.8 K  324.8 K  /crisisguard/phase8/propagation\n0        0        /crisisguard/phase8/streaming\n"
+}

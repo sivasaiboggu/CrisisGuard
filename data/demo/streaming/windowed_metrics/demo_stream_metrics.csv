@@ -1,0 +1,8 @@
+scenario_id,window_event_count,unique_source_nodes,unique_target_nodes,mean_synthetic_risk,max_synthetic_risk,window_start,window_end,propagation_rate_per_min
+demo_test_scenario,1,1,1,0.91,0.91,2026-09-30 18:00:00,2026-09-30 19:00:00,0.02
+live_delhi_flash_flood_2026,1,1,1,0.8842,0.8842,2026-09-30 18:00:00,2026-09-30 19:00:00,0.02
+delhi_flood_live,1,1,1,0.92,0.92,2026-09-30 19:00:00,2026-09-30 20:00:00,0.02
+delhi_flood_live,1,1,1,0.92,0.92,2026-10-02 08:00:00,2026-10-02 09:00:00,0.02
+live_delhi_flash_flood_2026,1,1,1,0.8842,0.8842,2026-10-02 09:00:00,2026-10-02 10:00:00,0.02
+live_delhi_flash_flood_2026,1,1,1,0.8842,0.8842,2026-10-02 10:00:00,2026-10-02 11:00:00,0.02
+test_live_stream,1,1,1,0.85,0.85,2026-10-02 10:00:00,2026-10-02 11:00:00,0.02

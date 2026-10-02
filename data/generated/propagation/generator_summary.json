@@ -1,0 +1,20 @@
+{
+  "generator_version": "1.0.0",
+  "timestamp_generated": "2026-09-26T18:42:48.724818+00:00",
+  "random_seed": 42,
+  "total_events": 5004,
+  "total_edges": 4999,
+  "seed_content_count": 5,
+  "scenarios_simulated": [
+    "ORGANIC_DIFFUSION",
+    "COORDINATED_BOT_BURST",
+    "HIGH_VELOCITY_VIRAL",
+    "LOW_VELOCITY_LOCAL",
+    "MULTI_SOURCE_COLLUSION"
+  ],
+  "governance_classification": "SEMI_SYNTHETIC",
+  "output_files": [
+    "generated\\propagation\\events.jsonl",
+    "generated\\propagation\\edges.csv"
+  ]
+}

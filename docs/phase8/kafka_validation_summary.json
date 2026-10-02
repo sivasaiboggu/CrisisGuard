@@ -1,0 +1,9 @@
+{
+  "topic": "crisisguard-propagation-events",
+  "consumed_count": 5004,
+  "unique_event_ids": 5004,
+  "duplicate_count": 0,
+  "invalid_count": 0,
+  "consumption_duration_sec": 6.838,
+  "validation_passed": true
+}

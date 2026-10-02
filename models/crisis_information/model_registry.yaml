@@ -1,0 +1,97 @@
+# CrisisGuard — Phase 7: Model Registry
+# Author: B.SIVASAI (Roll Number: 2023BCS0228)
+# Course: CSE412 — Big Data & Large-Scale Computing
+
+registry_version: "1.0.0"
+last_updated: "2026-09-27"
+phase: "Phase 7 — Crisis Information Intelligence Engine"
+
+models:
+  - model_id: "humaid_stratified_baseline"
+    model_name: "HumAID Stratified Prior Classifier"
+    version: "v1.0"
+    source_dataset: "humaid_all_combined"
+    task: "humanitarian_classification_10class"
+    architecture: "Empirical Stratified Prior Baseline (Scikit-Learn DummyClassifier)"
+    train_split: 53531
+    validation_split: 7793
+    test_split: 15160
+    seed: 42
+    preprocessing_version: "humaid_id_split_v1"
+    metrics:
+      accuracy: 0.1497
+      macro_precision: 0.0984
+      macro_recall: 0.0985
+      macro_f1: 0.0984
+      weighted_f1: 0.1492
+    calibration_status: "UNCALIBRATED"
+    checkpoint: "models/crisis_information/humaid/humaid_baseline_model.joblib"
+    limitations:
+      - "Operates without text due to official QCRI unhydrated Twitter ID archive."
+      - "Serves as empirical benchmark baseline and class prior estimator."
+
+  - model_id: "crisismmd_baseline_logistic"
+    model_name: "CrisisMMD TF-IDF Logistic Regression Baseline"
+    version: "v1.0"
+    source_dataset: "crisismmd_multimodal"
+    task: "humanitarian_classification_5class"
+    architecture: "TF-IDF (1,2 n-grams, 5000 max features) + Multinomial Logistic Regression (L2, C=1.0)"
+    train_split: 6126
+    validation_split: 998
+    test_split: 955
+    seed: 42
+    preprocessing_version: "clean_crisis_text_v1"
+    metrics:
+      accuracy: 0.7445
+      macro_precision: 0.5915
+      macro_recall: 0.6584
+      macro_f1: 0.6171
+      weighted_f1: 0.7501
+    calibration_status: "UNCALIBRATED"
+    checkpoint: "models/crisis_information/crisismmd/crisismmd_baseline_logistic.joblib"
+    limitations:
+      - "Text-only model; local images are unavailable (image_available_locally = False)."
+      - "Evaluates in-distribution split with event overlap across partitions."
+
+  - model_id: "crisismmd_distilbert_transformer"
+    model_name: "CrisisMMD Fine-Tuned DistilBERT Sequence Classifier"
+    version: "v1.0"
+    source_dataset: "crisismmd_multimodal"
+    task: "humanitarian_classification_5class"
+    architecture: "Pretrained Transformer (distilbert-base-uncased) + Sequence Classification Head"
+    train_split: 6126
+    validation_split: 998
+    test_split: 955
+    seed: 42
+    preprocessing_version: "clean_crisis_text_v1"
+    metrics:
+      accuracy: 0.8199
+      macro_precision: 0.8519
+      macro_recall: 0.6678
+      macro_f1: 0.7078
+      weighted_f1: 0.8167
+    calibration_status: "UNCALIBRATED"
+    checkpoint: "models/crisis_information/crisismmd/transformer_humanitarian"
+    limitations:
+      - "Fine-tuned on text modality only."
+      - "Unseen disaster generalization drops by approximately 11.2% in accuracy."
+      - "Extreme minority class (affected_individuals, 1.1%) remains challenging."
+
+  - model_id: "crisismmd_informative_baseline"
+    model_name: "CrisisMMD Informativeness Binary Classifier"
+    version: "v1.0"
+    source_dataset: "crisismmd_multimodal"
+    task: "informativeness_filtering_binary"
+    architecture: "TF-IDF + Logistic Regression"
+    train_split: 6126
+    validation_split: 998
+    test_split: 955
+    seed: 42
+    preprocessing_version: "clean_crisis_text_v1"
+    metrics:
+      accuracy: 0.8052
+      macro_f1: 0.8051
+    calibration_status: "UNCALIBRATED"
+    checkpoint: "models/crisis_information/crisismmd/crisismmd_informative_baseline.joblib"
+    limitations:
+      - "Binary noise filter; does not assess severity or urgency."

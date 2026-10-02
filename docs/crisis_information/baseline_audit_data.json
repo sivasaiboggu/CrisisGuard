@@ -1,0 +1,250 @@
+{
+  "hashes": {
+    "humaid_records.parquet": {
+      "size": 2413331,
+      "sha256": "9363cd6b78a3140b1ce508d6b48fd0ea6705c91083899ae39e25311d3cc4b46b"
+    },
+    "crisismmd_records.parquet": {
+      "size": 1619304,
+      "sha256": "363650c099977ee4a0088179b47c8b7ba21aad3e4aee906777e18638f3ab5b82"
+    },
+    "crisislex_records.parquet": {
+      "size": 13102783,
+      "sha256": "f31d66f30009c6c8e4dad90014073453c61276d51489abe44c25b7079541b638"
+    },
+    "humaid_predictions.parquet": {
+      "size": 520998,
+      "sha256": "83ccbba0961416fdc55a180f6e4eb46daa80f40b9a38197b757b42d32f5d2f00"
+    },
+    "crisismmd_predictions.parquet": {
+      "size": 245577,
+      "sha256": "6d83a36bc112af8c55934a05fef051cc1dab680b50ea66872a74cec3cb874fdc"
+    },
+    "crisislex_features.parquet": {
+      "size": 13578826,
+      "sha256": "54886db41c44d9b7a21a3bf6230cc5c3f766c508199b26b2ecfe1a9336261cf2"
+    },
+    "unified_crisis_intelligence.parquet": {
+      "size": 3445876,
+      "sha256": "2678dcddee3ce6128f5e923d11f717dbfa3b1c3686082948696e7ebf512d945e"
+    },
+    "humaid_baseline_model.joblib": {
+      "size": 1063,
+      "sha256": "abc51c16100a1149eb6522f962e0d443b11edaae62426026d53871618a9f942f"
+    },
+    "crisismmd_baseline_logistic.joblib": {
+      "size": 200943,
+      "sha256": "b56300968e4c0a46865cf0fb5e8baecffcb226a06b8173d619743dc05012fec2"
+    },
+    "crisismmd_informative_baseline.joblib": {
+      "size": 40879,
+      "sha256": "6709bfbbcb5a8600633a94cb1e2793296d772115c57b6947865339a95e34e4c8"
+    },
+    "crisismmd_tfidf_vectorizer.joblib": {
+      "size": 191110,
+      "sha256": "64844e05f790a2f27ba7392b526876870d5592ce92aefc714e9323f3b81b1cb0"
+    },
+    "crisis_intelligence_schema.json": {
+      "size": 3839,
+      "sha256": "3dc1ff0838e614df5a6876594bba8d65c0ae124228d66a5e82ddef11978613f1"
+    }
+  },
+  "row_counts": {
+    "humaid_records.parquet": {
+      "rows": 76484,
+      "cols": 11,
+      "columns": [
+        "event_id",
+        "source_dataset",
+        "source_record_id",
+        "raw_text",
+        "clean_text",
+        "category",
+        "disaster_event",
+        "split",
+        "timestamp_if_available",
+        "location_if_available",
+        "governance_type"
+      ]
+    },
+    "crisismmd_records.parquet": {
+      "rows": 8079,
+      "cols": 18,
+      "columns": [
+        "event_id",
+        "source_dataset",
+        "source_record_id",
+        "image_id",
+        "disaster_event",
+        "raw_text",
+        "clean_text",
+        "image_reference",
+        "image_available_locally",
+        "humanitarian_label",
+        "humanitarian_text_label",
+        "humanitarian_image_label",
+        "crossmodal_agreement",
+        "informative_label",
+        "split",
+        "timestamp_if_available",
+        "location_if_available",
+        "governance_type"
+      ]
+    },
+    "crisislex_records.parquet": {
+      "rows": 88015,
+      "cols": 12,
+      "columns": [
+        "event_id",
+        "source_dataset",
+        "source_record_id",
+        "disaster_event",
+        "raw_text",
+        "clean_text",
+        "information_source",
+        "information_type",
+        "informativeness_label",
+        "timestamp_if_available",
+        "location_if_available",
+        "governance_type"
+      ]
+    },
+    "humaid_predictions.parquet": {
+      "rows": 15160,
+      "cols": 21,
+      "columns": [
+        "event_id",
+        "source_dataset",
+        "source_record_id",
+        "raw_text",
+        "clean_text",
+        "category",
+        "disaster_event",
+        "split",
+        "timestamp_if_available",
+        "location_if_available",
+        "governance_type",
+        "predicted_category",
+        "model_score",
+        "confidence",
+        "calibration_status",
+        "task_name",
+        "model_version",
+        "text_available",
+        "image_available",
+        "provenance",
+        "quality_status"
+      ]
+    },
+    "crisismmd_predictions.parquet": {
+      "rows": 955,
+      "cols": 28,
+      "columns": [
+        "event_id",
+        "source_dataset",
+        "source_record_id",
+        "image_id",
+        "disaster_event",
+        "raw_text",
+        "clean_text",
+        "image_reference",
+        "image_available_locally",
+        "humanitarian_label",
+        "humanitarian_text_label",
+        "humanitarian_image_label",
+        "crossmodal_agreement",
+        "informative_label",
+        "split",
+        "timestamp_if_available",
+        "location_if_available",
+        "governance_type",
+        "predicted_category",
+        "model_score",
+        "confidence",
+        "calibration_status",
+        "task_name",
+        "model_version",
+        "text_available",
+        "image_available",
+        "provenance",
+        "quality_status"
+      ]
+    },
+    "crisislex_features.parquet": {
+      "rows": 88015,
+      "cols": 31,
+      "columns": [
+        "event_id",
+        "source_dataset",
+        "source_record_id",
+        "disaster_event",
+        "raw_text",
+        "clean_text",
+        "information_source",
+        "information_type",
+        "informativeness_label",
+        "timestamp_if_available",
+        "location_if_available",
+        "governance_type",
+        "casualty_term_count",
+        "damage_term_count",
+        "rescue_term_count",
+        "alert_term_count",
+        "has_casualty_keyword",
+        "has_damage_keyword",
+        "has_rescue_keyword",
+        "has_alert_keyword",
+        "total_crisis_keywords",
+        "char_length",
+        "token_count",
+        "uppercase_ratio",
+        "exclamation_count",
+        "question_count",
+        "url_count",
+        "mention_count",
+        "event_total_volume",
+        "provenance",
+        "feature_extraction_version"
+      ]
+    },
+    "unified_crisis_intelligence.parquet": {
+      "rows": 104130,
+      "cols": 18,
+      "columns": [
+        "content_id",
+        "source_dataset",
+        "source_record_id",
+        "event_id",
+        "text_available",
+        "image_available",
+        "crisis_category",
+        "task_name",
+        "model_score",
+        "confidence",
+        "quality_status",
+        "calibration_status",
+        "temporal_features",
+        "context_features",
+        "provenance",
+        "model_version",
+        "prediction_timestamp",
+        "governance_type"
+      ]
+    }
+  },
+  "model_files": {
+    "models/crisis_information/model_registry.yaml": 3665,
+    "models/crisis_information/crisismmd/crisismmd_baseline_logistic.joblib": 200943,
+    "models/crisis_information/crisismmd/crisismmd_eval_report.json": 1972,
+    "models/crisis_information/crisismmd/crisismmd_informative_baseline.joblib": 40879,
+    "models/crisis_information/crisismmd/crisismmd_metrics.json": 1744,
+    "models/crisis_information/crisismmd/crisismmd_tfidf_vectorizer.joblib": 191110,
+    "models/crisis_information/humaid/humaid_baseline_model.joblib": 1063,
+    "models/crisis_information/humaid/humaid_eval_report.json": 4023,
+    "models/crisis_information/humaid/humaid_metrics.json": 5984,
+    "models/crisis_information/crisismmd/transformer_humanitarian/config.json": 1068,
+    "models/crisis_information/crisismmd/transformer_humanitarian/model.safetensors": 267841796,
+    "models/crisis_information/crisismmd/transformer_humanitarian/tokenizer.json": 711661,
+    "models/crisis_information/crisismmd/transformer_humanitarian/tokenizer_config.json": 351
+  }
+}

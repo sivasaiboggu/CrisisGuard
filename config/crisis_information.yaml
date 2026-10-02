@@ -1,0 +1,80 @@
+# CrisisGuard Phase 7 — Crisis Information Intelligence Configuration
+# Author: B.SIVASAI (Roll Number: 2023BCS0228)
+# Course: CSE412 — Big Data & Large-Scale Computing
+
+general:
+  seed: 42
+  device: "cpu"
+  project_name: "CrisisGuard_Phase7"
+  reproducibility: true
+
+humaid:
+  dataset_path: "data/processed/humaid/humaid_records.parquet"
+  source_dataset: "humaid_all_combined"
+  num_classes: 10
+  target_column: "category"
+  split_column: "split"
+  splits:
+    train: 53531
+    dev: 7793
+    test: 15160
+  model_type: "prior_stratified_baseline"
+  class_weighting: "balanced"
+  output_dir: "models/crisis_information/humaid/"
+  metrics:
+    - "accuracy"
+    - "macro_precision"
+    - "macro_recall"
+    - "macro_f1"
+    - "weighted_f1"
+    - "confusion_matrix"
+
+crisismmd:
+  dataset_path: "data/processed/crisismmd/crisismmd_records.parquet"
+  source_dataset: "crisismmd_multimodal"
+  primary_task: "humanitarian_classification"
+  primary_target: "humanitarian_label"
+  secondary_task: "informativeness_classification"
+  secondary_target: "informative_label"
+  text_column: "clean_text"
+  raw_text_column: "raw_text"
+  split_column: "split"
+  modality_policy:
+    local_images_available: false
+    text_only_inference: true
+  num_classes_humanitarian: 5
+  num_classes_informative: 2
+  baseline:
+    vectorizer: "tfidf"
+    max_features: 5000
+    ngram_range: [1, 2]
+    min_df: 2
+    classifier: "logistic_regression"
+    C: 1.0
+    solver: "lbfgs"
+    max_iter: 1000
+  transformer:
+    model_name: "distilbert-base-uncased"
+    max_seq_length: 128
+    batch_size: 32
+    learning_rate: 2.0e-5
+    epochs: 3
+    weight_decay: 0.01
+    warmup_ratio: 0.1
+    early_stopping_patience: 2
+    optimizer: "AdamW"
+    scheduler: "linear"
+    save_path: "models/crisis_information/crisismmd/transformer_humanitarian"
+
+crisislex:
+  dataset_path: "data/processed/crisislex/crisislex_records.parquet"
+  source_dataset: "crisislex_t6_and_t26"
+  total_events: 32
+  text_column: "clean_text"
+  role: "linguistic_and_contextual_feature_extraction"
+  vocabulary_top_k: 100
+  output_features_path: "data/features/crisis_information/crisislex_features.parquet"
+
+unified_schema:
+  schema_path: "schemas/crisis_intelligence_schema.json"
+  output_path: "data/features/crisis_information/unified_crisis_intelligence.parquet"

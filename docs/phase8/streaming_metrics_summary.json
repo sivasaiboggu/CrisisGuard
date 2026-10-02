@@ -1,0 +1,12 @@
+{
+  "streaming_engine": "Apache Spark Structured Streaming",
+  "spark_version": "3.5.1",
+  "input_topic": "crisisguard-propagation-events",
+  "total_streamed_events": 5004,
+  "stream_unique_sources": 4986,
+  "stream_unique_targets": 2508,
+  "stream_total_unique_nodes": 7494,
+  "stream_unique_edges": 4999,
+  "total_time_windows": 32,
+  "execution_duration_sec": 41.89
+}

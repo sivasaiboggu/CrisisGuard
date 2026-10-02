@@ -1,0 +1,36 @@
+# CrisisGuard: Frozen Big Data Version Matrix
+version_matrix:
+  java:
+    selected: "11.0.26"
+    package: "openjdk-11-jdk-headless"
+    home: "/usr/lib/jvm/java-11-openjdk-amd64"
+    status: "COMPATIBLE"
+  python:
+    selected: "3.12.3"
+    binary: "/usr/bin/python3"
+    status: "COMPATIBLE"
+  hadoop:
+    selected: "3.3.6"
+    binary_archive: "hadoop-3.3.6.tar.gz"
+    install_dir: "/opt/hadoop"
+    status: "COMPATIBLE"
+  spark:
+    selected: "3.5.1"
+    binary_archive: "spark-3.5.1-bin-hadoop3.tgz"
+    install_dir: "/opt/spark"
+    status: "COMPATIBLE"
+  scala:
+    selected: "2.12.18"
+    binary_archive: "scala-2.12.18.tgz"
+    install_dir: "/opt/scala"
+    status: "COMPATIBLE"
+  kafka:
+    selected: "3.7.0"
+    binary_archive: "kafka_2.12-3.7.0.tgz"
+    install_dir: "/opt/kafka"
+    status: "COMPATIBLE"
+  hive:
+    selected: "3.1.3"
+    binary_archive: "apache-hive-3.1.3-bin.tar.gz"
+    install_dir: "/opt/hive"
+    status: "COMPATIBLE"

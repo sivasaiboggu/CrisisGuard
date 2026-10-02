@@ -1,0 +1,14 @@
+{
+  "event_id": "demo_event_2026_001",
+  "scenario_id": "flood_evacuation_scenario_alpha",
+  "propagation_type": "retweet_cascade",
+  "content_id": "cmmd_demo_media_789",
+  "source_node": "osm_node_4281920",
+  "target_node": "osm_node_4281925",
+  "event_time": "2026-09-30T12:00:00Z",
+  "parent_event_id": "demo_event_2026_000",
+  "synthetic_media_risk": 0.8842,
+  "crisis_priority_if_present": "CRITICAL",
+  "governance_tag": "LIVE_DEMO_INPUT",
+  "provenance": "crisisguard_demo_stream_producer"
+}

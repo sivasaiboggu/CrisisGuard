@@ -1,0 +1,37 @@
+{
+  "audit_designation": "MODEL_BEHAVIOR_ANALYSIS",
+  "disclaimer": "Grad-CAM heatmaps illustrate model gradient sensitivity and feature attention; they do not prove causal manipulation mechanisms.",
+  "true_positive_synthetic": {
+    "content_id": "cifake_syn_184_5",
+    "source_path": "data/raw/synthetic_media_eval/fake/184 (5).jpg",
+    "ground_truth": 1,
+    "predicted_probability": 0.999983,
+    "heatmap_path": "outputs/synthetic_media/explainability/gradcam_true_positive_synthetic.png"
+  },
+  "true_negative_real": {
+    "content_id": "cifake_real_0077_4",
+    "source_path": "data/raw/synthetic_media_eval/real/0077 (4).jpg",
+    "ground_truth": 0,
+    "predicted_probability": 9.6e-05,
+    "heatmap_path": "outputs/synthetic_media/explainability/gradcam_true_negative_real.png"
+  },
+  "false_positive": {
+    "content_id": "cifake_real_0022_5",
+    "source_path": "data/raw/synthetic_media_eval/real/0022 (5).jpg",
+    "ground_truth": 0,
+    "predicted_probability": 0.807014,
+    "heatmap_path": "outputs/synthetic_media/explainability/gradcam_false_positive.png"
+  },
+  "false_negative": {
+    "content_id": "cifake_syn_133_5",
+    "source_path": "data/raw/synthetic_media_eval/fake/133 (5).jpg",
+    "ground_truth": 1,
+    "predicted_probability": 0.063996,
+    "heatmap_path": "outputs/synthetic_media/explainability/gradcam_false_negative.png"
+  },
+  "dfd_video_sample_01_frame_020": {
+    "content_id": "dfd_dfd_video_sample_01_f020",
+    "source_path": "data/processed/deepfake_dfd/frames/dfd_video_sample_01_frame_020.png",
+    "heatmap_path": "outputs/synthetic_media/explainability/gradcam_dfd_video_frame.png"
+  }
+}

@@ -1,0 +1,77 @@
+# CrisisGuard: Verified Big Data Environment Manifest
+environment_manifest:
+  metadata:
+    project: "CrisisGuard"
+    author: "B.SIVASAI"
+    roll_number: "2023BCS0228"
+    course: "CSE412 — Big Data & Large-Scale Computing"
+    phase: "Phase 5 — Environment Setup & Integration Smoke Tests"
+    timestamp: "2026-09-27T16:33:00+05:30"
+
+  host:
+    os: "Microsoft Windows 11 Home Single Language (Build 10.0.26200)"
+    cpu: "AMD Ryzen 7 7445HS (6 Physical Cores / 12 Logical Processors)"
+    total_physical_ram_mb: 15973
+    available_storage_c_gb: 237
+
+  virtualization:
+    type: "WSL2"
+    distro: "Ubuntu-24.04.4 LTS"
+    kernel: "Linux 6.6.87.2-microsoft-standard-WSL2 x86_64"
+    allocated_ram_mb: 7577
+    free_storage_root_gb: 943
+
+  runtimes:
+    java:
+      version: "11.0.31"
+      vendor: "Ubuntu OpenJDK"
+      java_home: "/usr/lib/jvm/java-11-openjdk-amd64"
+    python:
+      version: "3.12.3"
+      path: "/usr/bin/python3"
+    scala:
+      version: "2.12.18"
+      scala_home: "/opt/scala"
+      path: "/usr/local/bin/scala"
+
+  big_data_stack:
+    hadoop:
+      version: "3.3.6"
+      hadoop_home: "/opt/hadoop"
+      default_fs: "hdfs://127.0.0.1:9000"
+      namenode_rpc_port: 9000
+      namenode_http_port: 9870
+      datanode_http_port: 9864
+      replication: 1
+      heap_max: "512m"
+    spark:
+      version: "3.5.1"
+      spark_home: "/opt/spark"
+      master: "local[2]"
+      driver_memory: "1g"
+      executor_memory: "1g"
+      scala_binary_version: "2.12"
+    kafka:
+      version: "3.7.0"
+      kafka_home: "/opt/kafka"
+      mode: "KRaft (Combined Broker/Controller)"
+      broker_port: 9092
+      controller_port: 9093
+      listeners: "PLAINTEXT://127.0.0.1:9092"
+      heap_opts: "-Xms256m -Xmx512m"
+    hive:
+      version: "3.1.3"
+      hive_home: "/opt/hive"
+      metastore: "Embedded Derby"
+      warehouse_dir: "/crisisguard/warehouse"
+      guava_fix: "guava-27.0-jre.jar from Hadoop 3.3.6"
+
+  directories:
+    data_raw: "data/raw/"
+    data_interim: "data/interim/"
+    data_processed: "data/processed/"
+    data_features: "data/features/"
+    hdfs_namenode: "/var/crisisguard/hdfs/namenode"
+    hdfs_datanode: "/var/crisisguard/hdfs/datanode"
+    kafka_logs: "/var/crisisguard/kafka-logs"
+    hive_metastore: "/var/crisisguard/hive/metastore_db"

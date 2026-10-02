@@ -1,0 +1,12 @@
+{
+  "topic": "crisisguard-propagation-events",
+  "bootstrap_servers": [
+    "localhost:9092"
+  ],
+  "input_records": 5004,
+  "produced_count": 5004,
+  "invalid_count": 0,
+  "duration_seconds": 1.947,
+  "throughput_eps": 2570.1,
+  "status": "PASS"
+}
