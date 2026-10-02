@@ -264,13 +264,14 @@ All validators execute in < 15 seconds and verify 100% PASS without warnings.
 
 CrisisGuard clearly documents all epistemic, empirical, and operational boundaries:
 
-1. **Synthetic Media Calibration (Partially Resolved):** Image scores are calibrated using Platt scaling on a held-out validation partition (reducing 5-bin ECE from 0.4686 to 0.4061 and 10-bin ECE from 0.4827 to 0.4411 on the holdout test set while preserving 0.9815 ROC-AUC); the video branch remains uncalibrated because the available validation sample is insufficient for defensible calibration.
-2. **CrisisMMD Modality (Retained with Justification):** CrisisMMD is used for text-based classification with multimodal metadata retained; no local image binaries were available for the current experiment. On the CrisisMMD humanitarian classification test split ($N=955$), accuracy was 74.45% and macro F1 was 61.71% (total dataset: 8,079 records).
-3. **HumAID Text Availability (Retained with Justification):** The local HumAID representation contains humanitarian labels and Twitter identifiers but no original tweet text, so the project does not perform unrestricted tweet-text classification on HumAID. Formalized as a 10-class empirical prior benchmark ($N=76,484$; Train/Test $D_{\text{KL}} = 0.000002$) with majority and stratified baseline benchmarks.
-4. **Cross-Stream Relational Join (Retained with Justification):** An audit of candidate entity/event keys found no defensible cross-stream join, so the system preserves separate streams in an evidence-aware ledger rather than creating unsupported joins ($A \cap B = 0, B \cap C = 0, C \cap D = 0$; Multi-Stream Ledger: 175,361 records with explicit NULL semantics).
-5. **GraphX Behavioral Intent (Retained with Justification):** GraphX measures propagation topology and structural indicators; it does not establish malicious intent or deception. Vocabulary is strictly hardened to "topological structural indicators", explicitly rejecting ungrounded claims of malice.
-6. **Decision Support Scope (Resolved for Prototype Governance):** CrisisGuard provides human-in-the-loop decision support and does not autonomously dispatch emergency services. Implements an evidence-aware review queue ($N=625$) with 3 priority tiers where 100% of items require human verification, with zero arbitrary linear dispatch formulas (no EDPI).
-7. **Demo Runtime Consideration:** Spark Structured Streaming execution requires 60–90 seconds for JVM startup and Kafka state store initialization. This is normal distributed runtime latency.
+1. **Image Synthetic-Media Calibration (Resolved):** Image scores are calibrated using Platt scaling on a held-out validation partition (reducing 5-bin ECE from 0.4686 to 0.4061 and 10-bin ECE from 0.4827 to 0.4411 on the holdout test set while preserving 0.9815 ROC-AUC). Model inference dynamically applies the calibrator (`calibration_status = "CALIBRATED_PLATT"`).
+2. **Video Calibration (Retained — Insufficient Validation Data):** Video temporal model ($N=4$) remains uncalibrated (`calibration_status = "UNCALIBRATED"`) because the available validation sample ($N_{\text{val}}=1$) is mathematically insufficient for defensible calibration.
+3. **CrisisMMD Modality (Retained with Justification):** CrisisMMD is used for text-based classification with multimodal metadata retained; physical audit confirmed 0 local image binaries. On the CrisisMMD humanitarian classification test split ($N=955$), accuracy was 74.45% and macro F1 was 61.71% (total dataset: 8,079 records). Sourcing unverified external images was strictly rejected.
+4. **HumAID Text Availability (Retained with Justification):** The local HumAID representation contains humanitarian labels and Twitter identifiers but does not provide the original tweet text (100% of raw text is NULL). Therefore, this project does not perform unrestricted tweet-text classification on HumAID. Formalized as a 10-class empirical prior benchmark ($N=76,484$; Train/Test $D_{\text{KL}} = 0.000002$) with majority (27.83%) and stratified (15.06%) baselines.
+5. **Cross-Stream Relational Join (Retained as NO_VALID_JOIN with Evidence):** The empirical audit found no defensible cross-stream join across the tested candidate keys ($A \cap B = 0, B \cap C = 0, C \cap D = 0$). NO_VALID_JOIN is defensibly preserved; the system maintains separate streams in an evidence-aware multi-stream ledger ($N=175,361$ records with explicit NULL semantics) rather than creating unsupported joins.
+6. **GraphX Behavioral Intent (Retained with Justification):** GraphX measures propagation topology and structural indicators; it does not independently establish malicious intent, authenticity, or deception. Vocabulary is strictly hardened to "topological structural indicators", explicitly rejecting ungrounded claims of malice.
+7. **Decision Support Scope (Resolved for Prototype Governance):** CrisisGuard provides human-in-the-loop decision support and does not autonomously dispatch emergency services. Implements an evidence-aware review queue ($N=625$) with 3 priority tiers where 100% of items require human verification, with zero arbitrary linear dispatch formulas (no EDPI).
+8. **Demo Runtime Consideration:** Spark Structured Streaming execution requires 60–90 seconds for JVM startup and Kafka state store initialization. This is normal distributed runtime latency.
 
 Full forensic evidence, metrics, and methodology are detailed in [docs/phase10/PHASE10_LIMITATION_RESOLUTION_REPORT.md](file:///c:/Users/HP/OneDrive/Desktop/CrisisGuard/docs/phase10/PHASE10_LIMITATION_RESOLUTION_REPORT.md).
 
@@ -285,7 +286,7 @@ Full forensic evidence, metrics, and methodology are detailed in [docs/phase10/P
 | **Course** | CSE412 — Big Data & Large-Scale Computing |
 | **Project** | CrisisGuard: A Real-Time Big Data Pipeline for Synthetic Media Propagation Analysis and Emergency Response Prioritization |
 | **Submission Year** | 2026 |
-| **Institution** | (CSE412 Department) |
+| **Institution** | Indian Institute of Information Technology Kottayam (IIIT Kottayam) |
 
 ---
 
