@@ -1,0 +1,23 @@
+{
+  "title": "Decision Support & Human Review Queue Summary",
+  "author": "B.SIVASAI (Roll Number: 2023BCS0228)",
+  "course": "CSE412 \u2014 Big Data & Large-Scale Computing",
+  "date": "2026-10-02",
+  "total_queue_items": 625,
+  "priority_breakdown": {
+    "TIER_3_ROUTINE_MONITORING": 499,
+    "TIER_1_URGENT_HUMAN_TRIAGE": 117,
+    "TIER_2_ELEVATED_VERIFICATION": 9
+  },
+  "stream_breakdown": {
+    "STREAM_B_CRISIS_INFORMATION": 500,
+    "STREAM_A_SYNTHETIC_MEDIA": 75,
+    "STREAM_C_PROPAGATION_GRAPH": 50
+  },
+  "governance_guarantees": {
+    "human_in_the_loop_enforced": true,
+    "zero_arbitrary_dispatch_weights": true,
+    "autonomous_dispatch_forbidden": true,
+    "uncertainty_surfacing": "Calibrated probabilities (Platt) and uncalibrated scores strictly flagged."
+  }
+}

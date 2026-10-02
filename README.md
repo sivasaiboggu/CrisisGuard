@@ -260,17 +260,19 @@ All validators execute in < 15 seconds and verify 100% PASS without warnings.
 
 ---
 
-## 10. Limitations
+## 10. Limitations & Scientific Hardening (Phase 10 Audit)
 
-CrisisGuard clearly documents all known epistemic and operational limitations:
+CrisisGuard clearly documents all epistemic, empirical, and operational boundaries:
 
-1. **UNCALIBRATED model scores:** ResNet-18 image/video forensics produce raw sigmoid activations, not calibrated posterior probabilities. Platt scaling or isotonic regression was not applied due to statistically underpowered test sets.
-2. **Semi-Synthetic propagation cascades:** Phase 8 cascades are generated via parametric stochastic diffusion models (not real-world Twitter/Bluesky data) due to API access constraints.
-3. **HumAID text unavailability:** Only tweet IDs and humanitarian labels are available; live tweet text retrieval was not performed due to API rate limits.
-4. **CrisisMMD image binaries:** CrisisMMD multimodal classification was limited to text pipelines only; no local image binaries were available.
-5. **OSM-to-cascade spatial join:** No verified GPS-to-road mapping exists between cascade source/target nodes and OSM nodes, so `NO_VALID_JOIN` is explicitly preserved.
-6. **No real-time dispatch:** CrisisGuard is a research/educational pipeline. It is NOT certified for any operational emergency dispatch function.
-7. **Demo runtime constraint:** The live Spark Structured Streaming demo requires 60–90 seconds for JVM startup. This is expected and does not indicate failure.
+1. **Synthetic-Media Calibration (Partially Resolved):** ResNet-18 image forensics outputs have been empirically calibrated using Platt scaling on the disjoint balanced validation partition ($N=75$, seed 42), reducing 5-bin ECE from **0.4686** to **0.4061** (-13.3%) on the holdout test set ($N=75$) while preserving 0.9815 ROC-AUC. Video forensics ($N=4$) remains honestly designated `UNCALIBRATED` due to sample size constraints.
+2. **CrisisMMD Modality (Retained with Justification):** Physical audit confirmed 0 local image binaries. Text-based humanitarian and informativeness classification is rigorously maintained over official benchmark splits ($N=8,079$; Test Accuracy 74.45%, Macro F1 61.71%) with multimodal metadata preserved. Sourcing unverified external imagery was rejected to preserve scientific reproducibility.
+3. **HumAID Text Availability (Retained with Justification):** 100% of raw text is NULL due to Twitter Terms of Service prohibiting tweet text redistribution. HumAID is formally formalized as a 10-class empirical prior benchmark ($N=76,484$; Train/Test $D_{\text{KL}} = 0.000002$) with majority (27.8%) and stratified (15.1%) baseline benchmarks.
+4. **Cross-Stream Relational Join (Retained with Justification):** Mathematical join feasibility audit across 6 candidate keys proved zero defensible intersection ($A \cap B = 0, B \cap C = 0, C \cap D = 0$). `NO_VALID_JOIN` is defensibly preserved; the parallel Evidence-Aware Multi-Stream Ledger ($N=175,361$) enforces strict NULL semantics and explicit availability booleans.
+5. **GraphX Topology & Behavioral Intent (Retained with Justification):** GraphX PageRank (max 121.97) and degree metrics measure structural network centrality and broadcast reach, but lack ground-truth intent labels. Vocabulary is strictly hardened to "topological structural indicators", explicitly rejecting ungrounded claims of malice or automated deception.
+6. **Decision Support Scope (Resolved):** CrisisGuard implements an evidence-aware, non-autonomous human review queue ($N=625$) with 3 priority tiers (`TIER_1_URGENT_HUMAN_TRIAGE`, `TIER_2_ELEVATED_VERIFICATION`, `TIER_3_ROUTINE_MONITORING`). All items enforce `human_verification_required = True`. Autonomous emergency dispatch is explicitly prohibited; zero arbitrary linear dispatch formulas (no EDPI) exist in active code.
+7. **Demo Runtime Consideration:** Spark Structured Streaming execution requires 60–90 seconds for JVM startup and Kafka state store initialization. This is normal distributed runtime latency.
+
+Full forensic evidence, metrics, and methodology are detailed in [docs/phase10/PHASE10_LIMITATION_RESOLUTION_REPORT.md](file:///c:/Users/HP/OneDrive/Desktop/CrisisGuard/docs/phase10/PHASE10_LIMITATION_RESOLUTION_REPORT.md).
 
 ---
 

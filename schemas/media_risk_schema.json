@@ -54,7 +54,7 @@
     },
     "calibration_status": {
       "type": "string",
-      "enum": ["CALIBRATED_EMPIRICAL", "UNCALIBRATED", "NOT_APPLICABLE"],
+      "enum": ["CALIBRATED_EMPIRICAL", "CALIBRATED_PLATT", "UNCALIBRATED", "NOT_APPLICABLE"],
       "description": "Statistical calibration validity of the probability score. Separated strictly from media quality."
     },
     "prediction_timestamp": {

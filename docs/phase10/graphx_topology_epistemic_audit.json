@@ -1,0 +1,54 @@
+{
+  "title": "GraphX Propagation Topology Epistemic Audit",
+  "author": "B.SIVASAI (Roll Number: 2023BCS0228)",
+  "course": "CSE412 \u2014 Big Data & Large-Scale Computing",
+  "date": "2026-10-02",
+  "intent_labels_present": false,
+  "topology_metrics": {
+    "vertices": 7494,
+    "edges": 4999,
+    "events": 5004,
+    "pagerank_distribution": {
+      "count": 7494,
+      "mean": 1.0000000005617828,
+      "std": 4.138226080011707,
+      "min": 0.29438718,
+      "p25": 0.29438718,
+      "median": 0.29438718,
+      "p75": 0.54461628,
+      "p95": 2.7211142464999987,
+      "max": 121.96830894
+    },
+    "degree_distribution": {
+      "max_in_degree": 13,
+      "mean_in_degree": 0.6670669869228716,
+      "max_out_degree": 2,
+      "mean_out_degree": 0.6670669869228716,
+      "max_total_degree": 14,
+      "mean_total_degree": 1.3341339738457432
+    },
+    "connected_components": {
+      "total_components": 2509,
+      "giant_component_id": 1,
+      "giant_component_size": 4986,
+      "giant_component_proportion": 0.6653,
+      "isolated_or_dyadic_components": 2508
+    }
+  },
+  "epistemic_findings": {
+    "ground_truth_status": "NO_MALICIOUS_INTENT_LABELS_EXIST",
+    "permissible_semantics": [
+      "structural_propagation_centrality",
+      "network_hub_identification",
+      "diffusion_reach_analysis",
+      "cascade_topology_profiling"
+    ],
+    "forbidden_semantics": [
+      "maliciousness_score",
+      "bot_intent_classification",
+      "deception_probability",
+      "autonomous_threat_verdict"
+    ],
+    "justification": "GraphX computes mathematical graph algorithms (PageRank, Pregel connected components). Structural centrality in a propagation network indicates potential dissemination impact but cannot mathematically or empirically determine the ethical motivation, veracity, or malicious intent of an actor without ground truth forensic labels."
+  }
+}
