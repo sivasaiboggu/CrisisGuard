@@ -27,6 +27,8 @@ All phases (Phases 4 through 10) have undergone strict verification, limitation 
   - `21cc504`: `fix(phase10): integrate Platt calibrator into inference engine and align documentation`
   - `188cc16`: `docs(phase10): align limitation tables and final status audit reports`
   - `7f9b6ed`: `docs: align streaming window parameters and schema calibration descriptions`
+  - `a75e4b9`: `docs: complete final release audit report and submission manifest`
+- **Final Merge Commit on `main`:** `f519e51` (`merge: integrate limitation resolution and final submission hardening into main`)
 - **Remote Origin URL:** `https://github.com/sivasaiboggu/CrisisGuard.git`
 
 ---
