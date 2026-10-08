@@ -117,8 +117,16 @@ Input Video (K Uniform Temporal Keyframes, 3 x 112 x 112)
 - **ROC-AUC:** 0.9815
 - **PR-AUC:** 0.9823
 - **Brier Score:** 0.0569 (Strong probability sharpness)
-- **Expected Calibration Error (ECE):** 0.4686
+- **Expected Calibration Error (ECE):** 0.4686 (Baseline uncalibrated sigmoid)
 - **Confusion Matrix:** $\text{TN}=36, \text{FP}=2, \text{FN}=3, \text{TP}=34$
+
+> **Phase 10 Probability Calibration (Platt Scaling):**
+> - **Method:** Logistic calibration fitted on disjoint validation split ($N=75$, seed 42) with parameters $a=0.6062, b=0.4443$.
+> - **Holdout Test ECE (5-bin):** Reduced from **0.4686** to **0.4061** (-13.3% relative improvement).
+> - **Holdout Test ECE (10-bin):** Reduced from **0.4827** to **0.4411** (-8.6% relative improvement).
+> - **Holdout Test ROC-AUC:** 0.9815 (Preserved).
+> - **Holdout Test PR-AUC:** 0.9823 (Preserved).
+> - **Artifact:** `models/synthetic_media/calibration/platt_calibrator_resnet18.joblib`
 
 ### 6.2 Video Forensics Performance (Test Set $N=2$ Videos)
 - **Evaluation Unit:** Strict **VIDEO-LEVEL** prediction (not independent frame scoring).

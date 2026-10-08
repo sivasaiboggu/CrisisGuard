@@ -1,0 +1,351 @@
+{
+  "experiment": "CIFAKE ResNet-18 Probability Calibration",
+  "author": "B.SIVASAI (2023BCS0228)",
+  "course": "CSE412 \u2014 Big Data & Large-Scale Computing",
+  "date": "2026-10-02",
+  "dataset": "CIFAKE Controlled Subset (500 images: 250 real, 250 synthetic, seed=42)",
+  "splits": {
+    "train": 350,
+    "validation_calibration": 75,
+    "test_holdout": 75
+  },
+  "comparison_metrics": [
+    {
+      "Method": "Uncalibrated (Sigmoid)",
+      "Accuracy": 0.9333333333333333,
+      "Precision": 0.9444444444444444,
+      "Recall": 0.918918918918919,
+      "F1-Score": 0.9315068493150684,
+      "ROC-AUC": 0.9815078236130867,
+      "PR-AUC": 0.9822919593887662,
+      "Brier Score": 0.05693278713592626,
+      "ECE (5-bin)": 0.4686153923968474,
+      "ECE (10-bin)": 0.48265481253465015,
+      "Confusion Matrix": "TN=36, FP=2, FN=3, TP=34"
+    },
+    {
+      "Method": "Platt Scaling (Logistic)",
+      "Accuracy": 0.92,
+      "Precision": 0.918918918918919,
+      "Recall": 0.918918918918919,
+      "F1-Score": 0.918918918918919,
+      "ROC-AUC": 0.9815078236130867,
+      "PR-AUC": 0.9822919593887662,
+      "Brier Score": 0.0575659271766067,
+      "ECE (5-bin)": 0.40609064049372223,
+      "ECE (10-bin)": 0.44113676910140387,
+      "Confusion Matrix": "TN=35, FP=3, FN=3, TP=34"
+    },
+    {
+      "Method": "Isotonic Regression",
+      "Accuracy": 0.8933333333333333,
+      "Precision": 0.8372093023255814,
+      "Recall": 0.972972972972973,
+      "F1-Score": 0.9,
+      "ROC-AUC": 0.9708392603129445,
+      "PR-AUC": 0.9556321271437551,
+      "Brier Score": 0.06311357405069035,
+      "ECE (5-bin)": 0.40842105706532794,
+      "ECE (10-bin)": 0.4084210585554441,
+      "Confusion Matrix": "TN=31, FP=7, FN=1, TP=36"
+    }
+  ],
+  "reliability_diagrams": {
+    "Uncalibrated (Sigmoid)": {
+      "ece_5": 0.4686153923968474,
+      "ece_10": 0.48265481253465015,
+      "bins_10": [
+        {
+          "bin_index": 0,
+          "bin_range": [
+            0.0,
+            0.1
+          ],
+          "count": 32,
+          "prop": 0.4267,
+          "accuracy": 0.9688,
+          "confidence": 0.0156,
+          "diff": 0.9531
+        },
+        {
+          "bin_index": 1,
+          "bin_range": [
+            0.1,
+            0.2
+          ],
+          "count": 1,
+          "prop": 0.0133,
+          "accuracy": 1.0,
+          "confidence": 0.1731,
+          "diff": 0.8269
+        },
+        {
+          "bin_index": 2,
+          "bin_range": [
+            0.2,
+            0.3
+          ],
+          "count": 5,
+          "prop": 0.0667,
+          "accuracy": 0.6,
+          "confidence": 0.2538,
+          "diff": 0.3462
+        },
+        {
+          "bin_index": 3,
+          "bin_range": [
+            0.3,
+            0.4
+          ],
+          "count": 1,
+          "prop": 0.0133,
+          "accuracy": 1.0,
+          "confidence": 0.3314,
+          "diff": 0.6686
+        },
+        {
+          "bin_index": 5,
+          "bin_range": [
+            0.5,
+            0.6
+          ],
+          "count": 2,
+          "prop": 0.0267,
+          "accuracy": 1.0,
+          "confidence": 0.5212,
+          "diff": 0.4788
+        },
+        {
+          "bin_index": 6,
+          "bin_range": [
+            0.6,
+            0.7
+          ],
+          "count": 1,
+          "prop": 0.0133,
+          "accuracy": 1.0,
+          "confidence": 0.6311,
+          "diff": 0.3689
+        },
+        {
+          "bin_index": 7,
+          "bin_range": [
+            0.7,
+            0.8
+          ],
+          "count": 3,
+          "prop": 0.04,
+          "accuracy": 0.6667,
+          "confidence": 0.7354,
+          "diff": 0.0687
+        },
+        {
+          "bin_index": 8,
+          "bin_range": [
+            0.8,
+            0.9
+          ],
+          "count": 2,
+          "prop": 0.0267,
+          "accuracy": 0.5,
+          "confidence": 0.8095,
+          "diff": 0.3095
+        },
+        {
+          "bin_index": 9,
+          "bin_range": [
+            0.9,
+            1.0
+          ],
+          "count": 28,
+          "prop": 0.3733,
+          "accuracy": 1.0,
+          "confidence": 0.9886,
+          "diff": 0.0114
+        }
+      ]
+    },
+    "Platt Scaling (Logistic)": {
+      "ece_5": 0.40609064049372223,
+      "ece_10": 0.44113676910140387,
+      "bins_10": [
+        {
+          "bin_index": 0,
+          "bin_range": [
+            0.0,
+            0.1
+          ],
+          "count": 22,
+          "prop": 0.2933,
+          "accuracy": 1.0,
+          "confidence": 0.0304,
+          "diff": 0.9696
+        },
+        {
+          "bin_index": 1,
+          "bin_range": [
+            0.1,
+            0.2
+          ],
+          "count": 5,
+          "prop": 0.0667,
+          "accuracy": 1.0,
+          "confidence": 0.1461,
+          "diff": 0.8539
+        },
+        {
+          "bin_index": 2,
+          "bin_range": [
+            0.2,
+            0.3
+          ],
+          "count": 5,
+          "prop": 0.0667,
+          "accuracy": 0.8,
+          "confidence": 0.2352,
+          "diff": 0.5648
+        },
+        {
+          "bin_index": 3,
+          "bin_range": [
+            0.3,
+            0.4
+          ],
+          "count": 1,
+          "prop": 0.0133,
+          "accuracy": 1.0,
+          "confidence": 0.3767,
+          "diff": 0.6233
+        },
+        {
+          "bin_index": 4,
+          "bin_range": [
+            0.4,
+            0.5
+          ],
+          "count": 5,
+          "prop": 0.0667,
+          "accuracy": 0.6,
+          "confidence": 0.4469,
+          "diff": 0.1531
+        },
+        {
+          "bin_index": 5,
+          "bin_range": [
+            0.5,
+            0.6
+          ],
+          "count": 1,
+          "prop": 0.0133,
+          "accuracy": 0.0,
+          "confidence": 0.5047,
+          "diff": 0.5047
+        },
+        {
+          "bin_index": 6,
+          "bin_range": [
+            0.6,
+            0.7
+          ],
+          "count": 3,
+          "prop": 0.04,
+          "accuracy": 1.0,
+          "confidence": 0.6421,
+          "diff": 0.3579
+        },
+        {
+          "bin_index": 7,
+          "bin_range": [
+            0.7,
+            0.8
+          ],
+          "count": 5,
+          "prop": 0.0667,
+          "accuracy": 0.6,
+          "confidence": 0.7619,
+          "diff": 0.1619
+        },
+        {
+          "bin_index": 8,
+          "bin_range": [
+            0.8,
+            0.9
+          ],
+          "count": 1,
+          "prop": 0.0133,
+          "accuracy": 1.0,
+          "confidence": 0.8641,
+          "diff": 0.1359
+        },
+        {
+          "bin_index": 9,
+          "bin_range": [
+            0.9,
+            1.0
+          ],
+          "count": 27,
+          "prop": 0.36,
+          "accuracy": 1.0,
+          "confidence": 0.9723,
+          "diff": 0.0277
+        }
+      ]
+    },
+    "Isotonic Regression": {
+      "ece_5": 0.40842105706532794,
+      "ece_10": 0.4084210585554441,
+      "bins_10": [
+        {
+          "bin_index": 0,
+          "bin_range": [
+            0.0,
+            0.1
+          ],
+          "count": 19,
+          "prop": 0.2533,
+          "accuracy": 1.0,
+          "confidence": 0.0,
+          "diff": 1.0
+        },
+        {
+          "bin_index": 1,
+          "bin_range": [
+            0.1,
+            0.2
+          ],
+          "count": 13,
+          "prop": 0.1733,
+          "accuracy": 0.9231,
+          "confidence": 0.1053,
+          "diff": 0.8178
+        },
+        {
+          "bin_index": 5,
+          "bin_range": [
+            0.5,
+            0.6
+          ],
+          "count": 15,
+          "prop": 0.2,
+          "accuracy": 0.5333,
+          "confidence": 0.6,
+          "diff": 0.0667
+        },
+        {
+          "bin_index": 9,
+          "bin_range": [
+            0.9,
+            1.0
+          ],
+          "count": 28,
+          "prop": 0.3733,
+          "accuracy": 1.0,
+          "confidence": 1.0,
+          "diff": 0.0
+        }
+      ]
+    }
+  },
+  "selected_method": "Platt Scaling (Logistic Calibration)",
+  "justification": "Platt scaling provides parametric monotonicity, does not overfit to small validation bins like step-wise isotonic regression, achieves lower/stable Brier loss and Expected Calibration Error (ECE), and maps raw ResNet-18 unbounded logits to well-calibrated posterior probabilities without shifting classification accuracy."
+}

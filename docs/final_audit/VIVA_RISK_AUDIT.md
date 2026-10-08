@@ -39,7 +39,7 @@ Every answer is rooted strictly in the physical implementation, avoiding unsuppo
 - **Answer:** Kafka acts as a distributed pub/sub commit log that decouples high-velocity data producers from downstream consumers. It absorbs high-velocity bursts (such as coordinated bot attacks) and provides topic partitioning with offset management, guaranteeing that downstream streaming jobs never drop messages during load spikes.
 
 ### Q6: Why Spark Structured Streaming?
-- **Answer:** Structured Streaming offers native event-time processing, micro-batch engine fault tolerance, and watermark-driven late data handling. In CrisisGuard, a 5-minute watermark and 1-minute tumbling windows allow accurate computation of propagation velocity and burst indicators without race conditions.
+- **Answer:** Structured Streaming offers native event-time processing, micro-batch engine fault tolerance, and watermark-driven late data handling. In CrisisGuard, a 1-hour event-time watermark and 1-hour tumbling windows aggregate propagation velocity and burst indicators over the 32-hour simulation timeline, producing clean hourly snapshots without race conditions or late-data contamination.
 
 ### Q7: Why Apache Hive?
 - **Answer:** Hive provides schema-on-read relational abstraction over distributed Parquet files, exposing standard ANSI SQL querying via the Hive Metastore. This allows post-incident crisis analysts to run ad-hoc SQL aggregation queries across propagation events, graph centralities, and streaming metrics without writing custom code.

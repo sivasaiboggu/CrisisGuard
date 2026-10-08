@@ -76,7 +76,7 @@ The pipeline enforces genuine, unidirectional, tool-to-tool data transformation:
                                              ▼
 +-----------------------------------------------------------------------------------------+
 |                    6. STREAM PROCESSING (SPARK STRUCTURED STREAMING)                    |
-|             Tumbling 1-Minute Window Aggregations, Event-Time Watermarking (5m)         |
+|             Tumbling 1-Hour Window Aggregations, Event-Time Watermarking (1 Hour)       |
 |                          32 Streaming Windows & Velocity Profiles                       |
 +-----------------------------------------------------------------------------------------+
                                              │
@@ -104,8 +104,8 @@ CrisisGuard strictly adheres to data transparency. We distinguish between **Real
 
 | Dataset | Type / Source | Actual Evaluated Size | Role in Pipeline | Provenance & Modality Policy |
 | :--- | :--- | :--- | :--- | :--- |
-| **CIFAKE Subset** | Real (Diffusion + Real Photos) | 72 test images ($32 \times 32$) | Spatial synthetic image detection (ResNet-18) | Controlled evaluation subset; not the full 120k dataset. `calibration_status = UNCALIBRATED`. |
-| **Google DFD Sample** | Real (Manipulated Video) | 5 videos (1,714 facial frames) | Temporal video deepfake detection | Controlled development sample; not full DFD benchmark. `calibration_status = UNCALIBRATED`. |
+| **CIFAKE Subset** | Real (Diffusion + Real Photos) | 72 test images ($32 \times 32$) | Spatial synthetic image detection (ResNet-18) | Controlled evaluation subset; not full 120k dataset. Calibrated via Platt scaling (`calibration_status = CALIBRATED_PLATT`). |
+| **Google DFD Sample** | Real (Manipulated Video) | 5 videos (1,714 facial frames) | Temporal video deepfake detection | Controlled development sample; not full DFD benchmark. `calibration_status = UNCALIBRATED` (insufficient validation data). |
 | **HumAID** | Real / QCRI | 15,160 test records | Humanitarian crisis task categorization | Dehydrated Twitter IDs and category labels. Evaluated without live tweet text. |
 | **CrisisMMD** | Real / QCRI | 8,079 preprocessed (955 test) | Supervised humanitarian text classification | **TEXT-ONLY MODELING:** Zero image binaries available locally; image references retained for metadata tracking only. |
 | **CrisisLex (T6 + T26)** | Real / CrisisLex.org | 88,015 records across 32 events | High-volume crisis informativeness filtering | Historical disaster text (2012–2018). Contextual feature stream. |
@@ -149,7 +149,7 @@ All implementation phases of CrisisGuard are completed, scientifically validated
 CrisisGuard adheres strictly to academic honesty and course guidelines:
 1. **Zero Arbitrary Emergency Priority Scores:** We explicitly reject and prohibit composite indexes such as EDPI (Emergency Dispatch Priority Index) or Danger Score constructed from arbitrary linear weights ($0.4 \times \text{media} + 0.3 \times \text{crisis} + \dots$). Feature streams are presented transparently to assist qualified human analysts.
 2. **Parallel Feature Stream Isolation:** Because forensic media, historical crisis tweets, cascade graphs, and road networks possess zero common primary keys, **no artificial joins were forced** (`NO_VALID_JOIN`). Cross-stream attributes maintain explicit `NULL` semantics rather than fabricated zero values.
-3. **Uncalibrated Model Scores:** ResNet-18 models are formally audited as `UNCALIBRATED`. Logit scores represent raw network activations, not true Bayesian posterior probabilities.
+3. **Probability Calibration Governance:** Image synthetic-media model outputs are calibrated via Platt scaling (`CALIBRATED_PLATT`), reducing ECE while preserving discriminative performance. Video model outputs remain uncalibrated (`UNCALIBRATED`) due to insufficient validation sample size, honestly documented rather than fabricated.
 4. **Text-Only CrisisMMD:** CrisisMMD is modeled strictly with NLP pipelines; no multimodal visual classification was performed.
 5. **No Causal Social Claims:** GraphX PageRank reflects structural position within directed cascade trees, not real-world malice or source intent.
 6. **No Autonomous Dispatch Operations:** CrisisGuard is an academic research pipeline; it is not certified for life-safety emergency dispatch.
@@ -260,17 +260,20 @@ All validators execute in < 15 seconds and verify 100% PASS without warnings.
 
 ---
 
-## 10. Limitations
+## 10. Limitations & Scientific Hardening (Phase 10 Audit)
 
-CrisisGuard clearly documents all known epistemic and operational limitations:
+CrisisGuard clearly documents all epistemic, empirical, and operational boundaries:
 
-1. **UNCALIBRATED model scores:** ResNet-18 image/video forensics produce raw sigmoid activations, not calibrated posterior probabilities. Platt scaling or isotonic regression was not applied due to statistically underpowered test sets.
-2. **Semi-Synthetic propagation cascades:** Phase 8 cascades are generated via parametric stochastic diffusion models (not real-world Twitter/Bluesky data) due to API access constraints.
-3. **HumAID text unavailability:** Only tweet IDs and humanitarian labels are available; live tweet text retrieval was not performed due to API rate limits.
-4. **CrisisMMD image binaries:** CrisisMMD multimodal classification was limited to text pipelines only; no local image binaries were available.
-5. **OSM-to-cascade spatial join:** No verified GPS-to-road mapping exists between cascade source/target nodes and OSM nodes, so `NO_VALID_JOIN` is explicitly preserved.
-6. **No real-time dispatch:** CrisisGuard is a research/educational pipeline. It is NOT certified for any operational emergency dispatch function.
-7. **Demo runtime constraint:** The live Spark Structured Streaming demo requires 60–90 seconds for JVM startup. This is expected and does not indicate failure.
+1. **Image Synthetic-Media Calibration (Resolved):** Image scores are calibrated using Platt scaling on a held-out validation partition (reducing 5-bin ECE from 0.4686 to 0.4061 and 10-bin ECE from 0.4827 to 0.4411 on the holdout test set while preserving 0.9815 ROC-AUC). Model inference dynamically applies the calibrator (`calibration_status = "CALIBRATED_PLATT"`).
+2. **Video Calibration (Retained — Insufficient Validation Data):** Video temporal model ($N=4$) remains uncalibrated (`calibration_status = "UNCALIBRATED"`) because the available validation sample ($N_{\text{val}}=1$) is mathematically insufficient for defensible calibration.
+3. **CrisisMMD Modality (Retained with Justification):** CrisisMMD is used for text-based classification with multimodal metadata retained; physical audit confirmed 0 local image binaries. On the CrisisMMD humanitarian classification test split ($N=955$), accuracy was 74.45% and macro F1 was 61.71% (total dataset: 8,079 records). Sourcing unverified external images was strictly rejected.
+4. **HumAID Text Availability (Retained with Justification):** The local HumAID representation contains humanitarian labels and Twitter identifiers but does not provide the original tweet text (100% of raw text is NULL). Therefore, this project does not perform unrestricted tweet-text classification on HumAID. Formalized as a 10-class empirical prior benchmark ($N=76,484$; Train/Test $D_{\text{KL}} = 0.000002$) with majority (27.83%) and stratified (15.06%) baselines.
+5. **Cross-Stream Relational Join (Retained as NO_VALID_JOIN with Evidence):** The empirical audit found no defensible cross-stream join across the tested candidate keys ($A \cap B = 0, B \cap C = 0, C \cap D = 0$). NO_VALID_JOIN is defensibly preserved; the system maintains separate streams in an evidence-aware multi-stream ledger ($N=175,361$ records with explicit NULL semantics) rather than creating unsupported joins.
+6. **GraphX Behavioral Intent (Retained with Justification):** GraphX measures propagation topology and structural indicators; it does not independently establish malicious intent, authenticity, or deception. Vocabulary is strictly hardened to "topological structural indicators", explicitly rejecting ungrounded claims of malice.
+7. **Decision Support Scope (Resolved for Prototype Governance):** CrisisGuard provides human-in-the-loop decision support and does not autonomously dispatch emergency services. Implements an evidence-aware review queue ($N=625$) with 3 priority tiers where 100% of items require human verification, with zero arbitrary linear dispatch formulas (no EDPI).
+8. **Demo Runtime Consideration:** Spark Structured Streaming execution requires 60–90 seconds for JVM startup and Kafka state store initialization. This is normal distributed runtime latency.
+
+Full forensic evidence, metrics, and methodology are detailed in [docs/phase10/PHASE10_LIMITATION_RESOLUTION_REPORT.md](file:///c:/Users/HP/OneDrive/Desktop/CrisisGuard/docs/phase10/PHASE10_LIMITATION_RESOLUTION_REPORT.md).
 
 ---
 
@@ -283,7 +286,7 @@ CrisisGuard clearly documents all known epistemic and operational limitations:
 | **Course** | CSE412 — Big Data & Large-Scale Computing |
 | **Project** | CrisisGuard: A Real-Time Big Data Pipeline for Synthetic Media Propagation Analysis and Emergency Response Prioritization |
 | **Submission Year** | 2026 |
-| **Institution** | (CSE412 Department) |
+| **Institution** | Indian Institute of Information Technology Kottayam (IIIT Kottayam) |
 
 ---
 

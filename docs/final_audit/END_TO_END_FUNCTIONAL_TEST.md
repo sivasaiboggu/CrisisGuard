@@ -59,7 +59,7 @@ Every transition has been verified against physical on-disk Parquets, JSON recei
 ### Transition 5: Kafka Stream to Spark Structured Streaming
 - **Command:** `python3 scripts/phase8/streaming/propagation_stream.py`
 - **Verification Evidence:** `data/features/phase8/streaming/propagation_stream_metrics.parquet`
-- **Result:** Structured Streaming job applied 5-minute event-time watermarking and 1-minute tumbling window aggregations, writing 32 analytical window records to Parquet sinks.
+- **Result:** Structured Streaming job applied 1-hour event-time watermarking and 1-hour tumbling window aggregations, writing 32 analytical window records to Parquet sinks.
 
 ### Transition 6: Sinks to Apache Hive Metastore & SQL
 - **Command:** `python3 scripts/phase8/hive/run_hive_pipeline.py`

@@ -1,0 +1,119 @@
+{
+  "dataset": "HumAID",
+  "author": "B.SIVASAI (2023BCS0228)",
+  "course": "CSE412 \u2014 Big Data & Large-Scale Computing",
+  "audit_date": "2026-10-02",
+  "data_availability": {
+    "text_available_locally": false,
+    "tweet_ids_available": true,
+    "class_labels_available": true,
+    "role": "HUMANITARIAN_CATEGORY_PRIOR_BENCHMARK_METADATA",
+    "justification": "Twitter Developer Agreement and Policy prohibits the redistribution of raw tweet text. The official QCRI HumAID release deliberately provides Twitter IDs and humanitarian labels. CrisisGuard strictly adheres to data provenance ethics: no unauthorized scraping, no fabricated synthetic tweet text, and no substituted datasets. Instead, HumAID serves as an authoritative disaster response empirical prior benchmark across 76,484 annotated records."
+  },
+  "dataset_splits": {
+    "total_records": 76484,
+    "train": 53531,
+    "dev": 7793,
+    "test": 15160
+  },
+  "class_distribution": {
+    "caution_and_advice": {
+      "total_count": 5394,
+      "train_count": 3774,
+      "train_prop": 0.0705,
+      "dev_count": 550,
+      "test_count": 1070,
+      "test_prop": 0.0706
+    },
+    "displaced_people_and_evacuations": {
+      "total_count": 3999,
+      "train_count": 2800,
+      "train_prop": 0.0523,
+      "dev_count": 409,
+      "test_count": 790,
+      "test_prop": 0.0521
+    },
+    "infrastructure_and_utility_damage": {
+      "total_count": 8163,
+      "train_count": 5715,
+      "train_prop": 0.1068,
+      "dev_count": 831,
+      "test_count": 1617,
+      "test_prop": 0.1067
+    },
+    "injured_or_dead_people": {
+      "total_count": 7303,
+      "train_count": 5110,
+      "train_prop": 0.0955,
+      "dev_count": 746,
+      "test_count": 1447,
+      "test_prop": 0.0954
+    },
+    "missing_or_found_people": {
+      "total_count": 358,
+      "train_count": 250,
+      "train_prop": 0.0047,
+      "dev_count": 36,
+      "test_count": 72,
+      "test_prop": 0.0047
+    },
+    "not_humanitarian": {
+      "total_count": 6296,
+      "train_count": 4407,
+      "train_prop": 0.0823,
+      "dev_count": 644,
+      "test_count": 1245,
+      "test_prop": 0.0821
+    },
+    "other_relevant_information": {
+      "total_count": 12144,
+      "train_count": 8501,
+      "train_prop": 0.1588,
+      "dev_count": 1236,
+      "test_count": 2407,
+      "test_prop": 0.1588
+    },
+    "requests_or_urgent_needs": {
+      "total_count": 2618,
+      "train_count": 1833,
+      "train_prop": 0.0342,
+      "dev_count": 264,
+      "test_count": 521,
+      "test_prop": 0.0344
+    },
+    "rescue_volunteering_or_donation_effort": {
+      "total_count": 21278,
+      "train_count": 14891,
+      "train_prop": 0.2782,
+      "dev_count": 2168,
+      "test_count": 4219,
+      "test_prop": 0.2783
+    },
+    "sympathy_and_support": {
+      "total_count": 8931,
+      "train_count": 6250,
+      "train_prop": 0.1168,
+      "dev_count": 909,
+      "test_count": 1772,
+      "test_prop": 0.1169
+    }
+  },
+  "distribution_shift_kl_divergence": 1.6996526256595943e-06,
+  "empirical_prior_baselines": {
+    "majority_class": {
+      "class_name": "rescue_volunteering_or_donation_effort",
+      "accuracy": 0.2782981530343008,
+      "macro_precision": 0.027829815303430077,
+      "macro_recall": 0.1,
+      "macro_f1": 0.04354197843025956,
+      "weighted_f1": 0.12117652176600598
+    },
+    "stratified_random_prior": {
+      "accuracy": 0.15059366754617415,
+      "macro_precision": 0.09903901226520614,
+      "macro_recall": 0.09901666763120923,
+      "macro_f1": 0.0990195008136554,
+      "weighted_f1": 0.15112692480665574
+    }
+  }
+}

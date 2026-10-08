@@ -1,0 +1,77 @@
+{
+  "audit_title": "Cross-Stream Relational Join Feasibility Matrix",
+  "author": "B.SIVASAI (Roll Number: 2023BCS0228)",
+  "course": "CSE412 \u2014 Big Data & Large-Scale Computing",
+  "date": "2026-10-02",
+  "streams": {
+    "stream_a": {
+      "name": "Synthetic Media Risk",
+      "count": 77
+    },
+    "stream_b": {
+      "name": "Crisis Information Intelligence",
+      "count": 104130
+    },
+    "stream_c": {
+      "name": "Propagation Graph & Streaming",
+      "count": 7494
+    },
+    "stream_d": {
+      "name": "Spatial Road Network",
+      "count": 63660
+    },
+    "total_ledger": 175361
+  },
+  "candidate_key_evaluations": [
+    {
+      "candidate_key": "content_id / media_id",
+      "availability": "Stream A: 100%, Stream B: 100%, Stream C: 100% (Events), Stream D: 0%",
+      "overlap_summary": "A_intersect_B=0, A_intersect_C=0, B_intersect_C=0",
+      "max_cross_overlap": 0,
+      "defensible": false,
+      "scientific_rationale": "Stream A media IDs are CIFAKE/DFD identifiers; Stream B content IDs are Twitter status keys; Stream C content IDs are synthetic cascade topics. Semantic spaces are strictly disjoint."
+    },
+    {
+      "candidate_key": "event_id / incident_id",
+      "availability": "Stream A: 0%, Stream B: 100% (Incident names), Stream C: 100% (Transmission IDs), Stream D: 0%",
+      "overlap_summary": "B_incident_intersect_C_event=0, B_incident_intersect_C_scenario=0",
+      "max_cross_overlap": 0,
+      "defensible": false,
+      "scientific_rationale": "Stream B event_id indicates historical disasters (e.g., '2013_Colorado_floods'); Stream C event_id indicates synthetic transmission instances ('sim_evt_1001'). Zero ontological overlap."
+    },
+    {
+      "candidate_key": "source_record_id / tweet_id",
+      "availability": "Stream A: 0%, Stream B: 100%, Stream C: 0%, Stream D: 0%",
+      "overlap_summary": "A_intersect_B=0",
+      "max_cross_overlap": 0,
+      "defensible": false,
+      "scientific_rationale": "Tweet IDs exist strictly within Twitter corpora (Stream B). Absent from image benchmarks (Stream A), synthetic cascades (Stream C), and OSM roads (Stream D)."
+    },
+    {
+      "candidate_key": "spatial_node_id (OSM)",
+      "availability": "Stream A: 0%, Stream B: 0%, Stream C: 0% (User graph), Stream D: 100% (Physical road intersections)",
+      "overlap_summary": "C_users_intersect_D_osm=0",
+      "max_cross_overlap": 0,
+      "defensible": false,
+      "scientific_rationale": "Stream C vertices represent social media diffusion accounts; Stream D vertices represent physical road intersections in Delhi. Merging users to road intersections without GPS telemetry is scientifically baseless."
+    },
+    {
+      "candidate_key": "timestamp / temporal window",
+      "availability": "Stream A: Prediction timestamp, Stream B: 2012-2018 historical, Stream C: Simulated 2026, Stream D: Static OSM",
+      "overlap_summary": "Temporal spans: Stream B (2012-2018), Stream C (2026), Stream A (2026 test inference)",
+      "max_cross_overlap": 0,
+      "defensible": false,
+      "scientific_rationale": "Disjoint temporal epochs: Historical crisis tweets were published in 2012-2018; synthetic cascades represent simulated real-time 2026 event streaming. Temporal join would yield 0 matches or arbitrary cartesian products."
+    },
+    {
+      "candidate_key": "geographic coordinates (lat/lon)",
+      "availability": "Stream A: 0%, Stream B: ~0.1% (99.9% NULL), Stream C: 0%, Stream D: 100%",
+      "overlap_summary": "Stream B coordinates near 0; Stream D coordinates restricted to Delhi bounding box",
+      "max_cross_overlap": 0,
+      "defensible": false,
+      "scientific_rationale": "Text tweets lack precise geotags (privacy filters). Synthesizing coordinates for tweets or synthetic images would constitute scientific fabrication."
+    }
+  ],
+  "final_decision": "NO_VALID_JOIN_CONFIRMED",
+  "architecture_adopted": "PARALLEL_MULTI_STREAM_DECISION_SUPPORT_LEDGER"
+}
