@@ -247,8 +247,8 @@ def handle_image(args, producer):
     print(f"  Input File:            {img_file.name}")
     print(f"  Synthetic Media Risk:  {synth_risk:.4f}")
     print(f"  Raw Score (Logits):    {model_score:.4f}")
-    print(f"  Classification:        {'SYNTHETIC / MANIPULATED' if synth_risk >= 0.5 else 'AUTHENTIC / REAL'}")
-    print(f"  Calibration Status:    {result['calibration_status']} (Standard Sigmoid / Frozen Checkpoint)")
+    cal_desc = "Platt Logistic Scaling / ResNet-18" if result.get("calibration_status") == "CALIBRATED_PLATT" else "Standard Sigmoid / Uncalibrated"
+    print(f"  Calibration Status:    {result.get('calibration_status', 'UNCALIBRATED')} ({cal_desc})")
     print(f"  Inference Latency:     {latency_ms:.2f} ms")
     
     if args.publish and producer and not args.dry_run:

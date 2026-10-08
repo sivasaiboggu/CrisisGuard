@@ -123,7 +123,7 @@ Stream B provides humanitarian context across 104,130 records from three benchma
 
 ## 5. Streaming Velocity & Temporal Dynamics (Stream C)
 
-Phase 8 streaming metrics captured 32 tumbling 1-minute windows across 5,004 propagation events:
+Phase 8 streaming metrics captured 32 tumbling 1-hour windows across 5,004 propagation events:
 
 | Scenario Name | Total Events | Active Windows | Mean Event Rate (/min) | Peak Rate (/min) | Mean Synthetic Risk | Propagation Character |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |

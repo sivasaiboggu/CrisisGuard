@@ -51,6 +51,14 @@ class UnifiedMediaInferenceEngine:
         self.video_temporal_model = VideoTemporalClassifier(in_features=512)
         self.video_temporal_model.load_state_dict(torch.load(vid_ckpt, map_location=self.device, weights_only=False))
         self.video_temporal_model.eval()
+
+        # Load Platt Calibrator for Image Forensics if available
+        platt_ckpt = os.path.join(self.cfg['paths']['checkpoint_dir'], "calibration", "platt_calibrator_resnet18.joblib")
+        if os.path.exists(platt_ckpt):
+            import joblib
+            self.platt_calibrator = joblib.load(platt_ckpt)
+        else:
+            self.platt_calibrator = None
         
         # Video frame feature extractor backbone
         weights = models.ResNet18_Weights.DEFAULT
@@ -95,18 +103,26 @@ class UnifiedMediaInferenceEngine:
             
         with torch.no_grad():
             logits = self.image_model(tensor)
-            prob = float(torch.sigmoid(logits).item())
             raw_score = float(logits.item())
+            uncal_prob = float(torch.sigmoid(logits).item())
             
+        if self.platt_calibrator is not None:
+            cal_prob = float(self.platt_calibrator.predict_proba(np.array([[raw_score]]))[:, 1][0])
+            cal_status = "CALIBRATED_PLATT"
+            final_prob = cal_prob
+        else:
+            cal_status = "UNCALIBRATED"
+            final_prob = uncal_prob
+
         record = {
             "content_id": content_id,
             "media_type": "image",
             "model_branch": "image_forensics",
             "model_version": "resnet18_cifake_v1.0",
             "model_score": round(raw_score, 6),
-            "synthetic_probability": round(prob, 6),
-            "synthetic_risk": round(prob, 6),
-            "calibration_status": "UNCALIBRATED",
+            "synthetic_probability": round(final_prob, 6),
+            "synthetic_risk": round(final_prob, 6),
+            "calibration_status": cal_status,
             "prediction_timestamp": datetime.now(timezone.utc).isoformat(),
             "source_dataset": source_dataset,
             "quality_status": "VALID",

@@ -112,7 +112,7 @@ In accordance with strict academic integrity rules, the provenance, sample sizes
   2. **Spark Batch Processing:** `spark_prepare_propagation.py` mapped node IDs and extracted 4,999 directed edges.
   3. **Spark GraphX:** Scala job executed PageRank and Connected Components on 7,494 vertices.
   4. **Kafka Streaming:** Topics `crisisguard.propagation.events` (5,004 records) and `crisisguard.propagation.edges` (4,999 records).
-  5. **Spark Structured Streaming:** Tumbling 1-minute window watermarked aggregations producing 32 window metrics.
+  5. **Spark Structured Streaming:** Tumbling 1-hour window watermarked aggregations producing 32 window metrics.
   6. **Apache Hive:** Hive Metastore database `metastore_db/` with tables `propagation_events`, `graphx_vertex_metrics`, and `propagation_stream_metrics`.
 - **Final Reconciled Graph Metrics Verified:**
   - **Propagation Events:** 5,004
