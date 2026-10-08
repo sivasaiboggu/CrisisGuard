@@ -76,7 +76,7 @@ The pipeline enforces genuine, unidirectional, tool-to-tool data transformation:
                                              ▼
 +-----------------------------------------------------------------------------------------+
 |                    6. STREAM PROCESSING (SPARK STRUCTURED STREAMING)                    |
-|             Tumbling 1-Minute Window Aggregations, Event-Time Watermarking (5m)         |
+|             Tumbling 1-Hour Window Aggregations, Event-Time Watermarking (1 Hour)       |
 |                          32 Streaming Windows & Velocity Profiles                       |
 +-----------------------------------------------------------------------------------------+
                                              │
@@ -104,8 +104,8 @@ CrisisGuard strictly adheres to data transparency. We distinguish between **Real
 
 | Dataset | Type / Source | Actual Evaluated Size | Role in Pipeline | Provenance & Modality Policy |
 | :--- | :--- | :--- | :--- | :--- |
-| **CIFAKE Subset** | Real (Diffusion + Real Photos) | 72 test images ($32 \times 32$) | Spatial synthetic image detection (ResNet-18) | Controlled evaluation subset; not the full 120k dataset. `calibration_status = UNCALIBRATED`. |
-| **Google DFD Sample** | Real (Manipulated Video) | 5 videos (1,714 facial frames) | Temporal video deepfake detection | Controlled development sample; not full DFD benchmark. `calibration_status = UNCALIBRATED`. |
+| **CIFAKE Subset** | Real (Diffusion + Real Photos) | 72 test images ($32 \times 32$) | Spatial synthetic image detection (ResNet-18) | Controlled evaluation subset; not full 120k dataset. Calibrated via Platt scaling (`calibration_status = CALIBRATED_PLATT`). |
+| **Google DFD Sample** | Real (Manipulated Video) | 5 videos (1,714 facial frames) | Temporal video deepfake detection | Controlled development sample; not full DFD benchmark. `calibration_status = UNCALIBRATED` (insufficient validation data). |
 | **HumAID** | Real / QCRI | 15,160 test records | Humanitarian crisis task categorization | Dehydrated Twitter IDs and category labels. Evaluated without live tweet text. |
 | **CrisisMMD** | Real / QCRI | 8,079 preprocessed (955 test) | Supervised humanitarian text classification | **TEXT-ONLY MODELING:** Zero image binaries available locally; image references retained for metadata tracking only. |
 | **CrisisLex (T6 + T26)** | Real / CrisisLex.org | 88,015 records across 32 events | High-volume crisis informativeness filtering | Historical disaster text (2012–2018). Contextual feature stream. |
@@ -149,7 +149,7 @@ All implementation phases of CrisisGuard are completed, scientifically validated
 CrisisGuard adheres strictly to academic honesty and course guidelines:
 1. **Zero Arbitrary Emergency Priority Scores:** We explicitly reject and prohibit composite indexes such as EDPI (Emergency Dispatch Priority Index) or Danger Score constructed from arbitrary linear weights ($0.4 \times \text{media} + 0.3 \times \text{crisis} + \dots$). Feature streams are presented transparently to assist qualified human analysts.
 2. **Parallel Feature Stream Isolation:** Because forensic media, historical crisis tweets, cascade graphs, and road networks possess zero common primary keys, **no artificial joins were forced** (`NO_VALID_JOIN`). Cross-stream attributes maintain explicit `NULL` semantics rather than fabricated zero values.
-3. **Uncalibrated Model Scores:** ResNet-18 models are formally audited as `UNCALIBRATED`. Logit scores represent raw network activations, not true Bayesian posterior probabilities.
+3. **Probability Calibration Governance:** Image synthetic-media model outputs are calibrated via Platt scaling (`CALIBRATED_PLATT`), reducing ECE while preserving discriminative performance. Video model outputs remain uncalibrated (`UNCALIBRATED`) due to insufficient validation sample size, honestly documented rather than fabricated.
 4. **Text-Only CrisisMMD:** CrisisMMD is modeled strictly with NLP pipelines; no multimodal visual classification was performed.
 5. **No Causal Social Claims:** GraphX PageRank reflects structural position within directed cascade trees, not real-world malice or source intent.
 6. **No Autonomous Dispatch Operations:** CrisisGuard is an academic research pipeline; it is not certified for life-safety emergency dispatch.

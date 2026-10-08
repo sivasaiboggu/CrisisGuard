@@ -101,13 +101,12 @@ In CrisisGuard, synthetic media outputs enter the event processing stream as **f
 * `synthetic_media_risk`
 * `media_type`
 
-**Critical Operational Boundary:**
-* Synthetic media risk **does not directly determine whether an emergency crisis report is true or false**. A real disaster event (e.g., severe flooding) may co-occur with recycled or synthetic imagery, or genuine eyewitness reports may circulate alongside synthetic media.
-* The final **Emergency Dispatch Priority Index (EDPI)** computed in Spark MLlib combines multiple orthogonal dimensions:
-  1. **Crisis Severity:** Physical damage classifications from CrisisMMD.
-  2. **Urgency:** Life-safety urgency extracted from HumAID humanitarian text.
-  3. **Propagation Characteristics:** Burst velocity and windowed event count from Spark Streaming.
-  4. **Graph Influence:** PageRank amplifier scores and coordination bot clusters from GraphX.
-  5. **Synthetic-Media Risk:** Forensic risk score from the two-branch media pipeline.
-  6. **Road Accessibility:** Shortest path network reachability to depots computed via GraphX on OpenStreetMap.
-  7. **Resource Proximity:** Physical distance to nearest relief stations and emergency responders.
+
+**Limitation Note (Historical Reference):**
+
+An earlier design iteration considered combining multiple orthogonal feature dimensions (crisis severity, urgency, propagation velocity, graph influence, synthetic-media risk, road accessibility, resource proximity) into a single linear composite score called EDPI (Emergency Dispatch Priority Index). This design was explicitly **rejected** as scientifically unsound: arbitrary linear weights across heterogeneous units cannot be justified empirically without domain validation data, and such a formula would create an illusion of precision.
+
+**Current Approach (Phase 9):**
+
+Feature streams are preserved independently in a parallel multi-stream evidence ledger (N=175,361 records). A transparent, rule-based human-review queue (N=625, 3 tiers) routes high-priority cases for qualified human analyst review. No EDPI formula, Danger Score, or arbitrary linear dispatch index is computed. All items require explicit human verification.
+
