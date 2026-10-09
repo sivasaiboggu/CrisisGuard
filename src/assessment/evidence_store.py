@@ -3,8 +3,13 @@ CrisisGuard — Evidence Store for Misinformation Assessment
 Author: B.SIVASAI (Roll Number: 2023BCS0228)
 Course: CSE412 — Big Data & Large-Scale Computing
 
-Stores traceable, authentic reference records, official situation reports,
-and ground-truth sensor telemetry for evidence-aware claim assessment.
+Stores traceable, curated reference records modeled after official agency situation reports
+(NDMA), river gauge telemetry (Central Water Commission), municipal infrastructure logs,
+and fire dispatch logs.
+
+Note: These records serve as localized demonstration reference fixtures for evaluating
+corroboration, contradiction, and uncertainty in offline and test environments.
+They do NOT represent live, active network API integrations with government agency servers.
 """
 
 from typing import List, Dict, Any, Optional
@@ -12,7 +17,7 @@ from datetime import datetime, timezone
 
 class EvidenceStore:
     def __init__(self):
-        # Curated reference baseline records with spatial, temporal, and semantic bounds
+        # Curated demonstration reference baseline records with spatial, temporal, and semantic bounds
         self.reference_records: List[Dict[str, Any]] = [
             {
                 "source_id": "NDMA_SITREP_2026_09_FLOOD",

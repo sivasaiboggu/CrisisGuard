@@ -57,25 +57,51 @@ class EmergencyResourceOptimizer:
             self.schema = None
             logger.warning(f"Allocation schema not found at {schema_path}")
 
+        # Idempotency and duplicate prevention ledger: incident_id -> allocation record
+        self.processed_allocations: Dict[str, Dict[str, Any]] = {}
+
+    def reset_history(self):
+        """Resets allocation history ledger and inventory allocations."""
+        self.processed_allocations.clear()
+        self.inventory_manager.reset_inventory()
+
     def solve_allocation(self,
                          incidents: List[Dict[str, Any]],
                          update_inventory: bool = True) -> List[Dict[str, Any]]:
         """
         Solves multi-incident emergency resource allocation.
         Returns a list of structured allocation recommendation records.
+        Enforces idempotency and duplicate prevention.
         """
         results = []
         eligible_incidents = []
+        seen_in_batch = set()
 
         # 1. Verification Gatekeeping & Pre-filter
         for inc in incidents:
             inc_id = str(inc.get("incident_id", f"inc_{uuid.uuid4().hex[:6]}"))
+            human_approved = bool(inc.get("human_approved", False))
+
+            # Idempotency / Duplicate Prevention Check
+            if inc_id in self.processed_allocations:
+                prev = self.processed_allocations[inc_id]
+                # If previously awaiting approval and now explicitly human-approved, allow transition
+                if prev.get("allocation_status") == "AWAITING_APPROVAL" and human_approved:
+                    pass
+                else:
+                    results.append(prev)
+                    continue
+
+            if inc_id in seen_in_batch:
+                logger.info(f"Duplicate submission of incident '{inc_id}' ignored in current batch.")
+                continue
+            seen_in_batch.add(inc_id)
+
             v_status = inc.get("verification_status", "UNVERIFIED")
             urgency = inc.get("urgency_level", "MEDIUM")
             cat = inc.get("incident_category", "unclassified")
             res_type = inc.get("required_resource_type", "AMBULANCE")
             demand = max(1, int(inc.get("demanded_quantity", 1)))
-            human_approved = bool(inc.get("human_approved", False))
 
             coords = inc.get("coordinates")
             if isinstance(coords, dict):
@@ -380,6 +406,10 @@ class EmergencyResourceOptimizer:
                     lat=inc["latitude"], lon=inc["longitude"], osm_node=inc["osm_node"]
                 )
             results.append(rec)
+
+        if update_inventory:
+            for rec in results:
+                self.processed_allocations[rec["incident_id"]] = rec
 
         return results
 

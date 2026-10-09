@@ -218,5 +218,40 @@ class TestResourceAllocation(unittest.TestCase):
         total_assigned = sum(r["assigned_quantity"] for r in results)
         self.assertLessEqual(total_assigned, total_boat_cap)
 
+    def test_duplicate_incident_submission_ignored(self):
+        """Verifies duplicate incident IDs within the same batch do not double-allocate resources."""
+        inc = {
+            "incident_id": "inc_duplicate_batch_01",
+            "incident_category": "affected_individuals",
+            "urgency_level": "CRITICAL",
+            "verification_status": "EVIDENCE_SUPPORTED",
+            "required_resource_type": "RESCUE_BOAT",
+            "demanded_quantity": 3,
+            "latitude": 6.7170,
+            "longitude": 72.9486
+        }
+        results = self.optimizer.solve_allocation([inc, inc])
+        # Only 1 unique allocation result should be produced
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0]["assigned_quantity"], 3)
+
+    def test_idempotent_repeated_allocation_requests(self):
+        """Verifies repeated calls with the same incident ID do not consume double resources."""
+        inc = {
+            "incident_id": "inc_idempotency_test_02",
+            "incident_category": "affected_individuals",
+            "urgency_level": "HIGH",
+            "verification_status": "EVIDENCE_SUPPORTED",
+            "required_resource_type": "RESCUE_BOAT",
+            "demanded_quantity": 2,
+            "latitude": 6.7170,
+            "longitude": 72.9486
+        }
+        res1 = self.optimizer.solve_allocation([inc], update_inventory=True)
+        res2 = self.optimizer.solve_allocation([inc], update_inventory=True)
+        self.assertEqual(res1[0]["assigned_quantity"], res2[0]["assigned_quantity"])
+        self.assertEqual(res1[0]["assigned_resource_id"], res2[0]["assigned_resource_id"])
+
 if __name__ == "__main__":
     unittest.main()
+

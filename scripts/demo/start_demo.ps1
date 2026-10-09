@@ -38,6 +38,9 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "`n[Step 3] Verifying Frozen Computational Integrity..." -ForegroundColor Yellow
 wsl -d Ubuntu-24.04 -e bash -c "cd '$WslProjectRoot' && .venv/bin/python scripts/validation/validate_final_project.py && .venv/bin/python scripts/validation/run_functional_acceptance_tests.py"
 
+Write-Host "`n[Step 4] Evidence-Aware Misinformation Assessment & Intelligent Resource Allocation..." -ForegroundColor Yellow
+wsl -d Ubuntu-24.04 -e bash -c "cd '$WslProjectRoot' && .venv/bin/python scripts/validation/validate_evidence_allocation.py && .venv/bin/python scripts/demo/run_demo_evidence_allocation.py && .venv/bin/python scripts/demo/view_decision_support_dashboard.py"
+
 Write-Host "`n============================================================" -ForegroundColor Green
 Write-Host "CRISISGUARD DEMO: COMPLETE" -ForegroundColor Green
 Write-Host "============================================================" -ForegroundColor Green

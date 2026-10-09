@@ -44,9 +44,15 @@ echo "[2/3] Running Live Demo (Modes A + B)..."
 "$VENV_PYTHON" scripts/demo/run_live_demo.py
 echo ""
 
-echo "[3/3] Verifying Frozen Computational Integrity..."
+echo "[3/4] Verifying Frozen Computational Integrity..."
 "$VENV_PYTHON" scripts/validation/validate_final_project.py
 "$VENV_PYTHON" scripts/validation/run_functional_acceptance_tests.py
+echo ""
+
+echo "[4/4] Evidence-Aware Misinformation Assessment & Intelligent Resource Allocation..."
+"$VENV_PYTHON" scripts/validation/validate_evidence_allocation.py
+"$VENV_PYTHON" scripts/demo/run_demo_evidence_allocation.py
+"$VENV_PYTHON" scripts/demo/view_decision_support_dashboard.py
 
 echo ""
 echo "============================================================"
