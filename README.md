@@ -348,3 +348,105 @@ The latest extension transforms CrisisGuard into a complete, mathematically cons
 
 Detailed formulation, test cases, and empirical metrics are provided in [docs/EVIDENCE_ALLOCATION_REPORT.md](file:///c:/Users/HP/OneDrive/Desktop/CrisisGuard/docs/EVIDENCE_ALLOCATION_REPORT.md).
 
+---
+
+## 14. Enterprise Web Application & REST API Architecture
+
+CrisisGuard provides a production-grade, responsive enterprise web interface connected to the live FastAPI backend layer.
+
+### 14.1 Full System Architecture Diagram
+
+```
++----------------------------------------------------------------------------------------------------+
+|                                    CRISISGUARD WEB FRONTEND                                        |
+|                          React 19 + TypeScript + Vite + Enterprise Dark-Navy                       |
+|  [Executive Overview] [Incidents Dossier] [Forensics Lab] [Evidence NLI] [Propagation] [MILP Alloc]|
++----------------------------------------------------------------------------------------------------+
+                                                  │ HTTP / JSON
+                                                  ▼
++----------------------------------------------------------------------------------------------------+
+|                                      FASTAPI REST API SERVER                                       |
+|                                     Port: 8080 (or PORT env var)                                   |
+|                 Typed Endpoints, Request Validation, Static Production Bundle Serving              |
++----------------------------------------------------------------------------------------------------+
+                        │                                             │
+                        ▼                                             ▼
++-----------------------------------------------+   +-----------------------------------------------+
+|      MISINFORMATION ASSESSMENT ENGINE         |   |         RESOURCE OPTIMIZATION ENGINE          |
+|  - ClaimExtractor (NLP Claim Segmentation)   |   |  - ResourceInventoryManager (Depot Assets)    |
+|  - EvidenceStore (NDMA / CWC Ground Truth)    |   |  - OSMRoutingEngine (Dijkstra 63.6k nodes)    |
+|  - DeBERTa NLI Cross-Encoder / Uncertainty    |   |  - HiGHS MILP Solver (Urgency / Travel Cost)  |
+|  - PyTorch ResNet-18 (Platt Logistic Scaling) |   |  - Safety Verification Gate & Human Triage    |
++-----------------------------------------------+   +-----------------------------------------------+
+                        │                                             │
+                        ▼                                             ▼
++----------------------------------------------------------------------------------------------------+
+|                                BIG DATA & PERSISTENCE SERVICES                                     |
+|  - Hadoop HDFS (Port 9000): Raw Ingestion & Multi-modal Parquet Stores                            |
+|  - Apache Kafka (Port 9092): Real-Time Cascade Event Streams                                      |
+|  - Spark GraphX: 7,494 Vertices, PageRank (121.97), 2,509 Connected Components                    |
+|  - Spark Structured Streaming: 32 Tumbling 1-Hour Windows, Event-Time Watermarking                 |
+|  - Apache Hive: Analytical Warehouse Tables (default.propagation_events)                          |
+|  - Immutable Audit Store: results/audit/audit_history.json                                         |
++----------------------------------------------------------------------------------------------------+
+```
+
+### 14.2 REST API Specification & Real Data Sources
+
+| Method | Endpoint | Description | Real Underlying Source / Engine |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/health` | Service health probe | Uvicorn server runtime state |
+| `GET` | `/api/health/services` | Big Data & model dependency checks | Live socket probes (HDFS 9000, Kafka 9092), model weight checks |
+| `GET` | `/api/overview` | Aggregated executive KPI metrics | `results/assessment/` + `results/allocation/` + `ResourceInventoryManager` |
+| `GET` | `/api/incidents` | Filterable crisis claims list | `results/assessment/demonstration_claim_assessments.json` |
+| `GET` | `/api/incidents/{id}` | Full incident dossier & linked allocation | Assessment records + matching MILP allocation |
+| `POST`| `/api/assessment` | Live claim NLI evidence verification | `MisinformationAssessor` + `EvidenceStore` + `ClaimExtractor` |
+| `POST`| `/api/media/analyze` | Synthetic media file upload & forensics | PyTorch ResNet-18 (`image_model_best.pt`) + Platt calibrator |
+| `GET` | `/api/assessment/history` | Historical claims assessment ledger | `results/assessment/demonstration_claim_assessments.json` |
+| `GET` | `/api/propagation/summary` | GraphX metrics & 32 streaming windows | `data/features/phase8/graph/` + `streaming/` |
+| `GET` | `/api/propagation/graph` | Interactive bounded authority subgraph | `data/features/phase8/graph/edges.csv` + `graphx_vertex_metrics.csv` |
+| `GET` | `/api/resources` | Depot emergency assets (Synthetic badge) | `ResourceInventoryManager` (Depots in Delhi NCR) |
+| `GET` | `/api/allocations` | Solved MILP allocations list | `results/allocation/demonstration_resource_allocations.json` |
+| `POST`| `/api/allocations/optimize`| Multi-incident HiGHS MILP solve | `EmergencyResourceOptimizer` + `OSMRoutingEngine` |
+| `POST`| `/api/allocations/{id}/approve` | Dispatcher human approval mutation | `EmergencyResourceOptimizer` solve + `results/audit/audit_history.json` |
+| `POST`| `/api/allocations/{id}/reject` | Dispatcher human rejection mutation | Safety gate update + `results/audit/audit_history.json` |
+| `GET` | `/api/audit` | Immutable dispatcher audit log | `results/audit/audit_history.json` |
+
+### 14.3 Launch Commands
+
+#### One-Command Web Application Launch (Recommended)
+From WSL2 Ubuntu-24.04:
+```bash
+cd /mnt/c/Users/HP/OneDrive/Desktop/CrisisGuard
+bash scripts/demo/start_web.sh
+```
+
+Or from Windows PowerShell:
+```powershell
+cd C:\Users\HP\OneDrive\Desktop\CrisisGuard
+.\scripts\demo\start_web.ps1
+```
+
+- **Web Application URL:** [http://localhost:8080](http://localhost:8080)
+- **Interactive Swagger API Docs:** [http://localhost:8080/docs](http://localhost:8080/docs)
+
+#### Frontend Development Server (Hot-Reload)
+```bash
+cd frontend
+npm run dev
+# Access dev UI at http://localhost:5173 (proxied to backend at http://localhost:8080)
+```
+
+### 14.4 Web and API Test Verification Commands
+
+```bash
+# 1. Run FastAPI Unit Test Suite (11/11 PASS)
+python3 -m pytest tests/test_api_server.py
+
+# 2. Run End-to-End Frontend Integration Test Suite (10/10 PASS)
+python3 -m pytest tests/test_e2e_frontend_integration.py
+
+# 3. Compile and Build Frontend Production Bundle
+cd frontend && npm run build
+```
+

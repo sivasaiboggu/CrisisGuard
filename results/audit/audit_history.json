@@ -1,0 +1,112 @@
+[
+  {
+    "audit_id": "aud_c7b1b508af",
+    "action": "ALLOCATION_APPROVED",
+    "target_id": "alloc_587c60e162",
+    "actor": "IntegrationTestDispatcher",
+    "timestamp": "2026-10-09T10:52:59.497233+00:00",
+    "details": {
+      "incident_id": "INC_TEST_02",
+      "new_status": "INFEASIBLE"
+    }
+  },
+  {
+    "audit_id": "aud_f5ed6b90fe",
+    "action": "MILP_OPTIMIZATION_EXECUTED",
+    "target_id": "BATCH_OPTIMIZATION",
+    "actor": "HIGHS_MILP_SOLVER",
+    "timestamp": "2026-10-09T10:52:59.431053+00:00",
+    "details": {
+      "incidents_count": 2,
+      "assigned_count": 0
+    }
+  },
+  {
+    "audit_id": "aud_b2b9f8226d",
+    "action": "CLAIM_ASSESSMENT_COMPLETED",
+    "target_id": "claim_f9f9ebbf",
+    "actor": "EVIDENCE_ASSESSOR_V1",
+    "timestamp": "2026-10-09T10:52:59.165939+00:00",
+    "details": {
+      "outcome": "UNVERIFIED",
+      "uncertainty": 0.6
+    }
+  },
+  {
+    "audit_id": "aud_e5b206a40d",
+    "action": "CLAIM_ASSESSMENT_COMPLETED",
+    "target_id": "claim_47483bd6",
+    "actor": "EVIDENCE_ASSESSOR_V1",
+    "timestamp": "2026-10-09T10:52:59.004967+00:00",
+    "details": {
+      "outcome": "UNVERIFIED",
+      "uncertainty": 0.6
+    }
+  },
+  {
+    "audit_id": "aud_0978eda1fa",
+    "action": "ALLOCATION_APPROVED",
+    "target_id": "alloc_bf46818424",
+    "actor": "IntegrationTestDispatcher",
+    "timestamp": "2026-10-09T10:51:09.919626+00:00",
+    "details": {
+      "incident_id": "INC_TEST_02",
+      "new_status": "INFEASIBLE"
+    }
+  },
+  {
+    "audit_id": "aud_12c3ec96c6",
+    "action": "MILP_OPTIMIZATION_EXECUTED",
+    "target_id": "BATCH_OPTIMIZATION",
+    "actor": "HIGHS_MILP_SOLVER",
+    "timestamp": "2026-10-09T10:51:09.863262+00:00",
+    "details": {
+      "incidents_count": 2,
+      "assigned_count": 0
+    }
+  },
+  {
+    "audit_id": "aud_f376038698",
+    "action": "CLAIM_ASSESSMENT_COMPLETED",
+    "target_id": "claim_685d454f",
+    "actor": "EVIDENCE_ASSESSOR_V1",
+    "timestamp": "2026-10-09T10:51:09.563071+00:00",
+    "details": {
+      "outcome": "UNVERIFIED",
+      "uncertainty": 0.6
+    }
+  },
+  {
+    "audit_id": "aud_d62b25c5ca",
+    "action": "ALLOCATION_APPROVED",
+    "target_id": "alloc_7c227204aa",
+    "actor": "ChiefDispatcher_SivaSai",
+    "timestamp": "2026-10-09T10:49:59.004101+00:00",
+    "details": {
+      "incident_id": "INC_04_METRO_TRAUMA_STANDBY",
+      "new_status": "RECOMMENDED"
+    }
+  },
+  {
+    "audit_id": "aud_e90c17c5eb",
+    "action": "CLAIM_ASSESSMENT_COMPLETED",
+    "target_id": "claim_0afe02fc",
+    "actor": "EVIDENCE_ASSESSOR_V1",
+    "timestamp": "2026-10-09T10:43:28.022412+00:00",
+    "details": {
+      "outcome": "UNVERIFIED",
+      "uncertainty": 0.6
+    }
+  },
+  {
+    "audit_id": "aud_c2f78202f6",
+    "action": "CLAIM_ASSESSMENT_COMPLETED",
+    "target_id": "claim_1295578c",
+    "actor": "EVIDENCE_ASSESSOR_V1",
+    "timestamp": "2026-10-09T10:36:26.321507+00:00",
+    "details": {
+      "outcome": "UNVERIFIED",
+      "uncertainty": 0.6
+    }
+  }
+]

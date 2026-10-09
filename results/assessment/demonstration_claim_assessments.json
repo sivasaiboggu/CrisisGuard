@@ -1,5 +1,191 @@
 [
   {
+    "assessment_id": "asmt_f09c961293",
+    "claim_id": "claim_f9f9ebbf",
+    "report_text": "Yamuna river water level touched 208.66m at Mayur Vihar low-lying sector.",
+    "extracted_claim": "Yamuna river water level touched 208.66m at Mayur Vihar low-lying sector.",
+    "crisis_category": "other_relevant_information",
+    "category_confidence": 0.2437,
+    "media_present": false,
+    "media_type": null,
+    "synthetic_media_risk": null,
+    "calibration_status": "NOT_APPLICABLE",
+    "propagation_context": {
+      "event_rate": null,
+      "burst_ratio": null,
+      "pagerank": null,
+      "is_hub_node": null
+    },
+    "evidence_references": [
+      {
+        "source_id": "NDMA_SITREP_2026_09_FLOOD",
+        "source_type": "OFFICIAL_DISASTER_AGENCY",
+        "claim_relation": "INCONCLUSIVE",
+        "detail": "Yamuna river water level exceeded danger mark by 1.2m; Sector 5 low-lying embankment breached; evacuation advisory active.",
+        "timestamp": "2026-10-09T10:52:59.139548+00:00"
+      }
+    ],
+    "assessment_outcome": "UNVERIFIED",
+    "rationale": "Available reference records are inconclusive regarding the specific factual assertions in this report.",
+    "uncertainty_score": 0.6,
+    "human_review_required": true,
+    "timestamp": "2026-10-09T10:52:59.139631+00:00",
+    "provenance": "crisisguard_evidence_aware_assessor_v1"
+  },
+  {
+    "assessment_id": "asmt_5fc8d6dc24",
+    "claim_id": "claim_47483bd6",
+    "report_text": "Yamuna water level crossed 208.66m at Old Railway Bridge.",
+    "extracted_claim": "Yamuna water level crossed 208.66m at Old Railway Bridge.",
+    "crisis_category": "not_humanitarian",
+    "category_confidence": 0.281,
+    "media_present": false,
+    "media_type": null,
+    "synthetic_media_risk": null,
+    "calibration_status": "NOT_APPLICABLE",
+    "propagation_context": {
+      "event_rate": null,
+      "burst_ratio": null,
+      "pagerank": null,
+      "is_hub_node": null
+    },
+    "evidence_references": [
+      {
+        "source_id": "NDMA_SITREP_2026_09_FLOOD",
+        "source_type": "OFFICIAL_DISASTER_AGENCY",
+        "claim_relation": "INCONCLUSIVE",
+        "detail": "Yamuna river water level exceeded danger mark by 1.2m; Sector 5 low-lying embankment breached; evacuation advisory active.",
+        "timestamp": "2026-10-09T10:52:58.978544+00:00"
+      },
+      {
+        "source_id": "CWC_GAUGE_TELEMETRY_0884",
+        "source_type": "GROUND_SENSOR_TELEMETRY",
+        "claim_relation": "INCONCLUSIVE",
+        "detail": "Water gauge reading 208.66m (High flood level). Railway bridge structure intact; monitored hourly.",
+        "timestamp": "2026-10-09T10:52:58.978557+00:00"
+      }
+    ],
+    "assessment_outcome": "UNVERIFIED",
+    "rationale": "Available reference records are inconclusive regarding the specific factual assertions in this report.",
+    "uncertainty_score": 0.6,
+    "human_review_required": true,
+    "timestamp": "2026-10-09T10:52:58.978584+00:00",
+    "provenance": "crisisguard_evidence_aware_assessor_v1"
+  },
+  {
+    "assessment_id": "asmt_58d20871d7",
+    "claim_id": "claim_685d454f",
+    "report_text": "Yamuna river water level touched 208.66m at Mayur Vihar low-lying sector.",
+    "extracted_claim": "Yamuna river water level touched 208.66m at Mayur Vihar low-lying sector.",
+    "crisis_category": "other_relevant_information",
+    "category_confidence": 0.2437,
+    "media_present": false,
+    "media_type": null,
+    "synthetic_media_risk": null,
+    "calibration_status": "NOT_APPLICABLE",
+    "propagation_context": {
+      "event_rate": null,
+      "burst_ratio": null,
+      "pagerank": null,
+      "is_hub_node": null
+    },
+    "evidence_references": [
+      {
+        "source_id": "NDMA_SITREP_2026_09_FLOOD",
+        "source_type": "OFFICIAL_DISASTER_AGENCY",
+        "claim_relation": "INCONCLUSIVE",
+        "detail": "Yamuna river water level exceeded danger mark by 1.2m; Sector 5 low-lying embankment breached; evacuation advisory active.",
+        "timestamp": "2026-10-09T10:51:09.537342+00:00"
+      }
+    ],
+    "assessment_outcome": "UNVERIFIED",
+    "rationale": "Available reference records are inconclusive regarding the specific factual assertions in this report.",
+    "uncertainty_score": 0.6,
+    "human_review_required": true,
+    "timestamp": "2026-10-09T10:51:09.537404+00:00",
+    "provenance": "crisisguard_evidence_aware_assessor_v1"
+  },
+  {
+    "assessment_id": "asmt_0347f2ec73",
+    "claim_id": "claim_0afe02fc",
+    "report_text": "Yamuna water level crossed 208.66m at Old Railway Bridge.",
+    "extracted_claim": "Yamuna water level crossed 208.66m at Old Railway Bridge.",
+    "crisis_category": "not_humanitarian",
+    "category_confidence": 0.281,
+    "media_present": false,
+    "media_type": null,
+    "synthetic_media_risk": null,
+    "calibration_status": "NOT_APPLICABLE",
+    "propagation_context": {
+      "event_rate": null,
+      "burst_ratio": null,
+      "pagerank": null,
+      "is_hub_node": null
+    },
+    "evidence_references": [
+      {
+        "source_id": "NDMA_SITREP_2026_09_FLOOD",
+        "source_type": "OFFICIAL_DISASTER_AGENCY",
+        "claim_relation": "INCONCLUSIVE",
+        "detail": "Yamuna river water level exceeded danger mark by 1.2m; Sector 5 low-lying embankment breached; evacuation advisory active.",
+        "timestamp": "2026-10-09T10:43:27.993664+00:00"
+      },
+      {
+        "source_id": "CWC_GAUGE_TELEMETRY_0884",
+        "source_type": "GROUND_SENSOR_TELEMETRY",
+        "claim_relation": "INCONCLUSIVE",
+        "detail": "Water gauge reading 208.66m (High flood level). Railway bridge structure intact; monitored hourly.",
+        "timestamp": "2026-10-09T10:43:27.993680+00:00"
+      }
+    ],
+    "assessment_outcome": "UNVERIFIED",
+    "rationale": "Available reference records are inconclusive regarding the specific factual assertions in this report.",
+    "uncertainty_score": 0.6,
+    "human_review_required": true,
+    "timestamp": "2026-10-09T10:43:27.993720+00:00",
+    "provenance": "crisisguard_evidence_aware_assessor_v1"
+  },
+  {
+    "assessment_id": "asmt_9a19335175",
+    "claim_id": "claim_1295578c",
+    "report_text": "Yamuna water level crossed 208.66m at Old Railway Bridge.",
+    "extracted_claim": "Yamuna water level crossed 208.66m at Old Railway Bridge.",
+    "crisis_category": "not_humanitarian",
+    "category_confidence": 0.281,
+    "media_present": false,
+    "media_type": null,
+    "synthetic_media_risk": null,
+    "calibration_status": "NOT_APPLICABLE",
+    "propagation_context": {
+      "event_rate": null,
+      "burst_ratio": null,
+      "pagerank": null,
+      "is_hub_node": null
+    },
+    "evidence_references": [
+      {
+        "source_id": "NDMA_SITREP_2026_09_FLOOD",
+        "source_type": "OFFICIAL_DISASTER_AGENCY",
+        "claim_relation": "INCONCLUSIVE",
+        "detail": "Yamuna river water level exceeded danger mark by 1.2m; Sector 5 low-lying embankment breached; evacuation advisory active.",
+        "timestamp": "2026-10-09T10:36:26.290271+00:00"
+      },
+      {
+        "source_id": "CWC_GAUGE_TELEMETRY_0884",
+        "source_type": "GROUND_SENSOR_TELEMETRY",
+        "claim_relation": "INCONCLUSIVE",
+        "detail": "Water gauge reading 208.66m (High flood level). Railway bridge structure intact; monitored hourly.",
+        "timestamp": "2026-10-09T10:36:26.290285+00:00"
+      }
+    ],
+    "assessment_outcome": "UNVERIFIED",
+    "rationale": "Available reference records are inconclusive regarding the specific factual assertions in this report.",
+    "uncertainty_score": 0.6,
+    "human_review_required": true,
+    "timestamp": "2026-10-09T10:36:26.290316+00:00",
+    "provenance": "crisisguard_evidence_aware_assessor_v1"
+  },
+  {
     "assessment_id": "asmt_7117602661",
     "claim_id": "CRISIS_EVENT_001_FLOOD",
     "report_text": "Yamuna embankment breached in Sector 5! Water level 1.5m, need rescue boats immediately!",
