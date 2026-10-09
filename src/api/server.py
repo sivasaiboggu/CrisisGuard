@@ -626,7 +626,26 @@ if dist_dir.exists():
     from fastapi.staticfiles import StaticFiles
     app.mount("/", StaticFiles(directory=str(dist_dir), html=True), name="frontend")
 
+def find_available_port(start_port: int = 8080, max_attempts: int = 20) -> int:
+    for p in range(start_port, start_port + max_attempts):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                s.bind(("0.0.0.0", p))
+                return p
+        except OSError:
+            continue
+    return start_port
+
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.environ.get("PORT", "8080"))
+    req_port = int(os.environ.get("PORT", "8080"))
+    port = find_available_port(req_port)
+    if port != req_port:
+        logger.warning(f"Port {req_port} occupied; automatically rebound to port {port}")
+    print(f"\n============================================================")
+    print(f"CRISISGUARD WEB APP & API READY")
+    print(f"URL:      http://localhost:{port}")
+    print(f"API Docs: http://localhost:{port}/docs")
+    print(f"============================================================\n")
     uvicorn.run("src.api.server:app", host="0.0.0.0", port=port, reload=False)

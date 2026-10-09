@@ -4,7 +4,6 @@
 # Course: CSE412 — Big Data & Large-Scale Computing
 #
 # Launches the FastAPI REST API and serves the production-built React frontend.
-# Access URL: http://localhost:8080
 
 set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -19,15 +18,18 @@ fi
 
 PORT="${PORT:-8080}"
 
+# Gracefully terminate any previous stale uvicorn instance on this port
+if command -v fuser >/dev/null 2>&1; then
+    fuser -k "${PORT}/tcp" 2>/dev/null || true
+fi
+
 echo "============================================================"
 echo "CRISISGUARD — DECISION SUPPORT WEB APP & API"
 echo "Author: B.SIVASAI (Roll Number: 2023BCS0228)"
 echo "Course: CSE412 — Big Data & Large-Scale Computing"
 echo "============================================================"
-echo "Host: 0.0.0.0 | Port: $PORT"
-echo "Web Application URL: http://localhost:$PORT"
-echo "API Documentation:   http://localhost:$PORT/docs"
+echo "Starting CrisisGuard web application server..."
+echo "Target Port: $PORT"
 echo "============================================================"
-echo "Starting Uvicorn server..."
 
-exec "$PYTHON_BIN" -m uvicorn src.api.server:app --host 0.0.0.0 --port "$PORT"
+exec "$PYTHON_BIN" -m src.api.server
