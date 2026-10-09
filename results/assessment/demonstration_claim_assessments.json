@@ -1,0 +1,125 @@
+[
+  {
+    "assessment_id": "asmt_7117602661",
+    "claim_id": "CRISIS_EVENT_001_FLOOD",
+    "report_text": "Yamuna embankment breached in Sector 5! Water level 1.5m, need rescue boats immediately!",
+    "extracted_claim": "Yamuna embankment breached in Sector 5! Water level 1.5m, need rescue boats immediately!",
+    "crisis_category": "rescue_volunteering_or_donation_effort",
+    "category_confidence": 0.7867,
+    "media_present": true,
+    "media_type": "IMAGE",
+    "synthetic_media_risk": null,
+    "calibration_status": "CALIBRATED_PLATT",
+    "propagation_context": {
+      "event_rate": null,
+      "burst_ratio": null,
+      "pagerank": null,
+      "is_hub_node": null
+    },
+    "evidence_references": [
+      {
+        "source_id": "NDMA_SITREP_2026_09_FLOOD",
+        "source_type": "OFFICIAL_DISASTER_AGENCY",
+        "claim_relation": "CORROBORATES",
+        "detail": "Corroborates official SITREP (National Disaster Management Authority (NDMA)): low-lying embankment breach officially confirmed.",
+        "timestamp": "2026-10-09T07:35:38.253961+00:00"
+      }
+    ],
+    "assessment_outcome": "EVIDENCE_SUPPORTED",
+    "rationale": "Claim is corroborated by traceable authority evidence: Corroborates official SITREP (National Disaster Management Authority (NDMA)): low-lying embankment breach officially confirmed..",
+    "uncertainty_score": 0.1,
+    "human_review_required": false,
+    "timestamp": "2026-10-09T07:35:38.254029+00:00",
+    "provenance": "crisisguard_evidence_aware_assessor_v1"
+  },
+  {
+    "assessment_id": "asmt_ec2ec50eb6",
+    "claim_id": "CRISIS_EVENT_002_BRIDGE",
+    "report_text": "Downtown railway bridge collapsed completely! Raging torrent washed away train tracks!",
+    "extracted_claim": "Downtown railway bridge collapsed completely! Raging torrent washed away train tracks!",
+    "crisis_category": "not_humanitarian",
+    "category_confidence": 0.308,
+    "media_present": false,
+    "media_type": null,
+    "synthetic_media_risk": null,
+    "calibration_status": "NOT_APPLICABLE",
+    "propagation_context": {
+      "event_rate": 16.7,
+      "burst_ratio": 1.9841584158415841,
+      "pagerank": 2.2359,
+      "is_hub_node": true
+    },
+    "evidence_references": [
+      {
+        "source_id": "NDMA_SITREP_2026_09_FLOOD",
+        "source_type": "OFFICIAL_DISASTER_AGENCY",
+        "claim_relation": "CONTRADICTS",
+        "detail": "Contradicts verified ground telemetry (National Disaster Management Authority (NDMA)): bridge structure is verified intact and operational.",
+        "timestamp": "2026-10-09T07:35:38.257369+00:00"
+      },
+      {
+        "source_id": "CWC_GAUGE_TELEMETRY_0884",
+        "source_type": "GROUND_SENSOR_TELEMETRY",
+        "claim_relation": "CONTRADICTS",
+        "detail": "Contradicts verified ground telemetry (Central Water Commission (CWC)): bridge structure is verified intact and operational.",
+        "timestamp": "2026-10-09T07:35:38.257385+00:00"
+      }
+    ],
+    "assessment_outcome": "CONTRADICTED_BY_EVIDENCE",
+    "rationale": "Claim is directly contradicted by verified reference evidence: Contradicts verified ground telemetry (National Disaster Management Authority (NDMA)): bridge structure is verified intact and operational.; Contradicts verified ground telemetry (Central Water Commission (CWC)): bridge structure is verified intact and operational..",
+    "uncertainty_score": 0.15,
+    "human_review_required": true,
+    "timestamp": "2026-10-09T07:35:38.257425+00:00",
+    "provenance": "crisisguard_evidence_aware_assessor_v1"
+  },
+  {
+    "assessment_id": "asmt_afbdb93fe6",
+    "claim_id": "CRISIS_EVENT_003_HOSPITAL",
+    "report_text": "Transformer damaged near Metro Trauma Centre, localized smoke, need medical ambulance standby.",
+    "extracted_claim": "Transformer damaged near Metro Trauma Centre, localized smoke, need medical ambulance standby.",
+    "crisis_category": "infrastructure_and_utility_damage",
+    "category_confidence": 0.4187,
+    "media_present": false,
+    "media_type": null,
+    "synthetic_media_risk": null,
+    "calibration_status": "NOT_APPLICABLE",
+    "propagation_context": {
+      "event_rate": null,
+      "burst_ratio": null,
+      "pagerank": null,
+      "is_hub_node": null
+    },
+    "evidence_references": [],
+    "assessment_outcome": "INSUFFICIENT_EVIDENCE",
+    "rationale": "Zero traceable reference records, official situation reports, or sensor telemetry available for this incident or location.",
+    "uncertainty_score": 0.85,
+    "human_review_required": true,
+    "timestamp": "2026-10-09T07:35:38.260725+00:00",
+    "provenance": "crisisguard_evidence_aware_assessor_v1"
+  },
+  {
+    "assessment_id": "asmt_938ec7c774",
+    "claim_id": "CRISIS_EVENT_004_RUMOR",
+    "report_text": "Secret chemical explosion spreading green gas cloud over city centre!",
+    "extracted_claim": "Secret chemical explosion spreading green gas cloud over city centre!",
+    "crisis_category": "not_humanitarian",
+    "category_confidence": 0.3571,
+    "media_present": false,
+    "media_type": null,
+    "synthetic_media_risk": null,
+    "calibration_status": "NOT_APPLICABLE",
+    "propagation_context": {
+      "event_rate": null,
+      "burst_ratio": null,
+      "pagerank": null,
+      "is_hub_node": null
+    },
+    "evidence_references": [],
+    "assessment_outcome": "INSUFFICIENT_EVIDENCE",
+    "rationale": "Zero traceable reference records, official situation reports, or sensor telemetry available for this incident or location.",
+    "uncertainty_score": 0.85,
+    "human_review_required": true,
+    "timestamp": "2026-10-09T07:35:38.264188+00:00",
+    "provenance": "crisisguard_evidence_aware_assessor_v1"
+  }
+]

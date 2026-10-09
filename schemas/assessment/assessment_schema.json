@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CrisisGuardClaimAssessmentRecord",
+  "description": "Standardized schema for evidence-aware synthetic misinformation and claim assessments",
+  "type": "object",
+  "required": [
+    "assessment_id",
+    "claim_id",
+    "report_text",
+    "crisis_category",
+    "assessment_outcome",
+    "human_review_required",
+    "uncertainty_score",
+    "timestamp",
+    "provenance"
+  ],
+  "properties": {
+    "assessment_id": {
+      "type": "string",
+      "description": "Unique identifier for this assessment"
+    },
+    "claim_id": {
+      "type": "string",
+      "description": "Identifier of the source claim or crisis report"
+    },
+    "report_text": {
+      "type": "string",
+      "description": "Original raw text reported"
+    },
+    "extracted_claim": {
+      "type": "string",
+      "description": "Normalized factual claim statement"
+    },
+    "crisis_category": {
+      "type": "string",
+      "enum": [
+        "affected_individuals",
+        "infrastructure_and_utility_damage",
+        "not_humanitarian",
+        "other_relevant_information",
+        "rescue_volunteering_or_donation_effort",
+        "unclassified"
+      ]
+    },
+    "category_confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "media_present": {
+      "type": "boolean"
+    },
+    "media_type": {
+      "type": ["string", "null"],
+      "enum": ["IMAGE", "VIDEO", "NONE", null]
+    },
+    "synthetic_media_risk": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "calibration_status": {
+      "type": "string",
+      "enum": ["CALIBRATED_PLATT", "UNCALIBRATED", "NOT_APPLICABLE"]
+    },
+    "propagation_context": {
+      "type": "object",
+      "properties": {
+        "event_rate": { "type": ["number", "null"] },
+        "burst_ratio": { "type": ["number", "null"] },
+        "pagerank": { "type": ["number", "null"] },
+        "is_hub_node": { "type": ["boolean", "null"] }
+      }
+    },
+    "evidence_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "source_type", "claim_relation"],
+        "properties": {
+          "source_id": { "type": "string" },
+          "source_type": { "type": "string" },
+          "claim_relation": {
+            "type": "string",
+            "enum": ["CORROBORATES", "CONTRADICTS", "INCONCLUSIVE", "UNRELATED"]
+          },
+          "detail": { "type": "string" },
+          "timestamp": { "type": "string" }
+        }
+      }
+    },
+    "assessment_outcome": {
+      "type": "string",
+      "enum": [
+        "EVIDENCE_SUPPORTED",
+        "CONTRADICTED_BY_EVIDENCE",
+        "UNVERIFIED",
+        "INSUFFICIENT_EVIDENCE",
+        "REQUIRES_HUMAN_REVIEW"
+      ]
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "uncertainty_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "human_review_required": {
+      "type": "boolean"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    }
+  }
+}

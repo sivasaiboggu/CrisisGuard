@@ -307,3 +307,44 @@ bash scripts/demo/start_demo.sh
 > ```
 
 **Rationale for WSL2 as primary:** All Big Data services (Hadoop, Kafka, Spark, Hive) run natively in WSL2. The project `.venv` contains the exact versions of `torch`, `torchvision`, `kafka-python`, and `scikit-learn` required for inference. Windows Python 3.14 lacks these.
+
+---
+
+## 13. Evidence-Aware Misinformation Assessment & Intelligent Resource Allocation
+
+The latest extension transforms CrisisGuard into a complete, mathematically constrained decision-support system:
+
+### 13.1 Capabilities Summary
+1. **Feature A — Evidence-Aware Misinformation Assessment (`src/assessment/`):**
+   - Ingests crisis reports across text and optional media (image/video).
+   - Classifies crisis category via validated CrisisMMD TF-IDF model.
+   - Evaluates synthetic-media manipulation risk via ResNet-18 (Platt-calibrated for images, uncalibrated for video).
+   - Queries traceable reference records from an authoritative evidence store (`NDMA`, `CWC water gauge telemetry`, `municipal infrastructure logs`, `fire dispatch`).
+   - Assigns unambiguous outcomes: `EVIDENCE_SUPPORTED`, `CONTRADICTED_BY_EVIDENCE`, `UNVERIFIED`, `INSUFFICIENT_EVIDENCE`, `REQUIRES_HUMAN_REVIEW`.
+   - **Integrity Rule:** Strictly differentiates synthetic-media risk from claim veracity; never derives a misleading scalar "misinformation score".
+
+2. **Feature B — Intelligent Resource Allocation (`src/allocation/`):**
+   - Matches incidents and depots to OpenStreetMap road network nodes (`data/processed/osm/`, 63,660 nodes, 146,156 edges).
+   - Computes shortest road travel distances (km) and travel times (minutes) via Dijkstra's algorithm (`scipy.sparse.csgraph.dijkstra`).
+   - Formulates and solves a Mixed-Integer Linear Program (MILP) via `scipy.optimize.milp` (HiGHS solver) optimizing for urgency and minimizing travel costs.
+   - **Verification Gate:** Claims contradicted by sensor telemetry are blocked (`INFEASIBLE`); unverified claims enter an approval queue (`AWAITING_APPROVAL`). Only evidence-supported or human-approved incidents receive resource recommendations (`RECOMMENDED`).
+
+### 13.2 Execution & Validation Commands
+
+```bash
+# 1. Run Unit Test Suites (15/15 PASS)
+.venv/bin/python -m unittest tests/unit/test_claim_assessment.py
+.venv/bin/python -m unittest tests/unit/test_resource_allocation.py
+
+# 2. Run End-to-End Integration Suite (1/1 PASS)
+.venv/bin/python -m unittest tests/integration/test_end_to_end_assessment_allocation.py
+
+# 3. Run Dedicated Capability Validator (10/10 PASS)
+.venv/bin/python scripts/validation/validate_evidence_allocation.py
+
+# 4. Run Final Master 10-Stage Demonstration
+.venv/bin/python scripts/demo/run_demo_evidence_allocation.py
+```
+
+Detailed formulation, test cases, and empirical metrics are provided in [docs/EVIDENCE_ALLOCATION_REPORT.md](file:///c:/Users/HP/OneDrive/Desktop/CrisisGuard/docs/EVIDENCE_ALLOCATION_REPORT.md).
+

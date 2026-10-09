@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CrisisGuardResourceAllocationRecord",
+  "description": "Standardized schema for emergency resource allocation recommendations",
+  "type": "object",
+  "required": [
+    "allocation_id",
+    "incident_id",
+    "incident_category",
+    "urgency_level",
+    "verification_status",
+    "required_resource_type",
+    "demanded_quantity",
+    "assigned_quantity",
+    "unmet_quantity",
+    "allocation_status",
+    "feasibility_status",
+    "human_approval_required",
+    "timestamp",
+    "provenance"
+  ],
+  "properties": {
+    "allocation_id": {
+      "type": "string"
+    },
+    "incident_id": {
+      "type": "string"
+    },
+    "incident_category": {
+      "type": "string"
+    },
+    "urgency_level": {
+      "type": "string",
+      "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+    },
+    "verification_status": {
+      "type": "string"
+    },
+    "incident_location": {
+      "type": "object",
+      "properties": {
+        "latitude": { "type": ["number", "null"] },
+        "longitude": { "type": ["number", "null"] },
+        "nearest_osm_node": { "type": ["integer", "null"] }
+      }
+    },
+    "required_resource_type": {
+      "type": "string",
+      "enum": [
+        "AMBULANCE",
+        "RESCUE_BOAT",
+        "FIRE_TENDER",
+        "INFRASTRUCTURE_REPAIR_CREW",
+        "RELIEF_SUPPLY_TRUCK"
+      ]
+    },
+    "demanded_quantity": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "assigned_resource_id": {
+      "type": ["string", "null"]
+    },
+    "assigned_depot_id": {
+      "type": ["string", "null"]
+    },
+    "assigned_quantity": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "unmet_quantity": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "travel_distance_km": {
+      "type": ["number", "null"],
+      "minimum": 0.0
+    },
+    "estimated_travel_time_min": {
+      "type": ["number", "null"],
+      "minimum": 0.0
+    },
+    "routing_method": {
+      "type": "string",
+      "enum": ["OSM_DIJKSTRA", "EUCLIDEAN_FALLBACK", "UNREACHABLE", "NOT_APPLICABLE"]
+    },
+    "allocation_status": {
+      "type": "string",
+      "enum": [
+        "RECOMMENDED",
+        "AWAITING_APPROVAL",
+        "UNALLOCATED",
+        "INFEASIBLE"
+      ]
+    },
+    "priority_rationale": {
+      "type": "string"
+    },
+    "feasibility_status": {
+      "type": "string",
+      "enum": [
+        "FEASIBLE",
+        "INFEASIBLE_CAPACITY",
+        "INFEASIBLE_UNREACHABLE",
+        "UNVERIFIED_GATE"
+      ]
+    },
+    "human_approval_required": {
+      "type": "boolean"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    }
+  }
+}
